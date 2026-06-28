@@ -8,7 +8,7 @@ All API requests require a **project API key**. Send the key as a Bearer token i
 Authorization: Bearer bfk_<project_api_key>
 ```
 
-Keys are created in the Agate under the "API" section of a project. Each request must target a project the key may access.
+Keys are created in Agate, under a project's API settings. Each request must target a project the key may access.
 
 ## Key types and scopes
 

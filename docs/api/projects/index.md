@@ -4,9 +4,9 @@ Most public API routes are scoped to a project. Use project endpoints to confirm
 
 ## Endpoints
 
-| Method | Path | Status | Doc |
-| --- | --- | --- | --- |
-| `GET` | `…/projects/{project_slug}` | ✅ | [Get project](get-project.md) |
+| Method | Path | Doc |
+| --- | --- | --- |
+| `GET` | `…/projects/{project_slug}` | [Get project](get-project.md) |
 
 ## Project-scoped URLs
 

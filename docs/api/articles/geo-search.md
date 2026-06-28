@@ -10,7 +10,7 @@ This endpoint is useful for map views, local monitoring, and place-based discove
 
 You can also narrow matches by location type (repeatable, OR across values) or by the role that location plays in the article.
 
-## Search Modes
+## Search modes
 
 Use exactly one search mode per request.
 
@@ -39,7 +39,7 @@ min_lng,min_lat,max_lng,max_lat
 | `center_lat` | number | — | Center latitude for point mode |
 | `radius_miles` | number | — | Radius in miles for point mode |
 | `bbox` | string | — | Bounding box `min_lng,min_lat,max_lng,max_lat` |
-| `location_type` | string | — | Repeatable location type filter (OR). Include articles with a matching mention of any listed substrate `location_type`. Max 25 values. Discover types with `GET …/locations/types` — see [Entity Meta → Locations](../taxonomy/entity-meta/locations.md) |
+| `location_type` | string | — | Repeatable location type filter (OR). Include articles with a matching mention of any listed `location_type`. Max 25 values. Discover types with `GET …/locations/types` — see [Entity Meta → Locations](../taxonomy/entity-meta/locations.md) |
 | `nature` | string | — | Filter matching location mentions by role, such as `primary` or `secondary` |
 | `meta` | string | — | Repeatable metadata filter clause (AND across clauses). Same grammar as [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound |

@@ -27,7 +27,7 @@ For meaning-based search instead of keywords, see [Semantic search](articles/sem
 
 ## Discover metadata and search
 
-Agate can generate arbitrary metadata about articles, which are expressed as a `meta_type` and `category` pair. Before filtering, discover which types and values appear in your project — see [Metadata](taxonomy/index.md).
+Agate can generate arbitrary metadata about articles, expressed as `meta_type` and `category` pairs. Before filtering, discover which types and values appear in your project — see [Metadata](taxonomy/index.md).
 
 **1. List metadata types**
 
@@ -271,8 +271,7 @@ These recipes cover several common use cases. The rest of the API reference goes
 | Entity catalog search and filters        | [Entities overview](entities/index.md)         |
 | Map hex aggregations                     | [Geo cells](other/geo-cells/index.md)          |
 | Trigger an Agate graph run               | [Runs](runs/index.md)                          |
-| Metadata filter values                   | [Metadata](taxonomy/index.md)                  |
-| Metadata type and value discovery        | [Metadata](taxonomy/index.md)     |
+| Metadata filters and value discovery     | [Metadata](taxonomy/index.md)                  |
 | Pagination and errors                    | [Conventions](conventions/pagination.md)       |
 
 

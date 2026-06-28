@@ -4,7 +4,7 @@
 GET /public/v1/projects/{project_slug}
 ```
 
-Return project metadata and substrate summary counts for the given slug. Use this to confirm that your API key can access a project and to read high-level inventory stats before querying articles or mentions.
+Return project metadata and summary counts for the given slug. Use this to confirm that your API key can access a project and to read high-level inventory stats before querying articles or mentions.
 
 ## Path parameters
 

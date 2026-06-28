@@ -1,16 +1,19 @@
 # Geo cells
 
-Geo cells endpoints support hex coverage maps: aggregate distinct-article counts across a viewport, then drill down into the articles behind one cell. [List articles](list-articles.md) and [Batch query](query.md) share the same H3 rollup and size-gate rules described in [Coverage](coverage.md).
+Geo cells endpoints support hex coverage maps using [H3 cells](https://h3geo.org/), which are assigned to every geocoded location. Each endpoint returns a count of distinct articles with location mentions in each cell.
 
 ## Endpoints
 
-| Method | Path | Doc |
-| --- | --- | --- |
-| `GET` | `…/articles/geo-cells` | [Coverage](coverage.md) |
-| `GET` | `…/articles/geo-cells/{h3_cell}` | [List articles](list-articles.md) |
-| `POST` | `…/articles/geo-cells/query` | [Batch query](query.md) |
+
+| Method | Path                             | Doc                               |
+| ------ | -------------------------------- | --------------------------------- |
+| `GET`  | `…/articles/geo-cells`           | [Coverage](coverage.md)           |
+| `GET`  | `…/articles/geo-cells/{h3_cell}` | [List articles](list-articles.md) |
+| `POST` | `…/articles/geo-cells/query`     | [Batch query](query.md)           |
+
 
 ## Related
 
 - [Geographic search](../../articles/geo-search.md) — list articles by point, radius, or bbox without hex aggregation
 - [Other overview](../index.md)
+

@@ -21,7 +21,7 @@ The `q` parameter performs a keyword search over **headline**, **article body te
 
 | Name              | Type    | Default | Description                                                                                                                          |
 | ----------------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `q`               | string  | —       | Keyword match on headline, body text, or URL. PostgreSQL: `"exact phrase"`, `term1 OR term2`, `-exclude`, implicit AND between terms |
+| `q`               | string  | —       | Keyword match on headline, body text, or URL. Web-style syntax: `"exact phrase"`, `term1 OR term2`, `-exclude`, implicit AND between terms |
 | `meta`            | string  | —       | Repeatable metadata filter clause (AND across clauses). See [Metadata filters](#metadata-filters)                                    |
 | `author`          | string  | —       | Filter by article byline (case-insensitive exact match)                                                                              |
 | `has_mentions`    | string  | —       | Require mentions of `location`, `person`, or `organization`                                                                          |

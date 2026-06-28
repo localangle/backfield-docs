@@ -26,7 +26,7 @@ Most endpoints retrieve data at the project level and therefore require a projec
 
 The slug identifies the project you want to query. Your API key must have access to that project.
 
-## Quick Start
+## Quick start
 
 1. **Find your project slug.** API keys are scoped to a project. Use the slug from your Backfield project settings, or confirm access with [Get project](projects/get-project.md):
   ```bash
@@ -48,7 +48,7 @@ The API applies CORS rules for Backfield product UIs (for example, local Agate a
 
 See [Authentication](authentication.md) for key handling guidance.
 
-## How These Docs Are Organized
+## How these docs are organized
 
 The API reference is organized by resource:
 

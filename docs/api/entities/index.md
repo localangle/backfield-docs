@@ -4,11 +4,11 @@ Entities are canonical records for people, places, and organizations identified 
 
 ## Entity types
 
-| Entity | Status | Overview |
-| --- | --- | --- |
-| **People** | ✅ Available | [People](../people/index.md) — get, list and search, mentions, connections |
-| **Locations** | ✅ Available | [Locations](../locations/index.md) — get, list and search, geographic search, mentions, connections |
-| **Organizations** | ✅ Available | [Organizations](../organizations/index.md) — get, list and search, mentions, connections |
+| Entity | Overview |
+| --- | --- |
+| **People** | [People](../people/index.md) — get, list and search, mentions, connections |
+| **Locations** | [Locations](../locations/index.md) — get, list and search, geographic search, mentions, connections |
+| **Organizations** | [Organizations](../organizations/index.md) — get, list and search, mentions, connections |
 
 ## Shared pattern
 

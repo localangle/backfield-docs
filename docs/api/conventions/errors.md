@@ -18,7 +18,7 @@ Errors use a consistent JSON body:
 | `404` | Project, article, or canonical not found — or outside caller scope |
 | `503` | Requested capability is temporarily unavailable |
 
-## Not Found Responses
+## Not found responses
 
 For privacy and security, **404** can mean either "does not exist" or "not accessible with this API key."
 

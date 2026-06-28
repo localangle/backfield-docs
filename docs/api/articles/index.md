@@ -4,7 +4,7 @@ Articles are a first-class resource in Backfield. Use article endpoints to find 
 
 Article responses include headline, source information, publication date, metadata tags, and a truncated preview (max 280 characters).
 
-## How Article Data Is Structured
+## How article data is structured
 
 Each article has a detail endpoint, search endpoints, and separate detail endpoints for larger related data.
 
@@ -25,25 +25,25 @@ This keeps article detail responses fast and predictable. If you need related da
 ## Endpoints
 
 
-| Method | Path                                           | Status | Doc                                                  |
-| ------ | ---------------------------------------------- | ------ | ---------------------------------------------------- |
-| `GET`  | `…/articles/{article_id}`                      | ✅      | [Get article](get-article.md)                        |
-| `GET`  | `…/articles/search`                            | ✅      | [List and search](search.md)                         |
-| `GET`  | `…/articles/facets`                            | ✅      | [Article facets](facets.md)                          |
-| `GET`  | `…/articles/metadata/types`                    | ✅      | [Metadata](../taxonomy/index.md)                     |
-| `GET`  | `…/articles/metadata/types/{meta_type}/values` | ✅      | [Metadata](../taxonomy/index.md)                     |
-| `GET`  | `…/articles/{article_id}/metadata`             | ✅      | [Get article](get-article.md)                        |
-| `POST` | `…/articles/semantic-search`                   | ✅      | [Semantic search](semantic-search.md)                |
-| `GET`  | `…/articles/geo-search`                        | ✅      | [Geographic search](geo-search.md)                   |
-| `GET`  | `…/articles/geo-cells`                         | ✅      | [Coverage](../other/geo-cells/coverage.md)           |
-| `GET`  | `…/articles/geo-cells/{h3_cell}`               | ✅      | [List articles](../other/geo-cells/list-articles.md) |
-| `POST` | `…/articles/geo-cells/query`                   | ✅      | [Batch query](../other/geo-cells/query.md)           |
-| `GET`  | `…/articles/{article_id}/mentions`             | ✅      | [List mentions](hub/mentions.md)                     |
-| `GET`  | `…/articles/{article_id}/people`               | ✅      | [List people](hub/people.md)                         |
-| `GET`  | `…/articles/{article_id}/organizations`        | ✅      | [List organizations](hub/organizations.md)           |
-| `GET`  | `…/articles/{article_id}/locations`            | ✅      | [List locations](hub/locations.md)                   |
-| `GET`  | `…/articles/{article_id}/custom-records`       | ✅      | [List custom records](hub/custom-records.md)         |
-| `GET`  | `…/articles/{article_id}/images`               | ✅      | [List images](hub/images.md)                         |
+| Method | Path                                           | Doc                                                  |
+| ------ | ---------------------------------------------- | ---------------------------------------------------- |
+| `GET`  | `…/articles/{article_id}`                      | [Get article](get-article.md)                        |
+| `GET`  | `…/articles/search`                            | [List and search](search.md)                         |
+| `GET`  | `…/articles/facets`                            | [Article facets](facets.md)                          |
+| `GET`  | `…/articles/metadata/types`                    | [Metadata](../taxonomy/index.md)                     |
+| `GET`  | `…/articles/metadata/types/{meta_type}/values` | [Metadata](../taxonomy/index.md)                     |
+| `GET`  | `…/articles/{article_id}/metadata`             | [Get article](get-article.md)                        |
+| `POST` | `…/articles/semantic-search`                   | [Semantic search](semantic-search.md)                |
+| `GET`  | `…/articles/geo-search`                        | [Geographic search](geo-search.md)                   |
+| `GET`  | `…/articles/geo-cells`                         | [Coverage](../other/geo-cells/coverage.md)           |
+| `GET`  | `…/articles/geo-cells/{h3_cell}`               | [List articles](../other/geo-cells/list-articles.md) |
+| `POST` | `…/articles/geo-cells/query`                   | [Batch query](../other/geo-cells/query.md)           |
+| `GET`  | `…/articles/{article_id}/mentions`             | [List mentions](hub/mentions.md)                     |
+| `GET`  | `…/articles/{article_id}/people`               | [List people](hub/people.md)                         |
+| `GET`  | `…/articles/{article_id}/organizations`        | [List organizations](hub/organizations.md)           |
+| `GET`  | `…/articles/{article_id}/locations`            | [List locations](hub/locations.md)                   |
+| `GET`  | `…/articles/{article_id}/custom-records`       | [List custom records](hub/custom-records.md)         |
+| `GET`  | `…/articles/{article_id}/images`               | [List images](hub/images.md)                         |
 
 
 ## Article object
@@ -72,7 +72,7 @@ Optional embeds on list/search routes ([List and search](search.md), [Semantic s
 
 Topic categories appear in `metadata[]` with `meta_type=topic`. Filter with `meta=topic:<category>` on any article-metadata filter endpoint — see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta).
 
-## What Article Responses Do Not Include
+## What article responses do not include
 
 - Full article body on list/search routes (use [Get article](get-article.md) with `include=text`)
 - Full mention, location, or image lists (use the [detail endpoints](hub/index.md); [Get article](get-article.md) includes up to 10 inline images)
