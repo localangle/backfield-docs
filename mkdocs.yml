@@ -1,0 +1,210 @@
+site_name: Backfield documentation
+site_description: Documentation for the Backfield platform and APIs.
+site_url: https://docs.backfield.dev
+
+theme:
+  name: material
+  font:
+    text: Inter
+    code: JetBrains Mono
+  palette:
+    # Light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # Dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - toc.follow
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Platform:
+      - platform/index.md
+      - Getting Started: platform/getting-started.md
+      - Core concepts:
+          - Organizations & workspaces: platform/concepts/organizations.md
+          - Projects: platform/concepts/projects.md
+          - Users & access: platform/concepts/users.md
+          - Shared content store: platform/concepts/content-store.md
+      - Agate:
+          - platform/agate/index.md
+          - Flows: platform/agate/flows.md
+          - Nodes:
+              - platform/agate/nodes/index.md
+              - Inputs: platform/agate/nodes/inputs.md
+              - Extractors: platform/agate/nodes/extractors.md
+              - Enrichment: platform/agate/nodes/enrichment.md
+              - Embedding: platform/agate/nodes/embedding.md
+              - Outputs: platform/agate/nodes/outputs.md
+              - Flow control: platform/agate/nodes/flow-control.md
+          - Runs: platform/agate/runs.md
+          - Processed items: platform/agate/processed-items.md
+      - Stylebook:
+          - platform/stylebook/index.md
+          - Entity types: platform/stylebook/entity-types.md
+          - Stylebooks & the library: platform/stylebook/stylebooks.md
+          - Canonicalization: platform/stylebook/canonicalization.md
+          - Mentions & evidence: platform/stylebook/mentions.md
+          - Metadata: platform/stylebook/meta.md
+          - Connections: platform/stylebook/connections.md
+          - Geography: platform/stylebook/geography.md
+          - Import & export: platform/stylebook/import-export.md
+      - Settings:
+          - platform/settings/index.md
+          - AI models: platform/settings/ai-models.md
+          - Integrations: platform/settings/integrations.md
+          - API keys: platform/settings/api-keys.md
+  - API Reference:
+      - Overview: api/index.md
+      - Authentication: api/authentication.md
+      - Examples: api/examples.md
+      - Conventions:
+          - Pagination: api/conventions/pagination.md
+          - Errors: api/conventions/errors.md
+      - Projects:
+          - api/projects/index.md
+          - Get project: api/projects/get-project.md
+      - Metadata:
+          - api/taxonomy/index.md
+          - Article Meta:
+              - api/taxonomy/article-meta/index.md
+              - Format: api/taxonomy/article-meta/format.md
+              - Topic: api/taxonomy/article-meta/topic.md
+              - Subject: api/taxonomy/article-meta/subject.md
+          - Mention Meta:
+              - api/taxonomy/mention-meta/index.md
+              - People: api/taxonomy/mention-meta/people.md
+              - Organizations: api/taxonomy/mention-meta/organizations.md
+              - Locations: api/taxonomy/mention-meta/locations.md
+          - Entity Meta:
+              - api/taxonomy/entity-meta/index.md
+              - People: api/taxonomy/entity-meta/people.md
+              - Organizations: api/taxonomy/entity-meta/organizations.md
+              - Locations: api/taxonomy/entity-meta/locations.md
+          - Facets:
+              - Article facets: api/articles/facets.md
+              - Mention facets: api/mentions/facets.md
+      - Articles:
+          - api/articles/index.md
+          - Get article: api/articles/get-article.md
+          - List and search: api/articles/search.md
+          - Semantic search: api/articles/semantic-search.md
+          - Geographic search: api/articles/geo-search.md
+          - Detail endpoints:
+              - api/articles/hub/index.md
+              - List mentions: api/articles/hub/mentions.md
+              - List people: api/articles/hub/people.md
+              - List organizations: api/articles/hub/organizations.md
+              - List locations: api/articles/hub/locations.md
+              - List custom records: api/articles/hub/custom-records.md
+              - List images: api/articles/hub/images.md
+      - Mentions:
+          - api/mentions/index.md
+          - Get mention: api/mentions/get-mention.md
+          - List and search: api/mentions/search.md
+      - Entities:
+          - api/entities/index.md
+          - People:
+              - api/people/index.md
+              - Get person: api/people/get-person.md
+              - List and search: api/people/search.md
+              - List articles: api/people/list-articles.md
+              - List mentions: api/people/mentions.md
+              - List connections: api/people/connections.md
+          - Locations:
+              - api/locations/index.md
+              - Get location: api/locations/get-location.md
+              - List and search: api/locations/search.md
+              - Geographic search: api/locations/geo-search.md
+              - List articles: api/locations/list-articles.md
+              - List mentions: api/locations/mentions.md
+              - List connections: api/locations/connections.md
+          - Organizations:
+              - api/organizations/index.md
+              - Get organization: api/organizations/get-organization.md
+              - List and search: api/organizations/search.md
+              - List articles: api/organizations/list-articles.md
+              - List mentions: api/organizations/mentions.md
+              - List connections: api/organizations/connections.md
+      - Other:
+          - api/other/index.md
+          - Custom records: api/custom-records/index.md
+          - Mention timeline:
+              - api/other/mention-timeline/index.md
+              - Get timeline: api/other/mention-timeline/get-timeline.md
+          - Geo cells:
+              - api/other/geo-cells/index.md
+              - Coverage: api/other/geo-cells/coverage.md
+              - List articles: api/other/geo-cells/list-articles.md
+              - Batch query: api/other/geo-cells/query.md
+          - Runs:
+              - api/runs/index.md
+              - Trigger run: api/runs/trigger-run.md
+              - Get run: api/runs/get-run.md
+  - Tutorials:
+      - tutorials/index.md
+      - Quickstart: tutorials/quickstart.md
+  - Support:
+      - support/index.md
+      - FAQ: support/faq.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com
+  generator: false
+
+copyright: Copyright &copy; 2026 Backfield

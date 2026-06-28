@@ -1,0 +1,49 @@
+# MkDocs build output
+site/
+
+# Generated exports (e.g. scripts/build-api-pdf.sh)
+dist/
+
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Local environment
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Editors
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.vscode/
+!.vscode/extensions.json

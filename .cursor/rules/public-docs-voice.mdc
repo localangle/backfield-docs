@@ -1,0 +1,16 @@
+---
+description: Public audience voice for documentation
+globs: docs/**/*.md
+alwaysApply: false
+---
+
+# Public Documentation Voice
+
+Backfield docs are for external readers: developers integrating with the API, people evaluating the product, and curious technical users.
+
+- Write in a clear, product-facing voice. Explain what readers can do and why it matters.
+- Omit internal implementation details unless they are part of the public contract.
+- Avoid internal service names, source paths, database table names, project phases, and "agent-ready" framing.
+- Prefer public terms like "article", "project", "location", "person", "organization", "automation", and "canonical record".
+- Keep endpoint docs precise: method, path, auth, parameters, response fields, examples, errors, and related workflows.
+- Preserve exact API field names when documenting response contracts, even if the names reflect implementation history.

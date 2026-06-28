@@ -1,0 +1,230 @@
+/* ---------------------------------------------------------------------------
+   Backfield brand styling, layered on top of Material for MkDocs.
+   Palette borrowed from localangle.co: warm cream surfaces, ink text,
+   muted teal links, coral accent.
+   --------------------------------------------------------------------------- */
+
+:root {
+  --bf-bg: #faf8f4;
+  --bf-surface: #f3efe6;
+  --bf-rule: #e6e1d7;
+  --bf-ink: #211e1a;
+  --bf-muted: #756e63;
+  --bf-teal: #2b8987;
+  --bf-teal-ink: #20706e;
+  --bf-coral: #fe6962;
+  --bf-coral-ink: #d6463f;
+
+  /* Light header: cream background, ink text */
+  --md-primary-fg-color: var(--bf-bg);
+  --md-primary-fg-color--light: var(--bf-surface);
+  --md-primary-fg-color--dark: var(--bf-ink);
+  --md-primary-bg-color: var(--bf-ink);
+  --md-primary-bg-color--light: var(--bf-muted);
+  --md-accent-fg-color: var(--bf-coral-ink);
+
+  --md-text-font: "Inter", -apple-system, sans-serif;
+
+  /* Shared horizontal inset for masthead title + tab bar */
+  --bf-header-inset: max(0.8rem, min(4vw, 1.6rem));
+}
+
+[data-md-color-scheme="default"] {
+  --md-default-bg-color: var(--bf-bg);
+  --md-default-fg-color: var(--bf-ink);
+  --md-default-fg-color--light: #4a453d;
+  --md-default-fg-color--lighter: var(--bf-muted);
+  --md-default-fg-color--lightest: var(--bf-rule);
+  --md-typeset-color: var(--bf-ink);
+  --md-typeset-a-color: var(--bf-teal-ink);
+  --md-code-bg-color: var(--bf-surface);
+  --md-code-fg-color: var(--bf-ink);
+  --md-footer-bg-color: var(--bf-ink);
+  --md-footer-bg-color--dark: #18150f;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-hue: 40; /* warm the dark background to match the brand */
+  --md-typeset-a-color: #6fc7c4;
+  --md-accent-fg-color: var(--bf-coral);
+  --md-primary-fg-color: #211e1a;
+  --md-primary-bg-color: #f3efe6;
+}
+
+/* Header title: text-only masthead, no logo */
+.md-header__button.md-logo {
+  display: none;
+}
+
+/* Desktop: no drawer button; title and tabs share the same left edge */
+@media screen and (min-width: 76.25em) {
+  .md-header__button[for="__drawer"] {
+    display: none;
+  }
+}
+
+.md-header__inner.md-grid,
+.md-tabs .md-grid {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: none;
+  padding-left: var(--bf-header-inset);
+  padding-right: var(--bf-header-inset);
+}
+
+.md-header__inner .md-header__title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  padding-left: 0;
+}
+
+/* Tab labels share the masthead left edge (Material adds list/item inset by default) */
+.md-tabs__list {
+  margin-left: 0 !important;
+}
+
+.md-tabs__item:first-child {
+  padding-left: 0;
+}
+
+.md-header__title:hover {
+  color: inherit;
+}
+
+/* Header and tabs: flat cream with a hairline rule, like a print masthead */
+.md-header,
+.md-tabs {
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color);
+}
+.md-header {
+  box-shadow: none;
+  border-bottom: 1px solid var(--bf-rule);
+}
+.md-tabs {
+  border-bottom: 1px solid var(--bf-rule);
+}
+
+/* Mobile: align tabs with title text after the drawer button */
+@media screen and (max-width: 76.24em) {
+  .md-tabs .md-grid {
+    padding-left: 2.6rem;
+  }
+}
+.md-header[data-md-state="shadow"],
+.md-header--shadow {
+  box-shadow: none;
+}
+[data-md-color-scheme="slate"] .md-header,
+[data-md-color-scheme="slate"] .md-tabs {
+  border-bottom-color: #3a352d;
+}
+
+/* Active tab underlined in teal */
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: var(--bf-teal-ink);
+}
+[data-md-color-scheme="slate"] .md-tabs__link--active,
+[data-md-color-scheme="slate"] .md-tabs__link:hover {
+  color: #6fc7c4;
+}
+
+/* Search field: sit quietly on the cream header */
+.md-search__form {
+  background-color: var(--bf-surface);
+  border-radius: 0.3rem;
+}
+.md-search__form:hover {
+  background-color: var(--bf-rule);
+}
+.md-search__input::placeholder,
+.md-search__icon {
+  color: var(--bf-muted);
+}
+[data-md-color-scheme="slate"] .md-search__form {
+  background-color: #2e2a24;
+}
+[data-md-color-scheme="slate"] .md-search__form:hover {
+  background-color: #3a352d;
+}
+
+/* Tighter, calmer type */
+.md-typeset {
+  font-size: 0.78rem;
+  line-height: 1.65;
+}
+.md-typeset h1 {
+  font-weight: 700;
+  color: var(--md-default-fg-color);
+  letter-spacing: -0.01em;
+}
+.md-typeset h2 {
+  font-weight: 650;
+  letter-spacing: -0.005em;
+}
+
+/* Landing-page cards */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 0.5rem;
+  border-color: var(--bf-rule);
+  background-color: var(--bf-bg);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  border-color: var(--bf-teal);
+  box-shadow: 0 4px 14px rgba(33, 30, 26, 0.07);
+}
+[data-md-color-scheme="slate"] .md-typeset .grid.cards > ul > li {
+  border-color: #3a352d;
+  background-color: transparent;
+}
+
+/* Code blocks: soften the corners */
+.md-typeset pre > code {
+  border-radius: 0.4rem;
+}
+
+/* Admonitions: lighter touch, recolored to the palette */
+.md-typeset .admonition,
+.md-typeset details {
+  border-radius: 0.4rem;
+  font-size: 0.72rem;
+}
+
+/* Notes and questions in teal */
+.md-typeset .admonition.note,
+.md-typeset details.note,
+.md-typeset .admonition.question,
+.md-typeset details.question {
+  border-color: var(--bf-teal);
+}
+.md-typeset .note > .admonition-title,
+.md-typeset .note > summary,
+.md-typeset .question > .admonition-title,
+.md-typeset .question > summary {
+  background-color: rgba(43, 137, 135, 0.08);
+}
+.md-typeset .note > .admonition-title::before,
+.md-typeset .note > summary::before,
+.md-typeset .question > .admonition-title::before,
+.md-typeset .question > summary::before {
+  background-color: var(--bf-teal);
+}
+
+/* Warnings in coral */
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: var(--bf-coral-ink);
+}
+.md-typeset .warning > .admonition-title,
+.md-typeset .warning > summary {
+  background-color: rgba(254, 105, 98, 0.1);
+}
+.md-typeset .warning > .admonition-title::before,
+.md-typeset .warning > summary::before {
+  background-color: var(--bf-coral-ink);
+}
