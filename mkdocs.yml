@@ -48,7 +48,7 @@ nav:
           - Organizations & workspaces: platform/concepts/organizations.md
           - Projects: platform/concepts/projects.md
           - Users & access: platform/concepts/users.md
-          - Shared content store: platform/concepts/content-store.md
+          - The content model: platform/concepts/content-model.md
       - Agate:
           - platform/agate/index.md
           - Flows: platform/agate/flows.md

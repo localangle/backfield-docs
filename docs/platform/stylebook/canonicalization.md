@@ -16,6 +16,3 @@ You can run canonicalization in two modes:
 - **AI-assisted** — when the rules are unsure, an AI model helps judge whether two records are really the same real-world thing, within careful guardrails.
 
 Items set aside for review appear in a **candidate queue**, where editors confirm matches, create records, or merge duplicates — with the original reasons and evidence shown to help them decide.
-
-!!! note "Coming soon"
-    This page will cover the candidate queue, suggested matches, linking and merging, and how the two modes differ in practice.

@@ -5,6 +5,3 @@
 | Node | What it does |
 | --- | --- |
 | **Gather** | Combines the results of several upstream steps into a single, organized bundle |
-
-!!! note "Coming soon"
-    This page will cover when branching and gathering are useful, with example flows.

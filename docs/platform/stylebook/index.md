@@ -47,6 +47,3 @@ An organization can keep more than one Stylebook — for example, separate catal
 | [Connections](connections.md) | Relationships between entities |
 | [Geography](geography.md) | Locations on a map |
 | [Import & export](import-export.md) | Bulk loading and transferring catalogs |
-
-!!! note "Work in progress"
-    These pages introduce the concepts; detailed editor workflows will follow.

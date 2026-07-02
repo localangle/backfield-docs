@@ -9,6 +9,3 @@
 | **S3 input** | You want to process a batch of files stored in Amazon S3 cloud storage |
 
 The text or document an input provides becomes the starting material that [extractor nodes](extractors.md) work on.
-
-!!! note "Coming soon"
-    This page will cover each input's options in detail, including how batches from cloud storage are processed file by file.

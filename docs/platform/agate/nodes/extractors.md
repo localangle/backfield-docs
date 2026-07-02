@@ -11,6 +11,3 @@
 | **Article metadata** | Topic and format tags for the article as a whole |
 
 Extracted people, places, and organizations can flow into your [Stylebook](../../stylebook/index.md) catalog when the flow saves its results. See [Canonicalization](../../stylebook/canonicalization.md).
-
-!!! note "Coming soon"
-    This page will cover writing extraction instructions, defining custom record types, and how grounding passages are captured for review.

@@ -11,6 +11,3 @@ Treat API keys like passwords:
 - Replace a key if you suspect it's been exposed.
 
 For the full request format and examples, see [Authentication](../../api/authentication.md) in the API reference.
-
-!!! note "Coming soon"
-    This page will cover creating, scoping, and rotating keys from project settings.

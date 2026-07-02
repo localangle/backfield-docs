@@ -6,7 +6,7 @@ Backfield is organized in a simple hierarchy. Understanding it helps you know wh
 
 An **organization** is your newsroom or company — the top-level account. It owns everything else: the people who have access, your shared settings (AI models, integrations), your Stylebook catalogs, and all of your projects.
 
-Most teams have a single organization.
+Most implementations will be based on a single organization.
 
 ## Workspace
 
@@ -24,7 +24,4 @@ Projects are covered in detail in [Projects](projects.md).
 
 - **People** are invited to the **organization**, then given access to projects. See [Users & access](users.md).
 - **Shared settings** like [AI models](../settings/ai-models.md) and [integrations](../settings/integrations.md) are defined once at the organization level, and individual projects can override them where it makes sense.
-- **Stylebook catalogs** belong to the organization and can be shared across projects.
-
-!!! note "Work in progress"
-    More detail on workspace defaults and multi-organization setups will be added as those areas firm up.
+- **Stylebooks** belong to the organization and can be shared across projects.

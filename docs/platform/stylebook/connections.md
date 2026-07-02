@@ -6,6 +6,3 @@ Connections come from two sources:
 
 - **Manual** — editors create relationships by hand and can describe them in their own words.
 - **Automatic** — Backfield can infer certain relationships from your reporting after canonicalization, using a focused set of relationship kinds (such as person-to-organization). Inferred connections are backed by evidence from the text.
-
-!!! note "Coming soon"
-    This page will cover creating connections, the automatic relationship types, and how evidence is recorded. Connections are also available through the API — see [Connections](../../api/people/connections.md).

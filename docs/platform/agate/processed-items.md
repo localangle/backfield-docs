@@ -1,6 +1,6 @@
 # Processed items
 
-A **processed item** is the result of a [run](runs.md) for a single article: the places, people, organizations, topics, and other details the [flow](flows.md) found. Open one from a run's item list to **verify** what the pipeline produced against the original story and **correct** anything that's wrong.
+A **processed item** is the result of a [run](runs.md) for a single article: the places, people, organizations, topics, and other details the [flow](flows.md) produced. Open one from a run's item list to **verify** what the pipeline produced against the original story and **correct** anything that's wrong.
 
 Because the model's original output is always preserved, your edits are saved as a separate **review layer** on top. You can fix mistakes, add things the model missed, and re-run flows without losing the record of what you changed.
 
@@ -28,9 +28,6 @@ When an editor has saved corrections on a tab, an amber banner appears at the to
 | **Meta** | Topic, subject, and other metadata tags applied to the article |
 | **Custom** | Structured records from custom extractors you defined in the flow |
 | **JSON** | The full machine-readable output — original model result and, when present, reviewed output |
-
-!!! note "Single-input runs"
-    If a run used a single text or JSON input rather than a batch of articles, Agate shows a **synthetic** item: node outputs and the **Info** tab still work, but entity review tabs explain that per-story review is only available for batch stories.
 
 ## Provenance: seeing where something came from
 
@@ -73,11 +70,11 @@ Save your changes on each tab before leaving. Unsaved edits trigger a warning if
 
 While a **rerun** is in progress, review editing is **paused** until processing finishes — the item is being regenerated from the flow.
 
-## Stylebook and the shared content store
+## Stylebook and canonical records
 
 When a flow's output step saves results, extracted entities can link to **canonical** records in [Stylebook](../stylebook/index.md). On a processed item you may see catalog links for matched people, places, and organizations.
 
-Your review corrections update what is stored for **this article** in the [shared content store](../concepts/content-store.md). Canonical catalog fields remain authoritative in Stylebook; the processed item is where you fix article-specific mistakes before they propagate.
+Your review corrections update what is stored for **this article** — see [The content model](../concepts/content-model.md). Canonical catalog fields remain authoritative in Stylebook; the processed item is where you fix article-specific mistakes before they propagate.
 
 ## JSON and export
 

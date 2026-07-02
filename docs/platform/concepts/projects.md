@@ -11,7 +11,7 @@ When you query the [Public API](../../api/index.md), you're always asking about 
 | **Flows** | The pipelines you build in [Agate](../agate/flows.md) |
 | **Runs** | Each time a flow is executed on your text — see [Runs](../agate/runs.md) |
 | **Processed items** | The reviewable results of a run — see [Processed items](../agate/processed-items.md) |
-| **Content** | The articles and extracted details produced by runs — see [Shared content store](content-store.md) |
+| **Content** | The articles and extracted details produced by runs — see [The content model](content-model.md) |
 | **Catalog** | The project's confirmed people, places, and organizations in [Stylebook](../stylebook/index.md) |
 | **Settings** | Project-level choices for [AI models](../settings/ai-models.md), [integrations](../settings/integrations.md), and [API keys](../settings/api-keys.md) |
 
@@ -30,6 +30,3 @@ Every project has a human-readable **slug**. You'll use it when calling the API:
 ```
 
 You can find your slug in the project's settings, or confirm it with the [Get project](../../api/projects/get-project.md) endpoint.
-
-!!! note "Work in progress"
-    Project creation and management walkthroughs will be added here.

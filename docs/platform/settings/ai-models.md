@@ -9,6 +9,3 @@ How it works:
 - **Flow builders** pick from the approved models in node settings, filtered to those suitable for the step.
 
 Backfield records the **estimated cost** of each [run](../agate/runs.md), broken down by step, so teams can see what their pipelines cost. Cost records don't store the content of your prompts or the model's responses.
-
-!!! note "Coming soon"
-    This page will cover adding models, choosing default roles, project overrides, and reading cost summaries.

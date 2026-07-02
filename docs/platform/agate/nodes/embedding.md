@@ -8,6 +8,3 @@
 | **Embed images** | Images associated with articles |
 
 Semantic search built on these embeddings is available through the API — see [Semantic search](../../../api/articles/semantic-search.md).
-
-!!! note "Coming soon"
-    This page will explain when to add embedding to a flow and how it relates to search.

@@ -37,6 +37,3 @@ Several extractors and enrichment steps use AI models to read text and identify 
 - **[Embedding](embedding.md)** — preparing content for semantic search
 - **[Outputs](outputs.md)** — saving results and exporting
 - **[Flow control](flow-control.md)** — combining branches
-
-!!! note "Work in progress"
-    Each family page will grow to cover the individual nodes, their options, and example flows.

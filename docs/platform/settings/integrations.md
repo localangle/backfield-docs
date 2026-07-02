@@ -9,6 +9,3 @@
 | **Object storage (Amazon S3)** | Reading batches of files and writing results back |
 
 Like other [settings](index.md), integrations have organization defaults with optional project overrides. Some helper services are always built in and need no setup; the settings screen still lists them so you can see the full picture of what's in use.
-
-!!! note "Coming soon"
-    This page will cover configuring each integration, which services require credentials, and how built-in fallbacks behave.

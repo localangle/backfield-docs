@@ -9,7 +9,4 @@ An **entity type** is a kind of thing you catalog in [Stylebook](index.md). Each
 | **Organization** | Companies, agencies, institutions | Supported; editorial review still expanding |
 | **Work** | Named works (planned) | Coming later |
 
-Articles themselves are **content**, not an entity type — they carry mentions and metadata but aren't catalogued the same way. See [Shared content store](../concepts/content-store.md).
-
-!!! note "Coming soon"
-    This page will cover what's stored for each type and how new types are introduced over time.
+Articles themselves are **content**, not an entity type — they carry mentions and metadata but aren't catalogued the same way. See [The content model](../concepts/content-model.md).

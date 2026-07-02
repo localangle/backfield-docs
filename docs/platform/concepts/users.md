@@ -1,6 +1,6 @@
 # Users & access
 
-People sign in to Backfield as **users**. A user is invited to an [organization](organizations.md) and then given access to the projects they need.
+A Backfield **user** is invited to an [organization](organizations.md) and then given access to the projects they need.
 
 ## How access works
 
@@ -18,7 +18,4 @@ In general:
 
 Some settings involve sensitive credentials — provider keys for AI models, geocoding services, or cloud storage. These are restricted to administrators so that keys and billing boundaries stay protected. Everyday editors can use the configured services without ever seeing the underlying secrets.
 
-For programmatic access (your own scripts and applications), you don't use a person's login — you use a project [API key](../settings/api-keys.md) instead.
-
-!!! note "Work in progress"
-    A detailed role-and-permission matrix will be documented here as the access model is finalized.
+For programmatic access (your own scripts and applications) use a project [API key](../settings/api-keys.md) instead.
