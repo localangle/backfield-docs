@@ -1,4 +1,4 @@
-# The content model
+# Content model
 
 Backfield turns the articles you process into a few simple, connected building blocks. Understanding them explains why the same article, person, or place shows up consistently across [Agate](../agate/index.md), [Stylebook](../stylebook/index.md), and the [Public API](../../api/index.md).
 

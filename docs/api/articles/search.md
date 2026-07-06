@@ -79,10 +79,6 @@ Each **`items[]`** row uses the standard article list shape — `id`, `headline`
 ```json
 {
   "q": "budget",
-  "meta_type": null,
-  "meta_category": null,
-  "exclude_meta_type": null,
-  "exclude_meta_category": null,
   "author": null,
   "external_source": null,
   "has_mentions": null,
@@ -136,17 +132,13 @@ Each **`items[]`** row uses the standard article list shape — `id`, `headline`
 }
 ```
 
-The example above includes `embedded` and `counts` because the request used `include=counts`. Advanced `meta` clauses are applied server-side but are not echoed individually — only legacy `meta_type` / `exclude_*` fields appear in the query echo when used.
+The example above includes `embedded` and `counts` because the request used `include=counts`. `meta` clauses are applied server-side but are not echoed individually in the response envelope.
 
 ### Envelope fields
 
 | Field | Type | Description |
 | --- | --- | --- |
 | `q` | string \| null | Keyword query after normalization |
-| `meta_type` | string \| null | Legacy include metadata type filter |
-| `meta_category` | string \| null | Legacy include metadata category filter |
-| `exclude_meta_type` | string \| null | Legacy exclude metadata type filter |
-| `exclude_meta_category` | string \| null | Legacy exclude metadata category filter |
 | `author` | string \| null | Byline filter |
 | `external_source` | string \| null | Publication or outlet filter |
 | `has_mentions` | string \| null | Required mention type (`location`, `person`, or `organization`) |

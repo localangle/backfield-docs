@@ -42,7 +42,7 @@ See [Pagination](../conventions/pagination.md) for the list response envelope.
 
 Article metadata filters apply to the **article** that contains each mention, not to the mention itself. Use the repeatable **`meta`** query parameter — see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) for clause grammar.
 
-Use [Mention facets](facets.md) to discover mention-level values, or [Metadata](../taxonomy/index.md) for full catalogs.
+Use [Mention facets](facets.md) to discover mention-level values, or [Metadata](../taxonomy/index.md) for article metadata and full catalogs.
 
 Example — people mentioned in local-government stories:
 
@@ -138,7 +138,7 @@ Type-specific fields are `null` when they do not apply to the mention's entity t
 
 ```bash
 curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/mentions/search\
-?entity_type=person&nature=subject&quote=true&pub_date_from=2024-01-01&limit=10" \
+?entity_type=person&nature=subject&quote=true&meta=topic:local_government_politics&pub_date_from=2024-01-01&limit=10" \
   -H "Authorization: Bearer bfk_your_project_api_key"
 ```
 

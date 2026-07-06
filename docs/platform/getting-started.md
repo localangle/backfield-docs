@@ -89,6 +89,7 @@ Other operator commands:
 
 ## Next steps
 
+- See one story go from raw text to queryable data in the [Simple Example](simple-example.md)
 - Understand how accounts are organized in [Organizations & workspaces](concepts/organizations.md)
 - Learn what a [Project](concepts/projects.md) contains
 - Build a pipeline in [Agate](agate/index.md), or curate your catalog in [Stylebook](stylebook/index.md)

@@ -33,6 +33,10 @@ Nested `article` objects include a truncated `preview` (max 280 characters).
 
 See [Pagination](../../conventions/pagination.md) for the list response envelope.
 
+## Metadata filters
+
+Use the repeatable **`meta`** query parameter to filter by article metadata. These filters apply to the article, while `location_type` and `nature` apply to the matching location mentions. See [Article Meta](../../taxonomy/article-meta/index.md#querying-with-meta) for clause grammar.
+
 ## Response `200`
 
 ```json

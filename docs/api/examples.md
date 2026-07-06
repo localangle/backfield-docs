@@ -60,9 +60,9 @@ curl "${BASE}/articles/metadata/types/topic/values" \
 }
 ```
 
-**3. Search articles using a discovered value**
+**3. Search using a discovered value**
 
-Use a `meta` clause on [List and search](articles/search.md):
+Use a `meta` clause on any article-metadata filter endpoint. For example, on [List and search](articles/search.md):
 
 ```bash
 curl "${BASE}/articles/search?meta=topic:local_government_politics" \
@@ -88,7 +88,7 @@ curl "${BASE}/articles/search\
   -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
 ```
 
-Standard category catalogs, clause grammar, and display labels are under [Article Meta](taxonomy/article-meta/index.md).
+Standard category catalogs, clause grammar, transport rules, and display labels are under [Article Meta](taxonomy/article-meta/index.md).
 
 **5. Filter mentions by article metadata**
 
@@ -121,6 +121,8 @@ curl "${BASE}/articles/semantic-search" \
     "limit": 10
   }'
 ```
+
+Use the same JSON array form on [Geo cells batch query](other/geo-cells/query.md). GET routes such as [Geographic search](articles/geo-search.md), [Geo cells coverage](other/geo-cells/coverage.md), and [List and search mentions](mentions/search.md) use repeatable query parameters instead.
 
 ## Get an article and list its entities
 

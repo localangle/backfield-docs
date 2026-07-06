@@ -44,6 +44,7 @@ nav:
   - Platform:
       - platform/index.md
       - Getting Started: platform/getting-started.md
+      - Simple Example: platform/simple-example.md
       - Core concepts:
           - Organizations & workspaces: platform/concepts/organizations.md
           - Projects: platform/concepts/projects.md

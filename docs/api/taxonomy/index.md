@@ -13,7 +13,7 @@ At the **Entity** level, Stylebook allows for a mix: both fixed taxonomies to id
 
 | Family           | What it describes                            | Where it appears                                          | Reference                             |
 | ---------------- | -------------------------------------------- | --------------------------------------------------------- | ------------------------------------- |
-| **Article Meta** | Story format, broad topics, concrete subject | `metadata[]` on articles; search filters                  | [Article Meta](article-meta/index.md) |
+| **Article Meta** | Story format, broad topics, concrete subject | `metadata[]` on articles; article-metadata filters        | [Article Meta](article-meta/index.md) |
 | **Mention Meta** | Editorial role of an entity **in one story** | Mention and hub responses; mention/entity article filters | [Mention Meta](mention-meta/index.md) |
 | **Entity Meta**  | People, organization and place types         | Canonical records; mention rows; entity search filters    | [Entity Meta](entity-meta/index.md)   |
 
@@ -33,7 +33,7 @@ Often the best place to start is to discover the metadata values available in yo
 
 [Article facets](../articles/facets.md) and [Mention facets](../mentions/facets.md) are convenience wrappers — one response with the filter values frontend applications typically need. Use the `…/metadata/types` routes or entity types endpoints when you need finer-grained or type-specific discovery.
 
-Advanced metadata filtering uses repeatable **`meta`** clauses on every article-metadata filter endpoint — [List and search](../articles/search.md), [Semantic search](../articles/semantic-search.md), [Geographic search](../articles/geo-search.md), [Geo cells](../other/geo-cells/index.md), and [List and search mentions](../mentions/search.md). See [Article Meta](article-meta/index.md#querying-with-meta) for grammar and transport (GET query params vs POST JSON array).
+Advanced metadata filtering uses **`meta`** clauses on every article-metadata filter endpoint — [List and search](../articles/search.md), [Semantic search](../articles/semantic-search.md), [Geographic search](../articles/geo-search.md), [Geo cells](../other/geo-cells/index.md), and [List and search mentions](../mentions/search.md). See [Article Meta](article-meta/index.md#querying-with-meta) for grammar and transport (GET query params vs POST JSON array).
 
 
 ## Quick filter map

@@ -32,6 +32,10 @@ Nested `article` objects include a truncated `preview` (max 280 characters).
 
 Use POST so large `cells` arrays are not limited by URL length.
 
+## Metadata filters
+
+Pass **`meta`** as a JSON string array in the request body. Filters apply to the article before H3 drill-down results are deduplicated. See [Article Meta](../../taxonomy/article-meta/index.md#querying-with-meta) for clause grammar.
+
 ### Semantics
 
 Batch query uses the same H3 rollup and size-gate rules as [Coverage](coverage.md) and [List articles](list-articles.md):

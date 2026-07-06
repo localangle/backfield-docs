@@ -30,6 +30,7 @@ The data from both tools is available via a [Public API](../api/index.md) that c
 | If you want to… | Go to |
 | --- | --- |
 | Set up Backfield locally | [Getting Started](getting-started.md) |
+| See one story go end to end | [Simple Example](simple-example.md) |
 | Understand how accounts and projects are organized | [Organizations & workspaces](concepts/organizations.md) |
 | Learn what a project contains | [Projects](concepts/projects.md) |
 | Understand how Backfield models your data | [The content model](concepts/content-model.md) |

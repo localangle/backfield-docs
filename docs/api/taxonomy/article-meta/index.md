@@ -1,10 +1,10 @@
 # Article Meta
 
-Article metadata is defined using `meta_type` keys that are paired with corresponding `category` values. Tags appear in article `metadata[]` and power metadata filters on every article-metadata filter endpoint.
+Article metadata is defined using `meta_type` keys paired with `category` values. Tags appear in article `metadata[]` and power `meta` filters on every endpoint that filters by article metadata.
 
 ## Meta types
 
-Meta types can be defined arbitrarily by the user in Agate, which means the best place to start is often the discovery endpoints. But there are several preset metadata values that are commonly extracted in Agate flows. Among them:
+Meta types can be defined in Agate, so the best place to start is often the discovery endpoints. Several preset metadata values are commonly extracted in Agate flows:
 
 | `meta_type` | Meaning                                                       | Reference             |
 | ----------- | ------------------------------------------------------------- | --------------------- |
@@ -14,7 +14,7 @@ Meta types can be defined arbitrarily by the user in Agate, which means the best
 
 ## Querying with `meta`
 
-Use the repeatable **`meta`** parameter for advanced metadata filtering on any endpoint that filters by article metadata. Provide one clause per value; all clauses are combined with **AND**.
+Use **`meta`** for advanced metadata filtering on any endpoint that filters by article metadata. Provide one clause per value; all clauses are combined with **AND**.
 
 Each `meta` value is one clause:
 
@@ -42,8 +42,8 @@ How you send `meta` depends on the endpoint:
 
 | Transport | Endpoints | Example |
 | --- | --- | --- |
-| **GET** — repeat `meta` as a query parameter | [List and search](../../articles/search.md), [Geographic search](../../articles/geo-search.md), [Coverage](../../other/geo-cells/coverage.md), [List articles (geo cell)](../../other/geo-cells/list-articles.md), [List and search mentions](../../mentions/search.md) | `?meta=topic:pro_sports&meta=!format:opinion` |
-| **POST** — `meta` as a JSON string array | [Semantic search](../../articles/semantic-search.md), [Batch query (geo cells)](../../other/geo-cells/query.md) | `"meta": ["topic:pro_sports", "!format:opinion"]` |
+| **GET** — repeat `meta` as a query parameter | [List and search articles](../../articles/search.md), [Geographic search](../../articles/geo-search.md), [Geo cells coverage](../../other/geo-cells/coverage.md), [Geo cell article drill-down](../../other/geo-cells/list-articles.md), [List and search mentions](../../mentions/search.md) | `?meta=topic:pro_sports&meta=!format:opinion` |
+| **POST** — pass `meta` as a JSON string array | [Semantic search](../../articles/semantic-search.md), [Geo cells batch query](../../other/geo-cells/query.md) | `"meta": ["topic:pro_sports", "!format:opinion"]` |
 
 On mention and geo routes, `meta` filters apply to the **article** that contains each mention or location — not to mention tags themselves.
 

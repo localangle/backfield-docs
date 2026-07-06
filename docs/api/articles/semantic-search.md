@@ -12,7 +12,7 @@ Articles must have been embedded by a flow (via the Embed Text node) before they
 
 **Tip**: Compare total and embedded counts in [Get project](../projects/get-project.md) (`stats.articles`) to see how many articles are eligible for semantic search.
 
-For exact words, phrases, metadata filters, or simple date filtering, use [List and search](search.md).
+For exact words, phrases, or simple date filtering, use [List and search](search.md).
 
 ## Path parameters
 
@@ -143,7 +143,7 @@ Results are ordered by `score` descending, then `pub_date` descending (nulls las
 
 ## Metadata filters
 
-Pass **`meta`** as a JSON string array in the request body. Filters are applied before results are ranked. See [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) for clause grammar.
+Pass **`meta`** as a JSON string array in the request body. Filters are applied before results are ranked. See [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) for clause grammar, transport notes, and limits.
 
 ## Example
 
@@ -152,7 +152,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
   -H "Authorization: Bearer bfk_your_project_api_key" \
   -H "Content-Type: application/json" \
   -d '{
-    "query": "local government spending decisions",
+    "query": "playoff game preview",
     "use_hyde": true,
     "meta": ["topic:pro_sports", "subject:sports_contest", "!format:explainer_analysis"],
     "pub_date_from": "2024-01-01",
