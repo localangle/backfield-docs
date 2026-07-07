@@ -6,11 +6,15 @@ Article metadata is defined using `meta_type` keys paired with `category` values
 
 Meta types can be defined in Agate, so the best place to start is often the discovery endpoints. Several preset metadata values are commonly extracted in Agate flows:
 
-| `meta_type` | Meaning                                                       | Reference             |
-| ----------- | ------------------------------------------------------------- | --------------------- |
-| `format`    | Story type or structural form                                 | [Format](format.md)   |
-| `topic`     | Broad topic areas (what the story is about)                   | [Topic](topic.md)     |
-| `subject`   | Concrete primary subject (the central thing the story covers) | [Subject](subject.md) |
+| `meta_type` | Meaning | Reference |
+| --- | --- | --- |
+| `information_needs` | Critical information needs the story helps readers meet | [Critical Information Need](critical-information-need.md) |
+| `format` | Story type or structural form | [Format](format.md) |
+| `geographic_scope` | Primary geographic scope of impact | [Scope](scope.md) |
+| `subject` | Concrete primary subject (the central thing the story covers) | [Subject](subject.md) |
+| `temporal_orientation` | How the story relates to time | [Timeframe](timeframe.md) |
+| `topic` | Broad topic areas (what the story is about) | [Topic](topic.md) |
+| `user_need` | Dominant audience need the story serves | [User Need](user-need.md) |
 
 ## Querying with `meta`
 
@@ -83,9 +87,13 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Discovery | Filter clause |
 | --- | --- |
+| [Article facets](../../articles/facets.md) `information_needs_categories` or `…/metadata/types/information_needs/values` | `meta=information_needs:…` — see [Critical Information Need](critical-information-need.md) |
 | [Article facets](../../articles/facets.md) `format_categories` | `meta=format:…` — see [Format](format.md) |
+| [Article facets](../../articles/facets.md) `geographic_scope_categories` or `…/metadata/types/geographic_scope/values` | `meta=geographic_scope:…` — see [Scope](scope.md) |
 | [Article facets](../../articles/facets.md) `topic_categories` or `…/metadata/types/topic/values` | `meta=topic:…` — see [Topic](topic.md) |
 | [Article facets](../../articles/facets.md) `subject_categories` or `…/metadata/types/subject/values` | `meta=subject:…` — see [Subject](subject.md) |
+| [Article facets](../../articles/facets.md) `temporal_orientation_categories` or `…/metadata/types/temporal_orientation/values` | `meta=temporal_orientation:…` — see [Timeframe](timeframe.md) |
+| [Article facets](../../articles/facets.md) `user_need_categories` or `…/metadata/types/user_need/values` | `meta=user_need:…` — see [User Need](user-need.md) |
 
 Also available:
 

@@ -111,7 +111,7 @@ The example above includes `embedded` and `counts` because the request used `?in
 | `counts`                | object | null  | Present with `include=counts` — see below                                                                       |
 
 
-Read topic, subject, and format tags from `metadata[]`.
+Read Article Meta tags, such as topic, subject, format, scope, timeframe, and user need, from `metadata[]`.
 
 ### Article metadata only
 

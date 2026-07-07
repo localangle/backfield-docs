@@ -33,7 +33,7 @@ The data from both tools is available via a [Public API](../api/index.md) that c
 | See one story go end to end | [Simple Example](simple-example.md) |
 | Understand how accounts and projects are organized | [Organizations & workspaces](concepts/organizations.md) |
 | Learn what a project contains | [Projects](concepts/projects.md) |
-| Understand how Backfield models your data | [The content model](concepts/content-model.md) |
+| Understand how Backfield models your data | [Data model](concepts/content-model.md) |
 | Build a pipeline | [Agate](agate/index.md) |
 | Curate your catalog | [Stylebook](stylebook/index.md) |
 | Configure models, integrations, and keys | [Settings](settings/index.md) |

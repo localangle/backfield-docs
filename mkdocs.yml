@@ -49,7 +49,7 @@ nav:
           - Organizations & workspaces: platform/concepts/organizations.md
           - Projects: platform/concepts/projects.md
           - Users & access: platform/concepts/users.md
-          - The content model: platform/concepts/content-model.md
+          - Data model: platform/concepts/content-model.md
       - Agate:
           - platform/agate/index.md
           - Flows: platform/agate/flows.md
@@ -92,9 +92,14 @@ nav:
           - api/taxonomy/index.md
           - Article Meta:
               - api/taxonomy/article-meta/index.md
+              - Critical Information Need: api/taxonomy/article-meta/critical-information-need.md
+              - Custom: api/taxonomy/article-meta/custom.md
               - Format: api/taxonomy/article-meta/format.md
+              - Scope: api/taxonomy/article-meta/scope.md
               - Topic: api/taxonomy/article-meta/topic.md
               - Subject: api/taxonomy/article-meta/subject.md
+              - Timeframe: api/taxonomy/article-meta/timeframe.md
+              - User Need: api/taxonomy/article-meta/user-need.md
           - Mention Meta:
               - api/taxonomy/mention-meta/index.md
               - People: api/taxonomy/mention-meta/people.md

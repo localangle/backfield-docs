@@ -87,7 +87,7 @@ Suppose your newsroom has written 50 stories about Mayor Jane Doe. Backfield tre
 
 When a flow saves its results, [Stylebook](stylebook/index.md) matches each extracted person, place, and organization against your catalog of **canonical records**. This story's "Mayor Jane Doe" links to the same canonical Jane Doe as every previous story, through a process called [canonicalization](stylebook/canonicalization.md).
 
-The canonical record accumulates everything the newsroom knows: every variation of a source's name; each mention with its evidence, [connections](stylebook/connections.md) to other entities (Jane Doe *works at* City Hall), and any metadata your editors choose to add. See [The content model](concepts/content-model.md) for how mentions and entities fit together.
+The canonical record accumulates everything the newsroom knows: every variation of a source's name; each mention with its evidence, [connections](stylebook/connections.md) to other entities (Jane Doe *works at* City Hall), and any metadata your editors choose to add. See [Data model](concepts/content-model.md) for how mentions and entities fit together.
 
 === "Canonical details"
 

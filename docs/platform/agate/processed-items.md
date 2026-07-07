@@ -74,7 +74,7 @@ While a **rerun** is in progress, review editing is **paused** until processing 
 
 When a flow's output step saves results, extracted entities can link to **canonical** records in [Stylebook](../stylebook/index.md). On a processed item you may see catalog links for matched people, places, and organizations.
 
-Your review corrections update what is stored for **this article** — see [The content model](../concepts/content-model.md). Canonical catalog fields remain authoritative in Stylebook; the processed item is where you fix article-specific mistakes before they propagate.
+Your review corrections update what is stored for **this article** — see [Data model](../concepts/content-model.md). Canonical catalog fields remain authoritative in Stylebook; the processed item is where you fix article-specific mistakes before they propagate.
 
 ## JSON and export
 

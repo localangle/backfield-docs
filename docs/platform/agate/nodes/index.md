@@ -1,18 +1,18 @@
 # Nodes
 
-A **node** is a single step in an Agate [flow](../flows.md). Each node does one job, and you connect nodes together so that the output of one becomes the input of the next. You build a pipeline by dragging nodes onto a canvas and wiring them up.
+A **node** is a single step in an Agate [flow](../flows.md). Each node does one job, and you connect nodes together so that the output of one becomes the input of the next. You build a pipeline by dragging nodes onto a canvas and connecting them to each other.
 
-Every flow starts with a step that brings text **in** and ends with a step that sends results **out**. In between, you add steps that find and refine the details you care about.
+Every flow starts with an **input** step and ends with an **output** step. In between, you add steps that find and refine the details you care about.
 
 ## The node families
 
-Nodes are grouped by what they do. You don't need to memorize every node — just the kind of work each family handles.
+Nodes are grouped by what they do:
 
 | Family | What it does | Examples |
 | --- | --- | --- |
 | **[Inputs](inputs.md)** | Bring text into the flow | Paste text, supply a JSON document, or pull a batch of files from cloud storage |
-| **[Extractors](extractors.md)** | Pull structured details out of the text | Places, people, organizations, topic tags, and custom record types you define |
-| **[Enrichment](enrichment.md)** | Refine or look up extracted details | Geocoding places into map coordinates |
+| **[Extractors](extractors.md)** | Pull structured details out of the text | Places, people, organizations, and custom record types you define |
+| **[Enrichment](enrichment.md)** | Refine extracted details or assign article-level metadata | Geocoding places into map coordinates; adding Article Meta tags |
 | **[Embedding](embedding.md)** | Prepare content for semantic ("meaning-based") search | Indexing article text and images |
 | **[Outputs](outputs.md)** | Save or export the results | Save into your catalog, view as JSON, or write files back to cloud storage |
 | **[Flow control](flow-control.md)** | Shape how data moves through the flow | Gathering multiple branches together |
@@ -23,11 +23,11 @@ Most flows follow the same left-to-right shape: bring text in, extract details, 
 
 For example, a flow that maps the places in your reporting might be:
 
-> **Paste text → Find places → Geocode → Save to catalog**
+> **Paste text → Find places → Geocode → Save to database**
 
 ## How nodes use AI
 
-Several extractors and enrichment steps use AI models to read text and identify details. You choose which model a node uses from a list your administrators have approved, and Backfield tracks the estimated cost of each run. See [AI models](../../settings/ai-models.md).
+Many extractors and enrichment steps use AI models to read text and identify details. You choose which model a node uses from a list your administrators have approved, and Backfield tracks the estimated cost of each run. See [AI models](../../settings/ai-models.md).
 
 ## In this section
 

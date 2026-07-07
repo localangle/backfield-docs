@@ -1,4 +1,4 @@
-# Content model
+# Data model
 
 Backfield turns the articles you process into a few simple, connected building blocks. Understanding them explains why the same article, person, or place shows up consistently across [Agate](../agate/index.md), [Stylebook](../stylebook/index.md), and the [Public API](../../api/index.md).
 
@@ -9,7 +9,7 @@ Backfield turns the articles you process into a few simple, connected building b
 | **Articles** | The stories and documents you process, plus their text and basic details (headline, author, publication date, source) |
 | **Mentions** | Each time a person, organization, or place is referred to in an article — with the exact passage it came from |
 | **Entities** | Structured data extracted from articles, including people, places, organizations and custom record types you define |
-| **Metadata** | Topic and format tags applied to articles (for example, a subject category) |
+| **Metadata** | Article-level tags such as topic, format, subject, scope, timeframe, user need, and custom categories |
 
 Together these are the raw, article-by-article record of *what was found and where*. [Stylebook](../stylebook/index.md) sits on top, merging repeated mentions of the same real-world thing into clean **canonical** records.
 
@@ -29,4 +29,4 @@ So a single politician mentioned in fifty articles produces fifty **mentions** b
 - Through the API, you can search [articles](../../api/articles/index.md), explore [mentions](../../api/mentions/index.md), and retrieve [entities](../../api/entities/index.md).
 
 !!! note "Article metadata"
-    Several predefined topic and format categories used for article tagging are listed in [Article Meta](../../api/taxonomy/article-meta/index.md).
+    Predefined article tagging categories are listed in [Article Meta](../../api/taxonomy/article-meta/index.md).
