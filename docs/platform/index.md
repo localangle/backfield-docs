@@ -1,6 +1,6 @@
 # Platform
 
-Backfield helps newsrooms turn the articles they produce every day into durable, structured data that can be used to create new products, generate new insights and better transact in the AI economy.
+Backfield helps newsrooms turn narrative articles into durable, structured data that can be used to create new products, generate new insights and better transact in the AI economy.
 
 You work with Backfield through two connected apps:
 
