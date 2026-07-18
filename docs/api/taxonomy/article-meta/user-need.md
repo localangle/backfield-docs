@@ -8,7 +8,7 @@ User need metadata (`meta_type=user_need`) describes why a reader would seek out
 ?meta=user_need:explain_it_to_me
 ```
 
-Discover values in your project with `user_need_categories` from [Article facets](../../articles/facets.md) or `GET …/articles/metadata/types/user_need/values`.
+Discover values in your project with `GET …/articles/metadata/types/user_need/values`.
 
 ## Categories
 

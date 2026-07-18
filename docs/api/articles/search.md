@@ -1,6 +1,6 @@
 # List and search articles
 
-```
+```http
 GET /public/v1/projects/{project_slug}/articles/search
 ```
 
@@ -24,6 +24,7 @@ The `q` parameter performs a keyword search over **headline**, **article body te
 | `q`               | string  | —       | Keyword match on headline, body text, or URL. Web-style syntax: `"exact phrase"`, `term1 OR term2`, `-exclude`, implicit AND between terms |
 | `meta`            | string  | —       | Repeatable metadata filter clause (AND across clauses). See [Metadata filters](#metadata-filters)                                    |
 | `author`          | string  | —       | Filter by article byline (case-insensitive exact match)                                                                              |
+| `external_source` | string  | —       | Filter by publication or outlet (case-insensitive exact match)                                                                       |
 | `has_mentions`    | string  | —       | Require mentions of `location`, `person`, or `organization`                                                                          |
 | `pub_date_from`   | string  | —       | ISO date `YYYY-MM-DD`, inclusive lower bound                                                                                         |
 | `pub_date_to`     | string  | —       | ISO date `YYYY-MM-DD`, inclusive upper bound                                                                                         |
@@ -65,7 +66,7 @@ Use [Article facets](facets.md) or `GET …/articles/metadata/types` to discover
 
 ```bash
 curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/articles/search\
-?q=budget&meta=topic:local_government_politics&meta=\!format:opinion\
+?q=budget&meta=topic:local_government_politics&meta=%21format:opinion\
 &include=counts&pub_date_from=2024-01-01&limit=10" \
   -H "Authorization: Bearer bfk_your_project_api_key"
 ```
@@ -74,7 +75,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 The response echoes the effective keyword and filter parameters at the top level, then `items` and `pagination`.
 
-Each **`items[]`** row uses the standard article list shape — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata`. Pass `include=counts` to add `counts` and `embedded` on each item. List responses do not include inline `images`; use [Get article](get-article.md) for those.
+Each **`items[]`** row uses the standard article list shape — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata`. Pass `include=counts` to populate `counts` and `embedded`; otherwise both are `null`. The `images` field is also `null` on list responses; use [Get article](get-article.md) for inline images.
 
 ```json
 {
@@ -103,6 +104,7 @@ Each **`items[]`** row uses the standard article list shape — `id`, `headline`
           "confidence": 0.92
         }
       ],
+      "images": null,
       "embedded": true,
       "counts": {
         "mentions": {
@@ -161,8 +163,9 @@ Each item is an article list row. Core fields match [Get article](get-article.md
 | `source` | object \| null | Publication or outlet when known |
 | `preview` | string \| null | Truncated body snippet (max 280 characters) |
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
-| `embedded` | boolean \| null | Present with `include=counts` — `true` when the article has a populated embedding row |
-| `counts` | object \| null | Present with `include=counts` — see [Get article](get-article.md#counts-embed-includecounts) |
+| `embedded` | boolean \| null | `null` unless `include=counts` is requested |
+| `counts` | object \| null | `null` unless `include=counts` is requested — see [Get article](get-article.md#counts-embed-includecounts) |
+| `images` | null | Always `null` on list responses; use [Get article](get-article.md) for inline images |
 
 Results are ordered by relevance when `q` is set, otherwise by `pub_date` descending (nulls last), then `id` descending.
 

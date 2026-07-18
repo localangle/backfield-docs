@@ -1,6 +1,6 @@
 # Batch query
 
-```
+```http
 POST /public/v1/projects/{project_slug}/articles/geo-cells/query
 ```
 
@@ -23,6 +23,7 @@ Results are **deduplicated by article**. An article that matches several request
 | `location_type` | string | — | Filter matching locations by type |
 | `nature` | string | — | Filter matching location mentions by role, such as `primary` or `secondary` |
 | `meta` | array of string | `[]` | Metadata filter clauses (AND across clauses). Same grammar as [Article Meta](../../taxonomy/article-meta/index.md#querying-with-meta) — pass as a JSON array |
+| `external_source` | string | — | Filter articles by publication or outlet (case-insensitive exact match) |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound |
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound |
 | `limit` | integer | `25` | Page size (1–100) |
@@ -66,11 +67,13 @@ When `cells` contains a single cell and `resolution` matches that cell's level, 
         },
         "preview": "The city council approved a revised budget after…",
         "metadata": [],
+        "embedded": null,
+        "counts": null,
+        "images": null
       },
       "matching_locations": [
         {
           "mention_id": 10,
-          "substrate_location_id": 4,
           "label": "City Hall",
           "location_type": "place",
           "formatted_address": "123 Main St",
@@ -126,6 +129,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
     "cells": ["872664c47ffffff", "872664c1effffff"],
     "resolution": 7,
     "meta": ["topic:public_safety_crime"],
+    "external_source": "springfield-daily",
     "pub_date_from": "2024-01-01",
     "limit": 100,
     "offset": 0
@@ -137,6 +141,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 | Status | When |
 | --- | --- |
 | `400` | Empty `cells`, invalid cell ID, resolution mismatch, more than 200 cells, invalid date format, or malformed `meta` clause |
+| `422` | Missing or invalid JSON body fields, such as `cells`, `resolution`, or pagination bounds |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
 | `404` | Unknown `project_slug` |

@@ -1,6 +1,6 @@
 # List articles
 
-```
+```http
 GET /public/v1/projects/{project_slug}/locations/{location_id}/articles
 ```
 
@@ -57,7 +57,10 @@ Results are ordered by article `pub_date` descending (nulls last), then article 
           "category": "local_government_politics",
           "confidence": 0.92
         }
-      ]
+      ],
+      "embedded": null,
+      "counts": null,
+      "images": null
     }
   ],
   "pagination": {

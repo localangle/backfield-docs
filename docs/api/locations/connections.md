@@ -1,6 +1,6 @@
 # List connections
 
-```
+```http
 GET /public/v1/projects/{project_slug}/locations/{location_id}/connections
 ```
 
@@ -29,6 +29,7 @@ Connections describe relationships between canonical entities — for example, a
       "to_entity_type": "location",
       "to_entity_id": "550e8400-e29b-41d4-a716-446655440000",
       "to_label": "City Hall",
+      "description": "Jane Doe works from the mayor's office at City Hall.",
       "nature": "works_at"
     }
   ]
@@ -46,7 +47,8 @@ Connections describe relationships between canonical entities — for example, a
 | `to_entity_type` | string | Target entity type |
 | `to_entity_id` | string | Target entity UUID |
 | `to_label` | string | Resolved display label for the target |
-| `nature` | string | Relationship nature (e.g. `works_at`) |
+| `description` | string \| null | Human-readable description of the relationship when set |
+| `nature` | string \| null | Relationship nature when set (e.g. `works_at`) |
 
 ## Example
 

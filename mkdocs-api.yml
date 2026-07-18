@@ -1,6 +1,6 @@
 site_name: Backfield API Reference
 site_description: Public API reference for Backfield.
-site_url: https://docs.backfield.dev
+site_url: https://docs.backfield.news
 
 theme:
   name: material
@@ -80,6 +80,10 @@ nav:
       - List and search: api/articles/search.md
       - Semantic search: api/articles/semantic-search.md
       - Geographic search: api/articles/geo-search.md
+      - Metadata endpoints:
+          - List metadata types: api/articles/metadata-types.md
+          - List metadata values: api/articles/metadata-values.md
+          - Get article metadata: api/articles/get-metadata.md
       - Detail endpoints:
           - api/articles/hub/index.md
           - List mentions: api/articles/hub/mentions.md
@@ -98,6 +102,7 @@ nav:
           - api/people/index.md
           - Get person: api/people/get-person.md
           - List and search: api/people/search.md
+          - List types: api/people/types.md
           - List articles: api/people/list-articles.md
           - List mentions: api/people/mentions.md
           - List connections: api/people/connections.md
@@ -105,6 +110,7 @@ nav:
           - api/locations/index.md
           - Get location: api/locations/get-location.md
           - List and search: api/locations/search.md
+          - List types: api/locations/types.md
           - Geographic search: api/locations/geo-search.md
           - List articles: api/locations/list-articles.md
           - List mentions: api/locations/mentions.md
@@ -113,6 +119,7 @@ nav:
           - api/organizations/index.md
           - Get organization: api/organizations/get-organization.md
           - List and search: api/organizations/search.md
+          - List types: api/organizations/types.md
           - List articles: api/organizations/list-articles.md
           - List mentions: api/organizations/mentions.md
           - List connections: api/organizations/connections.md

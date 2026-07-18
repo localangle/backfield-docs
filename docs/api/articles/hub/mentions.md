@@ -1,6 +1,6 @@
 # List mentions
 
-```
+```http
 GET /public/v1/projects/{project_slug}/articles/{article_id}/mentions
 ```
 
@@ -76,14 +76,14 @@ The response is a JSON **array** of mention objects:
 | -------------------------- | ------------- | -------------------------------------------------------- |
 | `entity_type`              | string        | `location`, `person`, or `organization`                  |
 | `label`                    | string        | Display label                                            |
-| `nature`                   | string | null | Editorial role when set                                  |
-| `role_in_story`            | string | null | Free-text summary of how the entity figures in the story |
-| `canonical`                | object | null | Linked canonical record, when available                  |
+| `nature`                   | string \| null | Editorial role when set                                  |
+| `role_in_story`            | string \| null | Free-text summary of how the entity figures in the story |
+| `canonical`                | object \| null | Linked canonical record, when available                  |
 | `canonical.id`             | string        | Canonical UUID                                           |
-| `canonical.slug`           | string | null | Canonical slug                                           |
+| `canonical.slug`           | string \| null | Canonical slug                                           |
 | `canonical.label`          | string        | Canonical display label                                  |
-| `canonical.stylebook_slug` | string | null | Stylebook catalog slug for the linked record             |
-| `evidence`                 | object | null | First non-suppressed occurrence span                     |
+| `canonical.stylebook_slug` | string \| null | Stylebook catalog slug for the linked record             |
+| `evidence`                 | object \| null | First non-suppressed occurrence span                     |
 
 
 ### Evidence fields
@@ -93,15 +93,15 @@ Article mention evidence uses a compact shape suited for story highlighting:
 
 | Field          | Type           | Description                                                                                 |
 | -------------- | -------------- | ------------------------------------------------------------------------------------------- |
-| `mention_text` | string | null  | Text to highlight — quote text when the span is a quote, otherwise the matched mention text |
+| `mention_text` | string \| null  | Text to highlight — quote text when available, otherwise the matched mention text |
 | `quote`        | boolean        | Whether the first occurrence is a quote                                                     |
-| `start_char`   | integer | null | Start character offset in the article                                                       |
-| `end_char`     | integer | null | End character offset in the article                                                         |
+| `start_char`   | integer \| null | Start character offset in the article                                                       |
+| `end_char`     | integer \| null | End character offset in the article                                                         |
 
 
 When `evidence` is `null`, no non-suppressed occurrence was found for the mention.
 
-Other mention routes — such as [List people](people.md) and project-wide [List and search mentions](../../mentions/search.md) — use a separate evidence shape with distinct `mention_text` and `quote_text` fields, and include `mention_id` on each row.
+All public mention routes use this same evidence shape. Typed and entity-first routes also include `mention_id` on each row.
 
 ## Examples
 

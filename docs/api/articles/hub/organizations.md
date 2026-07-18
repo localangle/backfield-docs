@@ -1,6 +1,6 @@
 # List organizations
 
-```
+```http
 GET /public/v1/projects/{project_slug}/articles/{article_id}/organizations
 ```
 
@@ -41,8 +41,8 @@ Use [List mentions](mentions.md) with `entity_type=organization` when you need a
       "nature": "actor",
       "role_in_story": null,
       "evidence": {
-        "mention_text": "City Council",
-        "quote_text": "The City Council approved the budget",
+        "mention_text": "The City Council approved the budget",
+        "quote": true,
         "start_char": 0,
         "end_char": 12
       }
@@ -67,6 +67,8 @@ Use [List mentions](mentions.md) with `entity_type=organization` when you need a
 | `nature` | string \| null | Mention nature when set |
 | `role_in_story` | string \| null | Role in story when set |
 | `evidence` | object \| null | First occurrence evidence span |
+
+Evidence uses `mention_text`, `quote`, `start_char`, and `end_char`. `mention_text` contains quote text when available; otherwise it contains the matched mention text. `quote` can still be `true` when the occurrence is labeled as a quote but no separate quote text was stored.
 
 ## Example
 

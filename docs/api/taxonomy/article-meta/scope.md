@@ -8,7 +8,7 @@ Scope metadata (`meta_type=geographic_scope`) describes the primary geographic l
 ?meta=geographic_scope:city_municipality
 ```
 
-Discover values in your project with `geographic_scope_categories` from [Article facets](../../articles/facets.md) or `GET …/articles/metadata/types/geographic_scope/values`.
+Discover values in your project with `GET …/articles/metadata/types/geographic_scope/values`.
 
 ## Categories
 

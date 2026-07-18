@@ -1,6 +1,6 @@
 # Geographic search
 
-```text
+```http
 GET /public/v1/projects/{project_slug}/articles/geo-search
 ```
 
@@ -54,7 +54,7 @@ See [Pagination](../conventions/pagination.md) for the shared `items` and `pagin
 
 The response echoes the geographic query at the top level, then `items` and `pagination`.
 
-Each **`items[]`** row uses the same article list shape as [List and search](search.md) plus **`matching_locations`**. Pass `include=counts` to add `counts` and `embedded` on each item.
+Each **`items[]`** row uses the same article list shape as [List and search](search.md) plus **`matching_locations`**. Pass `include=counts` to populate `counts` and `embedded`; otherwise those fields are `null`. `images` is always `null` on this route.
 
 ```json
 {
@@ -83,7 +83,6 @@ Each **`items[]`** row uses the same article list shape as [List and search](sea
       "matching_locations": [
         {
           "mention_id": 10,
-          "substrate_location_id": 4,
           "label": "City Hall",
           "location_type": "building",
           "formatted_address": "100 Main St, Springfield",
@@ -99,7 +98,10 @@ Each **`items[]`** row uses the same article list shape as [List and search](sea
           "role_in_story": null,
           "evidence": null
         }
-      ]
+      ],
+      "embedded": null,
+      "counts": null,
+      "images": null
     }
   ],
   "pagination": {
@@ -144,8 +146,9 @@ Each item is an article list row plus geographic matches. Core article fields ma
 | `source` | object \| null | Publication or outlet when known |
 | `preview` | string \| null | Truncated body snippet (max 280 characters) |
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
-| `embedded` | boolean \| null | Present with `include=counts` |
-| `counts` | object \| null | Present with `include=counts` — see [Get article](get-article.md#counts-embed-includecounts) |
+| `embedded` | boolean \| null | `null` unless `include=counts` is requested |
+| `counts` | object \| null | `null` unless `include=counts` is requested — see [Get article](get-article.md#counts-embed-includecounts) |
+| `images` | null | Always `null` on list responses; use [Get article](get-article.md) for inline images |
 | `matching_locations` | array | Location mentions that matched the geographic filter |
 
 Location objects use the same shape as [List locations](hub/locations.md).
@@ -191,7 +194,7 @@ Search inside a map viewport:
 ```bash
 curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/articles/geo-search\
 ?bbox=-87.9,41.6,-87.4,42.0\
-&meta=topic:local_government_politics&meta=\!format:opinion" \
+&meta=topic:local_government_politics&meta=%21format:opinion" \
   -H "Authorization: Bearer bfk_your_project_api_key"
 ```
 

@@ -1,13 +1,13 @@
 # List and search people
 
-```
-GET /public/v1/projects/{project_slug}/people
+```http
+GET /public/v1/projects/{project_slug}/people/
 GET /public/v1/projects/{project_slug}/people/search
 ```
 
 List or search canonical people in a project. Both paths accept the same parameters and return the same response shape.
 
-Use `GET …/people` to browse the catalog. Use `GET …/people/search` when you want a search-oriented entry point — the behavior is identical.
+Use `GET …/people/` to browse the catalog. Use `GET …/people/search` when you want a search-oriented entry point — the behavior is identical.
 
 The `q` parameter matches label, title, and affiliation (case-insensitive). Combine it with structured filters such as `person_type`, `public_figure`, and `nature`.
 

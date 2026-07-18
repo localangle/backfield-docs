@@ -8,7 +8,7 @@ Timeframe metadata (`meta_type=temporal_orientation`) describes how the story re
 ?meta=temporal_orientation:ongoing
 ```
 
-Discover values in your project with `temporal_orientation_categories` from [Article facets](../../articles/facets.md) or `GET …/articles/metadata/types/temporal_orientation/values`.
+Discover values in your project with `GET …/articles/metadata/types/temporal_orientation/values`.
 
 ## Categories
 

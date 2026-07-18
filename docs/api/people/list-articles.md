@@ -1,6 +1,6 @@
 # List articles
 
-```
+```http
 GET /public/v1/projects/{project_slug}/people/{person_id}/articles
 ```
 
@@ -57,7 +57,10 @@ Results are ordered by article `pub_date` descending (nulls last), then article 
           "category": "local_government_politics",
           "confidence": 0.92
         }
-      ]
+      ],
+      "embedded": null,
+      "counts": null,
+      "images": null
     }
   ],
   "pagination": {
@@ -93,6 +96,9 @@ Each `items[]` entry uses the standard article list shape:
 | `source.name` | string | Display label for the outlet |
 | `preview` | string \| null | Truncated body snippet (max 280 characters) |
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
+| `embedded` | null | Always `null` on this list route |
+| `counts` | null | Always `null` on this list route |
+| `images` | null | Always `null` on this list route; use [Get article](../articles/get-article.md) for inline images |
 
 ## Example
 

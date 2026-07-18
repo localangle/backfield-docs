@@ -1,6 +1,6 @@
 # Get mention
 
-```
+```http
 GET /public/v1/projects/{project_slug}/mentions/{entity_type}/{mention_id}
 ```
 
@@ -40,8 +40,8 @@ Same core fields as [List and search](search.md) items, but `evidence` is replac
   },
   "occurrences": [
     {
-      "mention_text": "Jane Doe",
-      "quote_text": "Mayor Jane Doe announced the plan",
+      "mention_text": "Mayor Jane Doe announced the plan",
+      "quote": true,
       "start_char": 120,
       "end_char": 128,
       "occurrence_order": 0
@@ -60,8 +60,8 @@ Same core fields as [List and search](search.md) items, but `evidence` is replac
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `mention_text` | string \| null | Matched mention text |
-| `quote_text` | string \| null | Surrounding quote |
+| `mention_text` | string \| null | Quote text when available; otherwise the matched mention text |
+| `quote` | boolean | Whether this occurrence is a quote |
 | `start_char` | integer \| null | Start character offset in the article |
 | `end_char` | integer \| null | End character offset in the article |
 | `occurrence_order` | integer \| null | Order of this span within the mention |

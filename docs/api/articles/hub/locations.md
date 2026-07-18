@@ -1,6 +1,6 @@
 # List locations
 
-```
+```http
 GET /public/v1/projects/{project_slug}/articles/{article_id}/locations
 ```
 
@@ -44,8 +44,8 @@ List locations mentioned in an article, including map-friendly fields such as fo
       "nature": "primary",
       "role_in_story": null,
       "evidence": {
-        "mention_text": "City Hall",
-        "quote_text": "The vote took place at City Hall",
+        "mention_text": "The vote took place at City Hall",
+        "quote": true,
         "start_char": 45,
         "end_char": 54
       }
@@ -73,6 +73,8 @@ List locations mentioned in an article, including map-friendly fields such as fo
 | `nature` | string \| null | Role this location plays in the article, such as `primary` or `secondary` |
 | `role_in_story` | string \| null | Role in story when set |
 | `evidence` | object \| null | First occurrence evidence span |
+
+Evidence uses `mention_text`, `quote`, `start_char`, and `end_char`. `mention_text` contains quote text when available; otherwise it contains the matched mention text. `quote` can still be `true` when the occurrence is labeled as a quote but no separate quote text was stored.
 
 Results are ordered newest first.
 

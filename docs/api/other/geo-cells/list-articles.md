@@ -1,6 +1,6 @@
 # List articles
 
-```
+```http
 GET /public/v1/projects/{project_slug}/articles/geo-cells/{h3_cell}
 ```
 
@@ -57,11 +57,13 @@ Use the repeatable **`meta`** query parameter to filter by article metadata. The
         },
         "preview": "The city council approved a revised budget after…",
         "metadata": [],
+        "embedded": null,
+        "counts": null,
+        "images": null
       },
       "matching_locations": [
         {
           "mention_id": 10,
-          "substrate_location_id": 4,
           "label": "City Hall",
           "location_type": "place",
           "formatted_address": "123 Main St",
@@ -104,7 +106,6 @@ Results are ordered by article `pub_date` descending (nulls last), then article 
 | Field | Type | Description |
 | --- | --- | --- |
 | `mention_id` | integer | Mention id |
-| `substrate_location_id` | integer | Location id |
 | `label` | string | Display label |
 | `location_type` | string \| null | Location type when set |
 | `formatted_address` | string \| null | Formatted address when set |

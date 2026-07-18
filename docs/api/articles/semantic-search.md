@@ -1,6 +1,6 @@
 # Semantic search
 
-```text
+```http
 POST /public/v1/projects/{project_slug}/articles/semantic-search
 ```
 
@@ -33,7 +33,7 @@ For exact words, phrases, or simple date filtering, use [List and search](search
 | `offset` | integer | `0` | Offset for pagination |
 | `include` | array of string | `[]` | Repeatable include token. Supported: `counts` |
 
-Each **`items[]`** row uses the same article list shape as [List and search](search.md) — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata` — plus **`score`**. Pass `"include": ["counts"]` to add `counts` and `embedded` on each item. Semantic search does not return inline `images`; use [Get article](get-article.md) for those.
+Each **`items[]`** row uses the same article list shape as [List and search](search.md) — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata` — plus **`score`**. Pass `"include": ["counts"]` to populate `counts` and `embedded`; otherwise both are `null`. The `images` field is also `null`; use [Get article](get-article.md) for inline images.
 
 See [Pagination](../conventions/pagination.md) for the list response envelope.
 
@@ -75,6 +75,7 @@ The response wraps ranked articles in a search envelope. Top-level fields descri
           "confidence": 0.92
         }
       ],
+      "images": null,
       "embedded": true,
       "counts": {
         "mentions": {
@@ -135,8 +136,9 @@ Each item is an article list row plus a similarity score. Core article fields ma
 | `source` | object \| null | Publication or outlet when known |
 | `preview` | string \| null | Truncated body snippet (max 280 characters) |
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
-| `embedded` | boolean \| null | Present with `"include": ["counts"]` — `true` when the article has a populated embedding row |
-| `counts` | object \| null | Present with `"include": ["counts"]` — see [Get article](get-article.md#counts-embed-includecounts) |
+| `embedded` | boolean \| null | `null` unless `"include": ["counts"]` is requested |
+| `counts` | object \| null | `null` unless `"include": ["counts"]` is requested — see [Get article](get-article.md#counts-embed-includecounts) |
+| `images` | null | Always `null` on search responses; use [Get article](get-article.md) for inline images |
 | `score` | number | Cosine similarity; higher means more relevant |
 
 Results are ordered by `score` descending, then `pub_date` descending (nulls last), then `id` descending.
@@ -166,6 +168,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 | Status | When |
 | --- | --- |
 | `400` | Invalid `pub_date_from` or `pub_date_to` format, malformed `meta` clause, or unknown `include` token |
+| `422` | Missing or invalid JSON body fields, such as `query`, `limit`, or `offset` |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
 | `404` | Unknown project |

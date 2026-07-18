@@ -64,7 +64,9 @@ Factual game previews and recaps — pro sports coverage of a specific contest, 
 The same clauses in a POST JSON body:
 
 ```json
-"meta": ["topic:pro_sports", "subject:sports_contest", "!format:explainer_analysis"]
+{
+  "meta": ["topic:pro_sports", "subject:sports_contest", "!format:explainer_analysis"]
+}
 ```
 
 URL-encode `|` as `%7C` in GET query strings.
@@ -87,13 +89,13 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Discovery | Filter clause |
 | --- | --- |
-| [Article facets](../../articles/facets.md) `information_needs_categories` or `…/metadata/types/information_needs/values` | `meta=information_needs:…` — see [Critical Information Need](critical-information-need.md) |
+| `…/metadata/types/information_needs/values` | `meta=information_needs:…` — see [Critical Information Need](critical-information-need.md) |
 | [Article facets](../../articles/facets.md) `format_categories` | `meta=format:…` — see [Format](format.md) |
-| [Article facets](../../articles/facets.md) `geographic_scope_categories` or `…/metadata/types/geographic_scope/values` | `meta=geographic_scope:…` — see [Scope](scope.md) |
+| `…/metadata/types/geographic_scope/values` | `meta=geographic_scope:…` — see [Scope](scope.md) |
 | [Article facets](../../articles/facets.md) `topic_categories` or `…/metadata/types/topic/values` | `meta=topic:…` — see [Topic](topic.md) |
 | [Article facets](../../articles/facets.md) `subject_categories` or `…/metadata/types/subject/values` | `meta=subject:…` — see [Subject](subject.md) |
-| [Article facets](../../articles/facets.md) `temporal_orientation_categories` or `…/metadata/types/temporal_orientation/values` | `meta=temporal_orientation:…` — see [Timeframe](timeframe.md) |
-| [Article facets](../../articles/facets.md) `user_need_categories` or `…/metadata/types/user_need/values` | `meta=user_need:…` — see [User Need](user-need.md) |
+| `…/metadata/types/temporal_orientation/values` | `meta=temporal_orientation:…` — see [Timeframe](timeframe.md) |
+| `…/metadata/types/user_need/values` | `meta=user_need:…` — see [User Need](user-need.md) |
 
 Also available:
 

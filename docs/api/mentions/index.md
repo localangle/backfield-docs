@@ -28,7 +28,7 @@ Mention responses vary slightly by route, but commonly include:
 - `entity_type` — `person`, `organization`, or `location` (project-wide search only; omitted on entity-first routes)
 - `nature` — editorial role when set — values depend on entity type; see [Mention Meta](../taxonomy/mention-meta/index.md)
 - `canonical` — linked canonical record (`id`, `slug`, `label`) when available (project-wide search only)
-- `evidence` — first occurrence text span on list routes (compact shape on [List mentions](../articles/hub/mentions.md); separate `mention_text` and `quote_text` on other routes)
+- `evidence` — first occurrence text span on list routes: `mention_text`, `quote`, `start_char`, and `end_char`
 - `occurrences` — all non-suppressed spans on [Get mention](get-mention.md)
 - `article` — article summary (`id`, `headline`, `url`, `pub_date`) on project-wide and entity-first routes
 

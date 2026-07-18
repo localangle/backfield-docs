@@ -1,6 +1,6 @@
 # List mentions
 
-```
+```http
 GET /public/v1/projects/{project_slug}/locations/{location_id}/mentions
 ```
 
@@ -25,6 +25,7 @@ The response echoes **`location_id`** and **`label`**, then `items` and `paginat
 | `sort_direction` | string | `desc` | `asc` or `desc` |
 | `nature` | string | — | Filter by mention `nature` (exact match) |
 | `author` | string | — | Filter by article byline (case-insensitive exact match) |
+| `external_source` | string | — | Filter by article publication or outlet (case-insensitive exact match) |
 | `meta` | string | — | Repeatable metadata filter clause on the parent article (AND across clauses). Same grammar as [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound on article `pub_date` |
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound on article `pub_date` |
@@ -65,8 +66,8 @@ Article metadata filters apply to the **article** that contains each mention, no
       "nature": "primary",
       "role_in_story": null,
       "evidence": {
-        "mention_text": "City Hall",
-        "quote_text": null,
+        "mention_text": "The vote took place at City Hall",
+        "quote": true,
         "start_char": null,
         "end_char": null
       }
@@ -98,8 +99,8 @@ Item rows omit `entity_type`, `canonical`, and internal entity ids — the route
 | `nature` | string \| null | Mention nature when set |
 | `role_in_story` | string \| null | Role in story when set |
 | `evidence` | object \| null | First occurrence evidence span when available |
-| `evidence.mention_text` | string \| null | Matched mention text |
-| `evidence.quote_text` | string \| null | Surrounding quote |
+| `evidence.mention_text` | string \| null | Quote text when available; otherwise the matched mention text |
+| `evidence.quote` | boolean | Whether the first occurrence is a quote |
 | `evidence.start_char` | integer \| null | Start character offset in the article |
 | `evidence.end_char` | integer \| null | End character offset in the article |
 

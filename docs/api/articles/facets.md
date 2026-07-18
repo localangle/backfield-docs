@@ -1,10 +1,10 @@
 # Article facets
 
-Article facets is a **convenience endpoint** for frontend applications. It returns the distinct filter values commonly needed to populate article search controls — authors and preset metadata categories — in a single response.
+Article facets is a **convenience endpoint** for frontend applications. It returns the distinct filter values commonly needed to populate article search controls — authors, external sources, and preset metadata categories — in a single response.
 
-The same values are available through `GET …/articles/metadata/types` and related routes, but facets avoid multiple round trips when you are building search UI. For the full metadata reference, see [Metadata](../taxonomy/index.md).
+Only the metadata-category fields overlap the metadata discovery routes. Authors and external sources are available only from this facets endpoint. For the full metadata reference, see [Metadata](../taxonomy/index.md).
 
-```text
+```http
 GET /public/v1/projects/{project_slug}/articles/facets
 ```
 
@@ -19,6 +19,7 @@ GET /public/v1/projects/{project_slug}/articles/facets
 ```json
 {
   "authors": ["Jane Doe", "Sam Rivera"],
+  "external_sources": ["springfield-daily", "wire-service"],
   "format_categories": ["news", "opinion"],
   "topic_categories": ["local_government_politics", "public_safety"],
   "subject_categories": ["government_action", "development_project"]
@@ -30,6 +31,7 @@ GET /public/v1/projects/{project_slug}/articles/facets
 | Field | Type | Description |
 | --- | --- | --- |
 | `authors` | array of strings | Distinct article authors in the project |
+| `external_sources` | array of strings | Distinct stored publication or outlet identifiers |
 | `format_categories` | array of strings | Distinct `format` metadata categories |
 | `topic_categories` | array of strings | Distinct `topic` metadata categories (broad subject areas) |
 | `subject_categories` | array of strings | Distinct `subject` metadata categories (concrete primary subjects) |
@@ -58,6 +60,8 @@ Mapping:
 - `topic_categories` → `meta=topic:…`
 - `subject_categories` → `meta=subject:…`
 - `format_categories` → `meta=format:…`
+
+Use `authors` with the `author` filter and `external_sources` with the `external_source` filter on [article search](search.md). Those two facets are article fields, not metadata categories.
 
 See [Article Meta](../taxonomy/article-meta/index.md) for standard category values, display labels, and advanced patterns (OR within a type, negation, same-type AND).
 

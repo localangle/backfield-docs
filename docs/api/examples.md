@@ -6,11 +6,14 @@ Replace `general` with your project slug and `bfk_your_project_api_key` with you
 
 ```bash
 export BACKFIELD_API_KEY="bfk_your_project_api_key"
+export BACKFIELD_SERVICE_API_KEY="bfk_your_service_api_key"
 export PROJECT="general"
 export BASE="https://api.{organization_slug}.backfield.news/public/v1/projects/${PROJECT}"
 ```
 
 By default, local development will use `http://localhost:8004/public/v1/projects/${PROJECT}` instead.
+
+Examples that pass IDs between requests use [`jq`](https://jqlang.github.io/jq/) to read JSON responses.
 
 ## Search articles by keyword
 
@@ -84,7 +87,7 @@ Repeat `meta` to AND clauses together. Use `|` for OR within one type, and `!` t
 curl "${BASE}/articles/search\
 ?meta=topic:pro_sports\
 &meta=subject:sports_contest\
-&meta=!format:explainer_analysis" \
+&meta=%21format:explainer_analysis" \
   -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
 ```
 
@@ -131,16 +134,19 @@ Start from search (or any source of article ids), then load detail and related e
 **1. Find an article**
 
 ```bash
-curl "${BASE}/articles/search?q=budget&limit=1" \
-  -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
+ARTICLE_ID="$(
+  curl -sS "${BASE}/articles/search?q=budget&limit=1" \
+    -H "Authorization: Bearer ${BACKFIELD_API_KEY}" |
+    jq -r '.items[0].id'
+)"
 ```
 
-Note the `id` from the response (for example, `11249`).
+This stores the first result's `id` in `ARTICLE_ID`.
 
 **2. Load the article**
 
 ```bash
-curl "${BASE}/articles/{article_id}?include=counts&include=text" \
+curl "${BASE}/articles/${ARTICLE_ID}?include=counts&include=text" \
   -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
 ```
 
@@ -151,7 +157,7 @@ Omit `include=text` when you only need the truncated `preview`.
 One mixed list of people, organizations, and locations — returns every matching mention in one array:
 
 ```bash
-curl "${BASE}/articles/{article_id}/mentions" \
+curl "${BASE}/articles/${ARTICLE_ID}/mentions" \
   -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
 ```
 
@@ -168,16 +174,19 @@ Canonical people, organizations, and locations live in the entity catalog. Searc
 **1. Find a person**
 
 ```bash
-curl "${BASE}/people/search?q=Jane%20Doe" \
-  -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
+PERSON_ID="$(
+  curl -sS "${BASE}/people/search?q=Jane%20Doe&limit=1" \
+    -H "Authorization: Bearer ${BACKFIELD_API_KEY}" |
+    jq -r '.items[0].id'
+)"
 ```
 
-Note the person's `id` (a UUID) from the response.
+This stores the person's UUID in `PERSON_ID`.
 
 **2. List articles that mention them**
 
 ```bash
-curl "${BASE}/people/{entity_uuid}/articles?pub_date_from=2024-01-01&pub_date_to=2024-12-31" \
+curl "${BASE}/people/${PERSON_ID}/articles?pub_date_from=2024-01-01&pub_date_to=2024-12-31" \
   -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
 ```
 
@@ -194,7 +203,7 @@ The same pattern applies to organizations and locations. All three entity articl
 Use the entity's `…/mentions` routes when you need mention-level evidence (nature, quote spans, article metadata filters) rather than a deduplicated article feed. Entity mention routes share the same filter vocabulary as [List and search mentions](mentions/search.md), plus `sort` and `sort_direction`.
 
 ```bash
-curl "${BASE}/people/{person_id}/mentions?nature=subject&meta=topic:local_government_politics&quote=true" \
+curl "${BASE}/people/${PERSON_ID}/mentions?nature=subject&meta=topic:local_government_politics&quote=true" \
   -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
 ```
 
@@ -239,24 +248,27 @@ Requires a **service** API key with **`runs:trigger`**. The target Agate graph m
 **1. Start a run**
 
 ```bash
-curl -X POST "${BASE}/runs" \
-  -H "Authorization: Bearer ${BACKFIELD_SERVICE_API_KEY}" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "graph_id": "YOUR_GRAPH_ID",
-    "inputs": {
-      "article": { "text": "Story body to process." }
-    }
-  }'
+RUN_ID="$(
+  curl -sS -X POST "${BASE}/runs" \
+    -H "Authorization: Bearer ${BACKFIELD_SERVICE_API_KEY}" \
+    -H "Content-Type: application/json" \
+    -d '{
+      "graph_id": "YOUR_GRAPH_ID",
+      "inputs": {
+        "article": { "text": "Story body to process." }
+      }
+    }' |
+    jq -r '.run_id'
+)"
 ```
 
-Note the `run_id` from the response.
+This stores the returned run id in `RUN_ID`.
 
 **2. Poll until finished**
 
 ```bash
-curl "${BASE}/runs/{run_id}" \
-  -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
+curl "${BASE}/runs/${RUN_ID}" \
+  -H "Authorization: Bearer ${BACKFIELD_SERVICE_API_KEY}"
 ```
 
 See [Trigger run](runs/trigger-run.md) for ingress alias rules and [Get run](runs/get-run.md) for the response shape.

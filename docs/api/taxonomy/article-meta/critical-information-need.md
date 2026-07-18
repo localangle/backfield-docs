@@ -8,7 +8,7 @@ Critical information need metadata (`meta_type=information_needs`) describes the
 ?meta=information_needs:transportation
 ```
 
-Discover values in your project with `information_needs_categories` from [Article facets](../../articles/facets.md) or `GET …/articles/metadata/types/information_needs/values`.
+Discover values in your project with `GET …/articles/metadata/types/information_needs/values`.
 
 ## Categories
 

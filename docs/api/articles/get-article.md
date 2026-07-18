@@ -1,6 +1,6 @@
 # Get article
 
-```
+```http
 GET /public/v1/projects/{project_slug}/articles/{article_id}
 ```
 
@@ -30,7 +30,7 @@ Use optional **`include`** tokens on detail only:
 
 ## Response `200`
 
-Detail responses use the same core article shape as [List and search](search.md), plus an `images` array (up to 10 rows). Without `include=counts`, `counts` and `embedded` are omitted. Without `include=text`, `text` is omitted — only `preview` is returned for body content.
+Detail responses use the same core article shape as [List and search](search.md), plus an `images` array (up to 10 rows). Without `include=counts`, `counts` and `embedded` are present as `null`. Without `include=text`, `text` is omitted — only `preview` is returned for body content.
 
 ```json
 {
@@ -90,10 +90,10 @@ The example above includes `embedded` and `counts` because the request used `?in
 | ----------------------- | -------------- | --------------------------------------------------------------------------------------------------------------- |
 | `id`                    | integer        | Article id                                                                                                      |
 | `headline`              | string         | Headline                                                                                                        |
-| `url`                   | string | null  | Source URL                                                                                                      |
-| `author`                | string | null  | Author                                                                                                          |
-| `pub_date`              | string | null  | Publication date (`YYYY-MM-DD`)                                                                                 |
-| `source`                | object | null  | Publication or outlet when known                                                                                |
+| `url`                   | string \| null  | Source URL                                                                                                      |
+| `author`                | string \| null  | Author                                                                                                          |
+| `pub_date`              | string \| null  | Publication date (`YYYY-MM-DD`)                                                                                 |
+| `source`                | object \| null  | Publication or outlet when known                                                                                |
 | `source.id`             | string         | Stable source identifier — stored external source when set, otherwise the article URL hostname (without `www.`) |
 | `source.name`           | string         | Display label for the outlet                                                                                    |
 | `preview`               | string \| null  | Truncated body snippet (max 280 characters); always included on detail        |
@@ -106,16 +106,16 @@ The example above includes `embedded` and `counts` because the request used `?in
 | `images[].id`           | integer        | Image record id                                                                                                 |
 | `images[].image_id`     | string         | Stable image identifier                                                                                         |
 | `images[].url`          | string         | Image URL                                                                                                       |
-| `images[].caption`      | string | null  | Caption when set                                                                                                |
-| `embedded`              | boolean | null | Present with `include=counts` — `true` when the article has a populated embedding row                           |
-| `counts`                | object | null  | Present with `include=counts` — see below                                                                       |
+| `images[].caption`      | string \| null  | Caption when set                                                                                                |
+| `embedded`              | boolean \| null | `null` unless `include=counts` is requested; then indicates whether the article has an embedding row           |
+| `counts`                | object \| null  | `null` unless `include=counts` is requested — see below                                                        |
 
 
 Read Article Meta tags, such as topic, subject, format, scope, timeframe, and user need, from `metadata[]`.
 
 ### Article metadata only
 
-```
+```http
 GET …/articles/{article_id}/metadata
 ```
 

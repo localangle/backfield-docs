@@ -1,6 +1,6 @@
 # Coverage
 
-```
+```http
 GET /public/v1/projects/{project_slug}/articles/geo-cells
 ```
 
@@ -88,7 +88,7 @@ On pan or zoom, send the current map bounds as `bbox` and map your zoom level to
 | ----------------------- | -------------- | -------------------------------------------------------------------------------- |
 | `resolution`            | integer        | Effective H3 display resolution after auto-coarsen — draw cells at this level    |
 | `derived_resolution`    | integer        | Default resolution the bbox would use when `resolution` is omitted               |
-| `requested_resolution`  | integer | null | Echo of the client-provided `resolution`, or `null` when omitted                 |
+| `requested_resolution`  | integer \| null | Echo of the client-provided `resolution`, or `null` when omitted                 |
 | `bbox_extent_km`        | number         | Characteristic viewport size in kilometers                                       |
 | `coarsened`             | boolean        | `true` when the cell ceiling forced a lower resolution than requested or derived |
 | `cells`                 | object[]       | Hex cells with article counts                                                    |

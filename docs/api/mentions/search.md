@@ -1,6 +1,6 @@
 # List and search mentions
 
-```
+```http
 GET /public/v1/projects/{project_slug}/mentions/search
 ```
 
@@ -25,6 +25,7 @@ Entity-first routes ([List mentions for people](../people/mentions.md), [organiz
 | `nature` | string | — | Filter by mention `nature` (exact match) |
 | `has_canonical` | boolean | — | When `true`, only mentions linked to a canonical record; when `false`, only unlinked |
 | `author` | string | — | Filter by article byline (case-insensitive exact match) |
+| `external_source` | string | — | Filter by article publication or outlet (case-insensitive exact match) |
 | `meta` | string | — | Repeatable metadata filter clause on the parent article (AND across clauses). Same grammar as [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
 | `location_type` | string | — | Filter location mentions by location type |
 | `person_type` | string | — | Filter person mentions by person type |
@@ -91,8 +92,8 @@ Results are ordered by article `pub_date` descending (nulls last), then `mention
         "stylebook_slug": "default"
       },
       "evidence": {
-        "mention_text": "Jane Doe",
-        "quote_text": null,
+        "mention_text": "Mayor Jane Doe announced the plan",
+        "quote": true,
         "start_char": null,
         "end_char": null
       },
@@ -133,6 +134,8 @@ Results are ordered by article `pub_date` descending (nulls last), then `mention
 | `article` | object | Article summary (`id`, `headline`, `url`, `pub_date`) |
 
 Type-specific fields are `null` when they do not apply to the mention's entity type.
+
+When evidence is available, `mention_text` contains quote text when it was stored; otherwise it contains the matched mention text. The boolean `quote` indicates that the occurrence was identified as a quote, even when no separate quote text was stored. `start_char` and `end_char` identify the matched span in the article.
 
 ## Example
 

@@ -1,6 +1,6 @@
 # List people
 
-```
+```http
 GET /public/v1/projects/{project_slug}/articles/{article_id}/people
 ```
 
@@ -48,8 +48,8 @@ Use [List mentions](mentions.md) with `entity_type=person` when you need a unifi
       "nature": "subject",
       "role_in_story": null,
       "evidence": {
-        "mention_text": "Jane Doe",
-        "quote_text": "Mayor Jane Doe announced the plan",
+        "mention_text": "Mayor Jane Doe announced the plan",
+        "quote": true,
         "start_char": 120,
         "end_char": 128
       }
@@ -70,14 +70,16 @@ Use [List mentions](mentions.md) with `entity_type=person` when you need a unifi
 | --------------------- | ------------- | --------------------------------------------------------------------------------- |
 | `mention_id`    | integer       | Mention id                                                                        |
 | `label`         | string        | Display name                                                                      |
-| `title`               | string | null | Job title or role when set                                                        |
-| `affiliation`         | string | null | Organization or affiliation when set                                              |
+| `title`               | string \| null | Job title or role when set                                                        |
+| `affiliation`         | string \| null | Organization or affiliation when set                                              |
 | `public_figure`       | boolean       | Whether the person is flagged as a public figure                                  |
-| `person_type`         | string | null | Person type when set                                                              |
-| `canonical`           | object | null | Linked canonical record (`id`, `slug`, `label`, `stylebook_slug`), when available |
-| `nature`              | string | null | Mention nature when set                                                           |
-| `role_in_story`       | string | null | Role in story when set                                                            |
-| `evidence`            | object | null | First occurrence evidence span                                                    |
+| `person_type`         | string \| null | Person type when set                                                              |
+| `canonical`           | object \| null | Linked canonical record (`id`, `slug`, `label`, `stylebook_slug`), when available |
+| `nature`              | string \| null | Mention nature when set                                                           |
+| `role_in_story`       | string \| null | Role in story when set                                                            |
+| `evidence`            | object \| null | First occurrence evidence span                                                    |
+
+Evidence uses `mention_text`, `quote`, `start_char`, and `end_char`. `mention_text` contains quote text when available; otherwise it contains the matched mention text. `quote` can still be `true` when the occurrence is labeled as a quote but no separate quote text was stored.
 
 
 ## Example

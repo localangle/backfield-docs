@@ -30,9 +30,9 @@ This keeps article detail responses fast and predictable. If you need related da
 | `GET`  | `…/articles/{article_id}`                      | [Get article](get-article.md)                        |
 | `GET`  | `…/articles/search`                            | [List and search](search.md)                         |
 | `GET`  | `…/articles/facets`                            | [Article facets](facets.md)                          |
-| `GET`  | `…/articles/metadata/types`                    | [Metadata](../taxonomy/index.md)                     |
-| `GET`  | `…/articles/metadata/types/{meta_type}/values` | [Metadata](../taxonomy/index.md)                     |
-| `GET`  | `…/articles/{article_id}/metadata`             | [Get article](get-article.md)                        |
+| `GET`  | `…/articles/metadata/types`                    | [List metadata types](metadata-types.md)             |
+| `GET`  | `…/articles/metadata/types/{meta_type}/values` | [List metadata values](metadata-values.md)           |
+| `GET`  | `…/articles/{article_id}/metadata`             | [Get article metadata](get-metadata.md)              |
 | `POST` | `…/articles/semantic-search`                   | [Semantic search](semantic-search.md)                |
 | `GET`  | `…/articles/geo-search`                        | [Geographic search](geo-search.md)                   |
 | `GET`  | `…/articles/geo-cells`                         | [Coverage](../other/geo-cells/coverage.md)           |
@@ -63,12 +63,12 @@ Detail-only:
 
 Optional embeds on [Get article](get-article.md):
 
-- `include=counts` — adds `counts` (mention and entity totals, image count, custom record counts) and `embedded`
+- `include=counts` — populates `counts` (mention and entity totals, image count, custom record counts) and `embedded`; both are otherwise `null`
 - `include=text` — adds `text` (full article body; `preview` is always included)
 
 Optional embeds on list/search routes ([List and search](search.md), [Semantic search](semantic-search.md), [Geographic search](geo-search.md)):
 
-- `include=counts` (or `"include": ["counts"]` on POST semantic search) — adds `counts` and `embedded`
+- `include=counts` (or `"include": ["counts"]` on POST semantic search) — populates `counts` and `embedded`; they are otherwise `null`
 
 Topic categories appear in `metadata[]` with `meta_type=topic`. Filter with `meta=topic:<category>` on any article-metadata filter endpoint — see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta).
 

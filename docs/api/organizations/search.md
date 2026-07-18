@@ -1,13 +1,13 @@
 # List and search organizations
 
-```
-GET /public/v1/projects/{project_slug}/organizations
+```http
+GET /public/v1/projects/{project_slug}/organizations/
 GET /public/v1/projects/{project_slug}/organizations/search
 ```
 
 List or search canonical organizations in a project. Both paths accept the same parameters and return the same response shape.
 
-Use `GET …/organizations` to browse the catalog. Use `GET …/organizations/search` when you want a search-oriented entry point — the behavior is identical.
+Use `GET …/organizations/` to browse the catalog. Use `GET …/organizations/search` when you want a search-oriented entry point — the behavior is identical.
 
 The `q` parameter matches label (case-insensitive). Combine it with structured filters such as `organization_type` and `nature`.
 
