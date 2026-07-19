@@ -190,7 +190,9 @@ curl "${BASE}/people/${PERSON_ID}/articles?pub_date_from=2024-01-01&pub_date_to=
   -H "Authorization: Bearer ${BACKFIELD_API_KEY}"
 ```
 
-The same pattern applies to organizations and locations. All three entity article routes accept `pub_date_from`, `pub_date_to`, and `nature`:
+The same pattern applies to organizations and locations. All three entity
+article routes accept `nature`, `author`, `external_source`, repeatable `meta`,
+`pub_date_from`, `pub_date_to`, and repeatable `include=counts`:
 
 
 | Entity       | Search                                                   | List articles                                   |
@@ -252,6 +254,7 @@ RUN_ID="$(
   curl -sS -X POST "${BASE}/runs" \
     -H "Authorization: Bearer ${BACKFIELD_SERVICE_API_KEY}" \
     -H "Content-Type: application/json" \
+    -H "Idempotency-Key: article-import-001" \
     -d '{
       "graph_id": "YOUR_GRAPH_ID",
       "inputs": {
@@ -262,7 +265,10 @@ RUN_ID="$(
 )"
 ```
 
-This stores the returned run id in `RUN_ID`.
+The trigger returns `202 Accepted`, `Location`, and `Retry-After`. This stores
+the returned run id in `RUN_ID`. Repeating the same idempotency key and body
+within seven days returns the original run with `Idempotency-Replayed: true`;
+reusing the key with a different body returns `409`.
 
 **2. Poll until finished**
 
@@ -271,7 +277,8 @@ curl "${BASE}/runs/${RUN_ID}" \
   -H "Authorization: Bearer ${BACKFIELD_SERVICE_API_KEY}"
 ```
 
-See [Trigger run](runs/trigger-run.md) for ingress alias rules and [Get run](runs/get-run.md) for the response shape.
+See [Trigger run](runs/trigger-run.md) for ingress alias and idempotency rules,
+and [Get run](runs/get-run.md) for the response shape and polling headers.
 
 ## More examples
 
@@ -286,7 +293,7 @@ These recipes cover several common use cases. The rest of the API reference goes
 | Map hex aggregations                     | [Geo cells](other/geo-cells/index.md)          |
 | Trigger an Agate graph run               | [Runs](runs/index.md)                          |
 | Metadata filters and value discovery     | [Metadata](taxonomy/index.md)                  |
-| Pagination and errors                    | [Conventions](conventions/pagination.md)       |
+| Pagination, errors, and rate limits      | [Conventions](conventions/pagination.md)       |
 
 
 Browse the sidebar under **API Reference** for every endpoint, request parameter, and response shape.

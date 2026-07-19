@@ -23,6 +23,7 @@ Use [List mentions](mentions.md) with `entity_type=person` when you need a unifi
 | Name     | Type    | Default | Description                                                                                    |
 | -------- | ------- | ------- | ---------------------------------------------------------------------------------------------- |
 | `nature` | string  | —       | Filter to mentions with this editorial `nature` (exact match), such as `subject` or `official` |
+| `quote`  | boolean | —       | When `true`, return only mentions whose first evidence span is a quote                         |
 | `limit`  | integer | `25`    | Page size (1–100)                                                                              |
 | `offset` | integer | `0`     | Offset for pagination                                                                          |
 
@@ -85,7 +86,7 @@ Evidence uses `mention_text`, `quote`, `start_char`, and `end_char`. `mention_te
 ## Example
 
 ```bash
-curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/articles/1/people?nature=subject" \
+curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/articles/1/people?nature=subject&quote=true" \
   -H "Authorization: Bearer bfk_your_project_api_key"
 ```
 

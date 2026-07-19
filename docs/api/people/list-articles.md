@@ -8,7 +8,9 @@ Return paginated articles that mention a canonical person in the project. Each a
 
 Use this route to build a person's story feed. Use [List mentions](mentions.md) when you need mention-level evidence (nature, quote spans) for each article.
 
-Optional `nature` and publication-date filters apply to matching mentions **before** articles are deduplicated and paginated.
+`nature` applies to matching mentions before articles are deduplicated and
+paginated. Author, publication, metadata, and date filters apply to the parent
+articles.
 
 ## Path parameters
 
@@ -22,6 +24,10 @@ Optional `nature` and publication-date filters apply to matching mentions **befo
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `nature` | string | — | Filter to articles with a mention of this editorial `nature` (exact match) |
+| `author` | string | — | Filter by article byline (case-insensitive exact match) |
+| `external_source` | string | — | Filter by publication or outlet (case-insensitive exact match) |
+| `meta` | string | — | Repeatable article metadata clause; see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
+| `include` | string | — | Repeatable include token. Supported: `counts` |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound on article `pub_date` |
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound on article `pub_date` |
 | `limit` | integer | `25` | Page size (1–100) |
@@ -96,15 +102,15 @@ Each `items[]` entry uses the standard article list shape:
 | `source.name` | string | Display label for the outlet |
 | `preview` | string \| null | Truncated body snippet (max 280 characters) |
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
-| `embedded` | null | Always `null` on this list route |
-| `counts` | null | Always `null` on this list route |
+| `embedded` | boolean \| null | Populated when `include=counts`; otherwise `null` |
+| `counts` | object \| null | Populated when `include=counts`; otherwise `null` |
 | `images` | null | Always `null` on this list route; use [Get article](../articles/get-article.md) for inline images |
 
 ## Example
 
 ```bash
 curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/people/550e8400-e29b-41d4-a716-446655440000/articles\
-?pub_date_from=2024-01-01&pub_date_to=2024-12-31&nature=subject" \
+?meta=topic:local_government_politics&author=Jane%20Doe&include=counts&nature=subject" \
   -H "Authorization: Bearer bfk_your_project_api_key"
 ```
 
@@ -112,7 +118,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
-| `400` | Invalid `pub_date_from` or `pub_date_to` |
+| `400` | Invalid dates, malformed `meta`, or unknown `include` token |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
 | `404` | Unknown project, person, or inactive canonical record |

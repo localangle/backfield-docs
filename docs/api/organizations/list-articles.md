@@ -8,7 +8,9 @@ Return paginated articles that mention a canonical organization in the project. 
 
 Use this route to build an organization's story feed. Use [List mentions](mentions.md) when you need mention-level evidence (nature, quote spans) for each article.
 
-Optional `nature` and publication-date filters apply to matching mentions **before** articles are deduplicated and paginated. Query parameters match [List articles for people](../people/list-articles.md).
+`nature` applies to matching mentions before articles are deduplicated and
+paginated. The remaining filters apply to the parent articles. Query parameters
+match [List articles for people](../people/list-articles.md).
 
 ## Path parameters
 
@@ -22,6 +24,10 @@ Optional `nature` and publication-date filters apply to matching mentions **befo
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `nature` | string | — | Filter to articles with a mention of this editorial `nature` (exact match) |
+| `author` | string | — | Filter by article byline (case-insensitive exact match) |
+| `external_source` | string | — | Filter by publication or outlet (case-insensitive exact match) |
+| `meta` | string | — | Repeatable article metadata clause; see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
+| `include` | string | — | Repeatable include token. Supported: `counts` |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound on article `pub_date` |
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound on article `pub_date` |
 | `limit` | integer | `25` | Page size (1–100) |
@@ -84,7 +90,7 @@ Results are ordered by article `pub_date` descending (nulls last), then article 
 
 ```bash
 curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/organizations/660e8400-e29b-41d4-a716-446655440002/articles\
-?pub_date_from=2024-01-01&pub_date_to=2024-12-31&nature=actor" \
+?external_source=Example%20News&meta=topic:local_government_politics&include=counts&nature=actor" \
   -H "Authorization: Bearer bfk_your_project_api_key"
 ```
 
@@ -92,7 +98,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
-| `400` | Invalid `pub_date_from` or `pub_date_to` |
+| `400` | Invalid dates, malformed `meta`, or unknown `include` token |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
 | `404` | Unknown project, organization, or inactive canonical record |

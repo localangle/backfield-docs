@@ -1,12 +1,21 @@
 # Errors
 
-Application errors use a JSON body whose `detail` is a human-readable string:
+Every Public API error uses the same envelope:
 
 ```json
 {
-  "detail": "Human-readable message"
+  "error": {
+    "code": "bad_request",
+    "message": "Invalid pub_date_from. Use YYYY-MM-DD.",
+    "details": null
+  },
+  "request_id": "req_01J..."
 }
 ```
+
+`error.code` is a stable, machine-readable identifier. `error.message` is for
+people. `error.details` is `null` for simple errors and contains structured
+context when available. `request_id` matches the `X-Request-ID` response header.
 
 ## Status codes
 
@@ -16,7 +25,9 @@ Application errors use a JSON body whose `detail` is a human-readable string:
 | `401` | Missing or invalid API key |
 | `403` | API key lacks access to the requested project |
 | `404` | Project, article, or canonical not found — or outside caller scope |
-| `422` | FastAPI could not validate path, query, or JSON body input |
+| `409` | Request conflicts with existing state, including an idempotency-key conflict |
+| `422` | Path, query, header, or JSON body validation failed |
+| `429` | A per-key or project rate limit was exceeded |
 | `503` | Requested capability is temporarily unavailable |
 
 ## Not found responses
@@ -31,33 +42,52 @@ Invalid date on article search:
 
 ```json
 {
-  "detail": "Invalid pub_date_from. Use YYYY-MM-DD."
-}
-```
-
-Invalid `entity_type` filter on article mentions:
-
-```json
-{
-  "detail": "Invalid entity_type. Use location, person, or organization."
+  "error": {
+    "code": "bad_request",
+    "message": "Invalid pub_date_from. Use YYYY-MM-DD.",
+    "details": null
+  },
+  "request_id": "req_01J..."
 }
 ```
 
 ## Request validation (`422`)
 
-FastAPI validation errors use a structured `detail` array rather than a string:
+Validation failures retain the shared envelope. The individual validation
+issues appear in `error.details`:
 
 ```json
 {
-  "detail": [
-    {
-      "type": "missing",
-      "loc": ["body", "query"],
-      "msg": "Field required",
-      "input": {}
-    }
-  ]
+  "error": {
+    "code": "validation_error",
+    "message": "Request validation failed.",
+    "details": [
+      {
+        "type": "missing",
+        "loc": ["body", "query"],
+        "msg": "Field required",
+        "input": {}
+      }
+    ]
+  },
+  "request_id": "req_01J..."
 }
 ```
 
-Each item identifies the invalid input location and validation message. Client code should handle both application-error strings and validation-error arrays.
+Each item identifies the invalid input location and validation message. Clients
+can parse one envelope for both application errors and request validation.
+
+## Error codes
+
+| Code | Typical status |
+| --- | --- |
+| `bad_request` | `400` |
+| `unauthorized` | `401` |
+| `forbidden` | `403` |
+| `not_found` | `404` |
+| `conflict` | `409` |
+| `validation_error` | `422` |
+| `rate_limit_exceeded` | `429` |
+| `service_unavailable` | `503` |
+
+See [Rate limits](rate-limits.md) for retry headers on `429` responses.

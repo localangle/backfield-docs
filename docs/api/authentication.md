@@ -32,6 +32,20 @@ For a safe rotation, create a replacement key, update every client and verify re
 
 Every Public API response includes an `X-Request-ID` header. You may send your own `X-Request-ID`; otherwise Backfield generates one and returns it. Record this value when troubleshooting and include it with a support request so the server-side request can be traced.
 
+Error bodies also include the same value in `request_id`. See
+[Errors](conventions/errors.md).
+
+## OpenAPI and Playground
+
+The public OpenAPI document is available without authentication at
+`https://api.{organization_slug}.backfield.news/public/v1/openapi.json`. It
+declares this Bearer-token scheme and contains only public endpoints.
+
+The hosted [API Playground](playground.md) keeps a key in browser memory only;
+reloading or closing the page clears it. This is suitable for interactive
+exploration on a trusted device, but application integrations should still keep
+keys in a server-side secret store.
+
 ## Example
 
 ```bash

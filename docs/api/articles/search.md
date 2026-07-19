@@ -28,6 +28,8 @@ The `q` parameter performs a keyword search over **headline**, **article body te
 | `has_mentions`    | string  | —       | Require mentions of `location`, `person`, or `organization`                                                                          |
 | `pub_date_from`   | string  | —       | ISO date `YYYY-MM-DD`, inclusive lower bound                                                                                         |
 | `pub_date_to`     | string  | —       | ISO date `YYYY-MM-DD`, inclusive upper bound                                                                                         |
+| `sort`            | string  | varies  | `relevance` or `pub_date`; defaults to `relevance` with `q`, otherwise `pub_date`                                                    |
+| `sort_direction`  | string  | `desc`  | `asc` or `desc`                                                                                                                      |
 | `limit`           | integer | `25`    | Page size (1–100)                                                                                                                    |
 | `offset`          | integer | `0`     | Offset for pagination                                                                                                                |
 | `include`         | string  | —       | Repeatable include token. Supported: `counts`                                                                                        |
@@ -85,6 +87,8 @@ Each **`items[]`** row uses the standard article list shape — `id`, `headline`
   "has_mentions": null,
   "pub_date_from": "2024-01-01",
   "pub_date_to": null,
+    "sort": "relevance",
+    "sort_direction": "desc",
   "items": [
     {
       "id": 1,
@@ -146,6 +150,8 @@ The example above includes `embedded` and `counts` because the request used `inc
 | `has_mentions` | string \| null | Required mention type (`location`, `person`, or `organization`) |
 | `pub_date_from` | string \| null | Inclusive lower publication date bound |
 | `pub_date_to` | string \| null | Inclusive upper publication date bound |
+| `sort` | string | Effective sort (`relevance` or `pub_date`) |
+| `sort_direction` | string | Effective direction (`asc` or `desc`) |
 | `items[]` | array | Matching articles |
 | `pagination` | object | Pagination envelope |
 
@@ -167,7 +173,9 @@ Each item is an article list row. Core fields match [Get article](get-article.md
 | `counts` | object \| null | `null` unless `include=counts` is requested — see [Get article](get-article.md#counts-embed-includecounts) |
 | `images` | null | Always `null` on list responses; use [Get article](get-article.md) for inline images |
 
-Results are ordered by relevance when `q` is set, otherwise by `pub_date` descending (nulls last), then `id` descending.
+By default, results use relevance descending when `q` is set and publication
+date descending when it is omitted. You may explicitly choose either
+publication-date direction. `sort=relevance` requires a non-empty `q`.
 
 Omit `include=counts` when you do not need `counts` or `embedded` on list items.
 
@@ -177,6 +185,7 @@ Omit `include=counts` when you do not need `counts` or `embedded` on list items.
 | Status | When                                                                            |
 | ------ | ------------------------------------------------------------------------------- |
 | `400`  | Invalid `pub_date_from` or `pub_date_to` format                                 |
+| `400`  | `sort=relevance` without a non-empty `q`                                        |
 | `400`  | Unknown `include` token                                                         |
 | `400`  | Malformed `meta` clause (empty type, trailing `:`, empty category, and similar) |
 | `400`  | More than 25 `meta` clauses or more than 50 categories in one clause            |

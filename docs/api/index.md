@@ -4,6 +4,11 @@ Use the Backfield Public API to search and retrieve data that is created and man
 
 The API is served over HTTPS, accepts JSON, and uses project API keys for authentication.
 
+Explore the contract interactively at the
+[Backfield API Playground](https://playground.backfield.news). The Playground
+keeps API keys in browser memory only and clears them when the page is reloaded
+or closed.
+
 ## Base URL
 
 ```text
@@ -48,6 +53,18 @@ The API applies CORS rules for Backfield product UIs (for example, local Agate a
 
 See [Authentication](authentication.md) for key handling guidance.
 
+## OpenAPI
+
+Each tenant serves the public-only OpenAPI 3.1 contract without authentication:
+
+```text
+https://api.{organization_slug}.backfield.news/public/v1/openapi.json
+```
+
+The document uses the tenant host as its server and keeps `/public/v1` in every
+path. It declares project API keys as HTTP Bearer authentication. See
+[API Playground](playground.md) for interactive use.
+
 ## How these docs are organized
 
 The API reference is organized by resource:
@@ -56,8 +73,9 @@ The API reference is organized by resource:
 | Section                                  | Use it for                                                                |
 | ---------------------------------------- | ------------------------------------------------------------------------- |
 | [Authentication](authentication.md)      | API keys and authorization headers                                        |
+| [API Playground](playground.md)          | Explore the OpenAPI contract and try requests safely                       |
 | [Examples](examples.md)                  | Common search and retrieval patterns with example requests                |
-| [Conventions](conventions/pagination.md) | Pagination, [errors](conventions/errors.md), and shared response patterns |
+| [Conventions](conventions/pagination.md) | Pagination, [errors](conventions/errors.md), [rate limits](conventions/rate-limits.md), and shared response patterns |
 | [Metadata](taxonomy/index.md)            | Article Meta, Mention Meta, Entity Meta, and filter value catalogs       |
 | [Projects](projects/index.md)            | Checking project metadata and access                                      |
 | [Articles](articles/index.md)            | Searching articles and retrieving article context                         |

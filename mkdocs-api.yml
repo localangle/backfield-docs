@@ -42,10 +42,12 @@ theme:
 nav:
   - Overview: api/index.md
   - Authentication: api/authentication.md
+  - API Playground: api/playground.md
   - Examples: api/examples.md
   - Conventions:
       - Pagination: api/conventions/pagination.md
       - Errors: api/conventions/errors.md
+      - Rate limits: api/conventions/rate-limits.md
   - Projects:
       - api/projects/index.md
       - Get project: api/projects/get-project.md

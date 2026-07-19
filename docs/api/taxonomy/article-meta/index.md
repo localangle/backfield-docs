@@ -78,6 +78,12 @@ URL-encode `|` as `%7C` in GET query strings.
 
 Malformed clauses (empty type, trailing `:`, empty category in a list) return `400`.
 
+Use `meta` as the only article-metadata filter input. Compatibility query
+parameters such as `meta_type`, `meta_category`, `exclude_meta_type`, and
+`exclude_meta_category` are not part of the v1 contract. For article fields,
+use `external_source` rather than `source`; `section` is not a supported public
+filter.
+
 ## Discover values in your project
 
 Projects may not use every category. Discover values with [Article facets](../../articles/facets.md) or the metadata types routes:

@@ -19,7 +19,7 @@ The response does not include per-item bodies, AI costs, or review overlays.
 
 ## Response `200`
 
-Same shape as [Trigger run](trigger-run.md#response-200):
+Same body shape as [Trigger run](trigger-run.md#response-202):
 
 ```json
 {
@@ -40,6 +40,9 @@ Same shape as [Trigger run](trigger-run.md#response-200):
 
 `counts` reflect processed-item row statuses when items exist. For single-item text/JSON runs before items are materialized, counts may be inferred from run status.
 
+When `status` is `pending` or `running`, the response includes `Retry-After`
+with the recommended polling delay in seconds. Terminal responses omit it.
+
 ## Example
 
 ```bash
@@ -54,6 +57,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
 | `404` | Unknown project or run not belonging to this project |
+| `429` | Read rate limit exceeded; wait for `Retry-After` |
 
 ## Related
 

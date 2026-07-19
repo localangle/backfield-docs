@@ -28,6 +28,10 @@ Most list endpoints return `items` and `pagination`:
 
 Article search endpoints ([List and search](../articles/search.md), [Semantic search](../articles/semantic-search.md), [Geographic search](../articles/geo-search.md)) extend this envelope with **query echo fields** at the top level — the effective filters or embedding metadata for the request — before `items` and `pagination`.
 
+Entity connection routes also use this envelope. Older clients must read
+connections from `items`; the unpaginated `connections` field is not part of
+the v1 contract.
+
 
 | Field               | Type    | Description                                                           |
 | ------------------- | ------- | --------------------------------------------------------------------- |
