@@ -1,6 +1,16 @@
-site_name: Backfield API Reference
-site_description: Public API reference for Backfield.
+site_name: Backfield documentation
+site_description: Documentation for the Backfield APIs.
 site_url: https://docs.backfield.news
+
+# Same chrome as the full site, without Platform. `/index.md` is root-only
+# (gitignore-style); a bare `index.md` would exclude every section hub page.
+exclude_docs: |
+  /index.md
+  platform/**
+  tutorials/**
+
+hooks:
+  - hooks/api_only_homepage.py
 
 theme:
   name: material
@@ -40,106 +50,110 @@ theme:
     repo: fontawesome/brands/github
 
 nav:
-  - Overview: api/index.md
-  - Authentication: api/authentication.md
-  - API Playground: api/playground.md
-  - Examples: api/examples.md
-  - Conventions:
-      - Pagination: api/conventions/pagination.md
-      - Errors: api/conventions/errors.md
-      - Rate limits: api/conventions/rate-limits.md
-  - Projects:
-      - api/projects/index.md
-      - Get project: api/projects/get-project.md
-  - Metadata:
-      - api/taxonomy/index.md
-      - Article Meta:
-          - api/taxonomy/article-meta/index.md
-          - Critical Information Need: api/taxonomy/article-meta/critical-information-need.md
-          - Custom: api/taxonomy/article-meta/custom.md
-          - Format: api/taxonomy/article-meta/format.md
-          - Scope: api/taxonomy/article-meta/scope.md
-          - Topic: api/taxonomy/article-meta/topic.md
-          - Subject: api/taxonomy/article-meta/subject.md
-          - Timeframe: api/taxonomy/article-meta/timeframe.md
-          - User Need: api/taxonomy/article-meta/user-need.md
-      - Mention Meta:
-          - api/taxonomy/mention-meta/index.md
-          - People: api/taxonomy/mention-meta/people.md
-          - Organizations: api/taxonomy/mention-meta/organizations.md
-          - Locations: api/taxonomy/mention-meta/locations.md
-      - Entity Meta:
-          - api/taxonomy/entity-meta/index.md
-          - People: api/taxonomy/entity-meta/people.md
-          - Organizations: api/taxonomy/entity-meta/organizations.md
-          - Locations: api/taxonomy/entity-meta/locations.md
-      - Facets:
-          - Article facets: api/articles/facets.md
-          - Mention facets: api/mentions/facets.md
-  - Articles:
-      - api/articles/index.md
-      - Get article: api/articles/get-article.md
-      - List and search: api/articles/search.md
-      - Semantic search: api/articles/semantic-search.md
-      - Geographic search: api/articles/geo-search.md
-      - Metadata endpoints:
-          - List metadata types: api/articles/metadata-types.md
-          - List metadata values: api/articles/metadata-values.md
-          - Get article metadata: api/articles/get-metadata.md
-      - Detail endpoints:
-          - api/articles/hub/index.md
-          - List mentions: api/articles/hub/mentions.md
-          - List people: api/articles/hub/people.md
-          - List organizations: api/articles/hub/organizations.md
-          - List locations: api/articles/hub/locations.md
-          - List custom records: api/articles/hub/custom-records.md
-          - List images: api/articles/hub/images.md
-  - Mentions:
-      - api/mentions/index.md
-      - Get mention: api/mentions/get-mention.md
-      - List and search: api/mentions/search.md
-  - Entities:
-      - api/entities/index.md
-      - People:
-          - api/people/index.md
-          - Get person: api/people/get-person.md
-          - List and search: api/people/search.md
-          - List types: api/people/types.md
-          - List articles: api/people/list-articles.md
-          - List mentions: api/people/mentions.md
-          - List connections: api/people/connections.md
-      - Locations:
-          - api/locations/index.md
-          - Get location: api/locations/get-location.md
-          - List and search: api/locations/search.md
-          - List types: api/locations/types.md
-          - Geographic search: api/locations/geo-search.md
-          - List articles: api/locations/list-articles.md
-          - List mentions: api/locations/mentions.md
-          - List connections: api/locations/connections.md
-      - Organizations:
-          - api/organizations/index.md
-          - Get organization: api/organizations/get-organization.md
-          - List and search: api/organizations/search.md
-          - List types: api/organizations/types.md
-          - List articles: api/organizations/list-articles.md
-          - List mentions: api/organizations/mentions.md
-          - List connections: api/organizations/connections.md
-  - Other:
-      - api/other/index.md
-      - Custom records: api/custom-records/index.md
-      - Mention timeline:
-          - api/other/mention-timeline/index.md
-          - Get timeline: api/other/mention-timeline/get-timeline.md
-      - Geo cells:
-          - api/other/geo-cells/index.md
-          - Coverage: api/other/geo-cells/coverage.md
-          - List articles: api/other/geo-cells/list-articles.md
-          - Batch query: api/other/geo-cells/query.md
-      - Runs:
-          - api/runs/index.md
-          - Trigger run: api/runs/trigger-run.md
-          - Get run: api/runs/get-run.md
+  - API Reference:
+      - Overview: api/index.md
+      - Authentication: api/authentication.md
+      - API Playground: api/playground.md
+      - Examples: api/examples.md
+      - Conventions:
+          - Pagination: api/conventions/pagination.md
+          - Errors: api/conventions/errors.md
+          - Rate limits: api/conventions/rate-limits.md
+      - Projects:
+          - api/projects/index.md
+          - Get project: api/projects/get-project.md
+      - Metadata:
+          - api/taxonomy/index.md
+          - Article Meta:
+              - api/taxonomy/article-meta/index.md
+              - Critical Information Need: api/taxonomy/article-meta/critical-information-need.md
+              - Custom: api/taxonomy/article-meta/custom.md
+              - Format: api/taxonomy/article-meta/format.md
+              - Scope: api/taxonomy/article-meta/scope.md
+              - Topic: api/taxonomy/article-meta/topic.md
+              - Subject: api/taxonomy/article-meta/subject.md
+              - Timeframe: api/taxonomy/article-meta/timeframe.md
+              - User Need: api/taxonomy/article-meta/user-need.md
+          - Mention Meta:
+              - api/taxonomy/mention-meta/index.md
+              - People: api/taxonomy/mention-meta/people.md
+              - Organizations: api/taxonomy/mention-meta/organizations.md
+              - Locations: api/taxonomy/mention-meta/locations.md
+          - Entity Meta:
+              - api/taxonomy/entity-meta/index.md
+              - People: api/taxonomy/entity-meta/people.md
+              - Organizations: api/taxonomy/entity-meta/organizations.md
+              - Locations: api/taxonomy/entity-meta/locations.md
+          - Facets:
+              - Article facets: api/articles/facets.md
+              - Mention facets: api/mentions/facets.md
+      - Articles:
+          - api/articles/index.md
+          - Get article: api/articles/get-article.md
+          - List and search: api/articles/search.md
+          - Semantic search: api/articles/semantic-search.md
+          - Geographic search: api/articles/geo-search.md
+          - Metadata endpoints:
+              - List metadata types: api/articles/metadata-types.md
+              - List metadata values: api/articles/metadata-values.md
+              - Get article metadata: api/articles/get-metadata.md
+          - Detail endpoints:
+              - api/articles/hub/index.md
+              - List mentions: api/articles/hub/mentions.md
+              - List people: api/articles/hub/people.md
+              - List organizations: api/articles/hub/organizations.md
+              - List locations: api/articles/hub/locations.md
+              - List custom records: api/articles/hub/custom-records.md
+              - List images: api/articles/hub/images.md
+      - Mentions:
+          - api/mentions/index.md
+          - Get mention: api/mentions/get-mention.md
+          - List and search: api/mentions/search.md
+      - Entities:
+          - api/entities/index.md
+          - People:
+              - api/people/index.md
+              - Get person: api/people/get-person.md
+              - List and search: api/people/search.md
+              - List types: api/people/types.md
+              - List articles: api/people/list-articles.md
+              - List mentions: api/people/mentions.md
+              - List connections: api/people/connections.md
+          - Locations:
+              - api/locations/index.md
+              - Get location: api/locations/get-location.md
+              - List and search: api/locations/search.md
+              - List types: api/locations/types.md
+              - Geographic search: api/locations/geo-search.md
+              - List articles: api/locations/list-articles.md
+              - List mentions: api/locations/mentions.md
+              - List connections: api/locations/connections.md
+          - Organizations:
+              - api/organizations/index.md
+              - Get organization: api/organizations/get-organization.md
+              - List and search: api/organizations/search.md
+              - List types: api/organizations/types.md
+              - List articles: api/organizations/list-articles.md
+              - List mentions: api/organizations/mentions.md
+              - List connections: api/organizations/connections.md
+      - Other:
+          - api/other/index.md
+          - Custom records: api/custom-records/index.md
+          - Mention timeline:
+              - api/other/mention-timeline/index.md
+              - Get timeline: api/other/mention-timeline/get-timeline.md
+          - Geo cells:
+              - api/other/geo-cells/index.md
+              - Coverage: api/other/geo-cells/coverage.md
+              - List articles: api/other/geo-cells/list-articles.md
+              - Batch query: api/other/geo-cells/query.md
+          - Runs:
+              - api/runs/index.md
+              - Trigger run: api/runs/trigger-run.md
+              - Get run: api/runs/get-run.md
+  - Support:
+      - support/index.md
+      - FAQ: support/faq.md
 
 markdown_extensions:
   - admonition
