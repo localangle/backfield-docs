@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>https://docs.backfield.news/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
          <loc>https://docs.backfield.news/api/</loc>
          <lastmod>2026-07-20</lastmod>
     </url>
@@ -341,143 +337,11 @@
          <lastmod>2026-07-20</lastmod>
     </url>
     <url>
-         <loc>https://docs.backfield.news/platform/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/getting-started/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/simple-example/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/flows/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/processed-items/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/runs/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/nodes/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/nodes/embedding/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/nodes/enrichment/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/nodes/extractors/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/nodes/flow-control/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/nodes/inputs/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/agate/nodes/outputs/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/concepts/content-model/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/concepts/organizations/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/concepts/projects/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/concepts/users/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/settings/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/settings/ai-models/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/settings/api-keys/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/settings/integrations/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/canonicalization/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/connections/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/entity-types/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/geography/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/import-export/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/mentions/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/meta/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/platform/stylebook/stylebooks/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
          <loc>https://docs.backfield.news/support/</loc>
          <lastmod>2026-07-20</lastmod>
     </url>
     <url>
          <loc>https://docs.backfield.news/support/faq/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/tutorials/</loc>
-         <lastmod>2026-07-20</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.backfield.news/tutorials/quickstart/</loc>
          <lastmod>2026-07-20</lastmod>
     </url>
 </urlset>
