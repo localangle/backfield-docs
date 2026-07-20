@@ -1,8 +1,9 @@
 # API Playground
 
-Use the hosted [Backfield API Playground](https://playground.backfield.news) to
-explore the public OpenAPI contract, inspect endpoint parameters and schemas,
-and send requests to your Backfield tenant.
+Use your organization's hosted API Playground to explore the public OpenAPI
+contract, inspect endpoint parameters and schemas, and send requests to your
+Backfield tenant. The Playground URL is client-specific; open it from Agate or
+use the host provided for your organization.
 
 The Playground loads the public contract from:
 

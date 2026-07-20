@@ -4,10 +4,9 @@ Use the Backfield Public API to search and retrieve data that is created and man
 
 The API is served over HTTPS, accepts JSON, and uses project API keys for authentication.
 
-Explore the contract interactively at the
-[Backfield API Playground](https://playground.backfield.news). The Playground
-keeps API keys in browser memory only and clears them when the page is reloaded
-or closed.
+Explore the contract interactively in your organization's
+[API Playground](playground.md). The Playground keeps API keys in browser
+memory only and clears them when the page is reloaded or closed.
 
 ## Base URL
 

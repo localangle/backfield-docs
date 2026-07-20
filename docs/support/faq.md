@@ -23,7 +23,7 @@
     Yes. Limits apply per API key and to the project in one-minute windows. Responses include standard rate-limit headers; a `429` response includes `Retry-After`. See [Rate limits](../api/conventions/rate-limits.md).
 
 ??? question "Where can I try the API?"
-    Use the hosted [API Playground](https://playground.backfield.news). It loads your tenant's public OpenAPI contract and keeps an entered key in browser memory only; reloading or closing the page clears it.
+    Use your organization's hosted [API Playground](../api/playground.md). The URL is client-specific (open it from Agate or use the host provided for your organization). It loads your tenant's public OpenAPI contract and keeps an entered key in browser memory only; reloading or closing the page clears it.
 
 ??? question "Where is the OpenAPI schema?"
     Each tenant exposes its public schema without authentication:

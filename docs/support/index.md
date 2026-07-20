@@ -12,7 +12,7 @@ Start with these resources:
 - [Errors](../api/conventions/errors.md) — error envelopes, status codes, and request IDs
 - [FAQ](faq.md) — common setup and usage questions
 
-The hosted API Playground is available at [playground.backfield.news](https://playground.backfield.news).
+The hosted API Playground is client-specific. Open it from Agate or use the host provided for your organization. See [API Playground](../api/playground.md).
 
 ## Bugs and feature requests
 
