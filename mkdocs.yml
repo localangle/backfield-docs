@@ -40,7 +40,6 @@ theme:
     repo: fontawesome/brands/github
 
 nav:
-  - Home: index.md
   - Platform:
       - platform/index.md
       - Getting Started: platform/getting-started.md
@@ -182,6 +181,7 @@ nav:
   - Tutorials:
       - tutorials/index.md
       - Quickstart: tutorials/quickstart.md
+  - Changelog: changelog.md
   - Support:
       - support/index.md
       - FAQ: support/faq.md

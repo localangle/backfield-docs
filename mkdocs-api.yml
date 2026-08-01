@@ -151,6 +151,7 @@ nav:
               - api/runs/index.md
               - Trigger run: api/runs/trigger-run.md
               - Get run: api/runs/get-run.md
+  - Changelog: changelog.md
   - Support:
       - support/index.md
       - FAQ: support/faq.md
