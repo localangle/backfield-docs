@@ -7,7 +7,10 @@ site_url: https://docs.backfield.news
 exclude_docs: |
   /index.md
   platform/**
-  tutorials/**
+  tutorials/index.md
+  tutorials/quickstart.md
+  tutorials/agate/**
+  tutorials/stylebook/**
 
 hooks:
   - hooks/api_only_homepage.py
@@ -151,6 +154,13 @@ nav:
               - api/runs/index.md
               - Trigger run: api/runs/trigger-run.md
               - Get run: api/runs/get-run.md
+  - Tutorials:
+      - tutorials/api/index.md
+      - Create an API key: tutorials/api/create-api-key.md
+      - Use the API Playground: tutorials/api/playground.md
+      - Query project data: tutorials/api/query-data.md
+      - Search project data: tutorials/api/search.md
+      - Trigger and monitor a run: tutorials/api/trigger-run.md
   - Changelog: changelog.md
   - Support:
       - support/index.md

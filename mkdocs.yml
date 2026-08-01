@@ -181,6 +181,43 @@ nav:
   - Tutorials:
       - tutorials/index.md
       - Quickstart: tutorials/quickstart.md
+      - Agate:
+          - tutorials/agate/index.md
+          - Administration:
+              - Manage users: tutorials/agate/manage-users.md
+              - Configure AI models: tutorials/agate/configure-models.md
+              - Configure integrations: tutorials/agate/configure-integrations.md
+              - Manage Stylebooks: tutorials/agate/manage-stylebooks.md
+          - Projects:
+              - Create and tour a project: tutorials/agate/create-project.md
+          - Flows:
+              - Build a first flow: tutorials/agate/build-flow.md
+              - Extract entities: tutorials/agate/extract-entities.md
+              - Add article metadata: tutorials/agate/article-metadata.md
+              - Build a custom extraction: tutorials/agate/custom-extraction.md
+              - Run and monitor a flow: tutorials/agate/run-flow.md
+          - Review:
+              - Correct processed items: tutorials/agate/review-processed-items.md
+              - Rerun processed items: tutorials/agate/rerun-items.md
+      - Stylebook:
+          - tutorials/stylebook/index.md
+          - Canonical records:
+              - Import canonical records: tutorials/stylebook/import-canonicals.md
+              - Edit canonical records: tutorials/stylebook/edit-canonicals.md
+              - Manage connections: tutorials/stylebook/connections.md
+          - Review:
+              - Review candidate queues: tutorials/stylebook/review-candidates.md
+              - Check catalog quality: tutorials/stylebook/review-catalog.md
+      - Backfield API:
+          - tutorials/api/index.md
+          - Getting started:
+              - Create an API key: tutorials/api/create-api-key.md
+              - Use the API Playground: tutorials/api/playground.md
+          - Querying:
+              - Query project data: tutorials/api/query-data.md
+              - Search project data: tutorials/api/search.md
+          - Automation:
+              - Trigger and monitor a run: tutorials/api/trigger-run.md
   - Changelog: changelog.md
   - Support:
       - support/index.md
