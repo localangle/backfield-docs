@@ -4,7 +4,7 @@
 GET /public/v1/projects/{project_slug}/organizations/types
 ```
 
-Return distinct organization type values for the project's catalog. Use this to populate filter dropdowns before calling [List and search](search.md).
+Return distinct organization type values for the project's assigned Stylebook. Use this to populate filter dropdowns before calling [List and search](search.md).
 
 For the full catalog of allowed values and meanings, see [Entity Meta → Organizations](../taxonomy/entity-meta/organizations.md). The response includes both catalog defaults and types stored on active canonical records.
 
@@ -13,6 +13,12 @@ For the full catalog of allowed values and meanings, see [Entity Meta → Organi
 | Name | Type | Description |
 | --- | --- | --- |
 | `project_slug` | string | Project slug |
+
+## Query parameters
+
+| Name | Type | Default | Description |
+| --- | --- | --- | --- |
+| `stylebook_slug` | string | — | Optional compatibility check; when set, must match the project's assigned Stylebook |
 
 ## Response `200`
 
@@ -37,9 +43,10 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
+| `400` | `stylebook_slug` names a different Stylebook in the project organization |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
-| `404` | Unknown `project_slug` |
+| `404` | Unknown `project_slug` or unknown/foreign `stylebook_slug` |
 
 ## Related
 

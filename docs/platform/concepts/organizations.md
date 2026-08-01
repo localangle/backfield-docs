@@ -4,15 +4,19 @@ Backfield is organized in a simple hierarchy. Understanding it helps you know wh
 
 ## Organization
 
-An **organization** is your newsroom or company — the top-level account. It owns everything else: the people who have access, your shared settings (AI models, integrations), your Stylebook catalogs, and all of your projects.
-
-Most implementations will be based on a single organization.
+An **organization** is your newsroom or company — the top-level tenant. It owns
+everything else: the people who have access, your shared settings (AI models,
+integrations), your Stylebook catalogs, and all of your projects. One Backfield
+deployment can host several organizations; users with several memberships
+choose an organization when signing in and can switch organizations afterward.
 
 ## Workspace
 
 A **workspace** is an optional way to group related projects under an organization — for example, by desk, beat, or initiative. Workspaces are mainly an organizational convenience; if your team is small, you may not need more than the default.
 
-A workspace also sets some shared defaults for the projects inside it, such as which [Stylebook](../stylebook/stylebooks.md) those projects use unless a project chooses a different one.
+A workspace also sets defaults used when projects are created, such as the
+[Stylebook](../stylebook/stylebooks.md). Each project then keeps one
+authoritative Stylebook assignment.
 
 ## Project
 

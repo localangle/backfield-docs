@@ -1,6 +1,8 @@
 # Projects
 
-Most public API routes are scoped to a project. Use project endpoints to confirm access, read project metadata and summary stats, and discover the catalog used for entity data.
+Most public API routes are scoped to a project. Use project endpoints to
+confirm access, read project metadata and summary stats, and discover the
+Stylebook assigned to the project.
 
 ## Endpoints
 
@@ -19,7 +21,10 @@ Once you know the project slug, other resources live under:
 /projects/{project_slug}/organizations/…
 ```
 
-Your API key must have access to the project you query.
+Project slugs are unique within a Backfield organization. Your organization is
+selected by the API host, and a project API key resolves its bound project
+before Backfield validates `{project_slug}`. The slug must match the key's
+project even if another organization has a project with the same slug.
 
 ## Related
 

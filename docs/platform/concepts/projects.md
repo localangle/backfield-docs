@@ -18,15 +18,24 @@ When you query the [Public API](../../api/index.md), you're always asking about 
 ## How projects relate to the rest of Backfield
 
 - A project belongs to one [organization](organizations.md), optionally grouped into a [workspace](organizations.md).
-- A project draws on shared organization settings (models, integrations, Stylebook catalogs) but can override many of them for its own needs.
+- A project draws on shared organization settings such as models and
+  integrations, and is assigned one same-organization
+  [Stylebook](../stylebook/stylebooks.md). That Stylebook is authoritative for
+  every flow and entity operation in the project.
 - Access is granted per project, so different teams can work in different projects without seeing each other's data. See [Users & access](users.md).
 
 ## The project slug
 
-Every project has a human-readable **slug**. You'll use it when calling the API:
+Every project has a human-readable **slug**, unique within its organization.
+Different organizations may use the same project slug. You'll use it when
+calling the API:
 
 ```text
 /projects/{project_slug}/…
 ```
 
 You can find your slug in the project's settings, or confirm it with the [Get project](../../api/projects/get-project.md) endpoint.
+
+A project API key is bound to one project. The Public API resolves that binding
+before validating the slug, so a matching slug in another organization cannot
+redirect the request.

@@ -24,6 +24,13 @@ Each entity type follows the same structure:
 
 Entity ids are UUID strings. Canonical records include a `stylebook_slug` identifying which Stylebook catalog they belong to. List, detail, and geographic search responses include **`counts`** with project-scoped **`mentions`** and **`stories`** totals.
 
+Each project has one assigned Stylebook. People, organization, and location
+list/search and types routes—and location geographic search—accept an optional
+`stylebook_slug` compatibility parameter. When supplied, it must match the
+project's assigned Stylebook. A different Stylebook in the same organization
+returns `400`; an unknown or another organization's Stylebook returns `404`.
+Omit the parameter for normal use.
+
 For `person_type`, `organization_type`, and `location_type` catalogs, see [Entity Meta](../taxonomy/entity-meta/index.md).
 
 ## Article-first vs entity-first

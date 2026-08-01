@@ -5,6 +5,11 @@ contract, inspect endpoint parameters and schemas, and send requests to your
 Backfield tenant. The Playground URL is client-specific; open it from Agate or
 use the host provided for your organization.
 
+Opening the Playground requires a signed-in Backfield session. If your account
+belongs to more than one organization, select the organization whose project
+you intend to query. The project API key still determines the API project
+scope when you execute a request.
+
 The Playground loads the public contract from:
 
 ```text
@@ -17,16 +22,18 @@ authentication.
 
 ## Key handling
 
-Project API keys entered in the Playground are held in browser memory only.
-They are not written to local storage, session storage, cookies, or the
-Playground server. Reloading or closing the page clears the key.
+Project API keys entered in the Playground are written to tab-scoped browser
+session storage. They are not written to long-lived local storage, cookies, or
+the Playground server. A key survives a reload in the same tab and is removed
+when you clear it, sign out, or close the tab under the browser's normal
+session-storage lifecycle.
 
 Use a key scoped to the project you are exploring. Because the key is still
 present in the active browser tab while you use it:
 
 - use the Playground only on a trusted device;
 - do not paste keys into screenshots, support messages, or shared recordings;
-- clear the key or close the tab when finished;
+- clear the key or sign out when finished;
 - rotate the key if it may have been exposed.
 
 For production applications, keep API keys in a server-side secret store and

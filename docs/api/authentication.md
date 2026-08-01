@@ -1,6 +1,8 @@
 # Authentication
 
-All API requests require a **project API key**. Send the key as a Bearer token in the `Authorization` header.
+All documented API operations require a **project API key**. The public OpenAPI
+document is the only unauthenticated endpoint. Send the key as a Bearer token
+in the `Authorization` header.
 
 ## Header
 
@@ -8,7 +10,11 @@ All API requests require a **project API key**. Send the key as a Bearer token i
 Authorization: Bearer bfk_<project_api_key>
 ```
 
-Create keys in **Agate**: open the project, select its **API** tab, then choose **New access key**. A key belongs to that project only, so `{project_slug}` must identify the same project.
+Create keys in **Agate**: open the project, select its **API** tab, then choose
+**New access key**. A key belongs to that project only, so `{project_slug}`
+must identify the same project. Project API keys are accepted only by
+`/public/v1` endpoints; they cannot authenticate Agate, Stylebook, or other
+internal API routes.
 
 The full secret is displayed once, immediately after creation. Copy it to a password manager or secret store before closing the dialog; Backfield cannot show it again.
 
@@ -24,7 +30,15 @@ The full secret is displayed once, immediately after creation. Copy it to a pass
 
 Do not expose API keys in browser code, mobile apps, logs, or public repositories. Rotate keys if they are shared accidentally.
 
-Personal keys are owned by the user who created them. Their owner can rotate or revoke them; organization administrators can also revoke them. Service keys are managed by organization administrators.
+Personal keys are owned by the user who created them. Their owner can rotate or
+revoke them; organization administrators can also revoke them. On every
+request, Backfield confirms that the owner is enabled, still belongs to the
+project's organization, and still has access to the project. Disabling the
+owner, removing the organization membership, or removing all project access
+invalidates the key on the next request.
+
+Service keys are ownerless credentials managed by organization administrators
+for trusted automation. Legacy ownerless personal keys are rejected.
 
 For a safe rotation, create a replacement key, update every client and verify requests with the replacement, then revoke the old key. Revoking first causes clients using the old key to receive `401` responses.
 
@@ -41,10 +55,11 @@ The public OpenAPI document is available without authentication at
 `https://api.{organization_slug}.backfield.news/public/v1/openapi.json`. It
 declares this Bearer-token scheme and contains only public endpoints.
 
-The hosted [API Playground](playground.md) keeps a key in browser memory only;
-reloading or closing the page clears it. This is suitable for interactive
-exploration on a trusted device, but application integrations should still keep
-keys in a server-side secret store.
+The hosted [API Playground](playground.md) keeps a key in tab-scoped session
+storage. It survives page reloads and is removed when you clear it, sign out,
+or close the tab under the browser's normal session-storage lifecycle. This is
+suitable for interactive exploration on a trusted device, but application
+integrations should still keep keys in a server-side secret store.
 
 ## Example
 
@@ -58,8 +73,8 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When                                                      |
 | ------ | --------------------------------------------------------- |
-| `401`  | Missing or invalid API key                                |
-| `403`  | Key is valid but not authorized for the requested project |
+| `401`  | Missing, invalid, revoked, or no-longer-authorized API key |
+| `403`  | Key is valid but bound to a different project, or lacks a required scope |
 
 
 If a project or resource cannot be found for your key, the API may return **404**. See [Errors](conventions/errors.md).

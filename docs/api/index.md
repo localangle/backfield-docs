@@ -5,14 +5,19 @@ Use the Backfield Public API to search and retrieve data that is created and man
 The API is served over HTTPS, accepts JSON, and uses project API keys for authentication.
 
 Explore the contract interactively in your organization's
-[API Playground](playground.md). The Playground keeps API keys in browser
-memory only and clears them when the page is reloaded or closed.
+[API Playground](playground.md). The Playground keeps API keys in tab-scoped
+session storage so they survive a reload without persisting as long-term
+browser data.
 
 ## Base URL
 
 ```text
 https://api.{organization_slug}.backfield.news/public/v1
 ```
+
+Replace `{organization_slug}` with your Backfield organization slug. The host
+selects your organization; project slugs are unique within an organization, not
+across all Backfield clients.
 
 Local development environments may use:
 
@@ -28,7 +33,10 @@ Most endpoints retrieve data at the project level and therefore require a projec
 /projects/{project_slug}/…
 ```
 
-The slug identifies the project you want to query. Your API key must have access to that project.
+The slug identifies the project you want to query. A project API key is bound
+to one project, and the path slug must match that project. The organization and
+project context come from the validated key; request headers cannot redirect a
+project key to another tenant or project.
 
 ## Quick start
 
@@ -37,7 +45,9 @@ The slug identifies the project you want to query. Your API key must have access
     curl "https://api.{organization_slug}.backfield.news/public/v1/projects/YOUR_PROJECT_SLUG" \
       -H "Authorization: Bearer bfk_your_project_api_key"
   ```
-    A `200` response confirms the slug and returns project metadata. A `404` means the slug is wrong or your key cannot access that project.
+    A `200` response confirms the slug and returns project metadata. A `403`
+    means the key is bound to a different project; a `404` means the project or
+    resource is not found in the resolved scope.
 2. **Call an endpoint** using that slug. Examples in these docs use `general` as a placeholder:
   ```bash
     curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general" \

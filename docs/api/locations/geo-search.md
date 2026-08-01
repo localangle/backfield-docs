@@ -35,6 +35,7 @@ min_lng,min_lat,max_lng,max_lat
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
+| `stylebook_slug` | string | — | Optional compatibility check; when set, must match the project's assigned Stylebook |
 | `center_lng` | number | — | Center longitude for point mode |
 | `center_lat` | number | — | Center latitude for point mode |
 | `radius_miles` | number | — | Radius in miles for point mode |
@@ -105,10 +106,10 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
-| `400` | Missing search area, both modes provided, or invalid `bbox` |
+| `400` | Missing/invalid search area, or `stylebook_slug` names a different assigned Stylebook |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
-| `404` | Unknown `project_slug` |
+| `404` | Unknown `project_slug` or unknown/foreign `stylebook_slug` |
 
 ## Related
 

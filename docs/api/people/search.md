@@ -23,6 +23,7 @@ Use [Types](types.md) to discover available `person_type` values in your project
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
+| `stylebook_slug` | string | — | Optional compatibility check; when set, must match the project's assigned Stylebook |
 | `q` | string | — | Case-insensitive match on label, title, or affiliation |
 | `person_type` | string | — | Exact person type filter |
 | `public_figure` | boolean | — | Filter by public-figure flag |
@@ -96,9 +97,10 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
+| `400` | `stylebook_slug` names a different Stylebook in the project organization |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
-| `404` | Unknown `project_slug` |
+| `404` | Unknown `project_slug` or unknown/foreign `stylebook_slug` |
 
 ## Related
 
