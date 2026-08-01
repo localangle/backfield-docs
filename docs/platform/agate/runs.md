@@ -26,9 +26,16 @@ Start a run from a flow when the pipeline is complete and valid. Agate uses the 
 
 **Text Input** and **JSON Input** nodes are designed to process a single article. This is often helpful for testing a flow. Runs with a single input yield a single processed item.
 
-**S3 Input** processes a batch of articles and is more often used for regular production runs. By default, Agate can process 8 articles at a time simultaneously. Developers can change this by tuning the project's environment variables.
+**S3 Input** processes a batch of article files and is more often used for
+regular production runs. Agate prepares the item list, then workers process
+items concurrently according to the deployment's capacity.
 
 **Note:** The act of moving articles into S3 for processing happens outside of the Backfield ecosystem. It might involve writing web scrapers, CMS integrations, processing RSS feeds or other tasks that turn your articles into [properly formatted JSON objects](nodes/inputs.md) in a S3 bucket that Backfield can reach.
+
+S3 Input remembers successfully processed object versions. Later runs skip
+unchanged files so a recurring batch does not repeatedly process the same
+content. A **Process files again** setting is available when you deliberately
+need to reprocess those files.
 
 ## Status and progress
 
@@ -44,10 +51,14 @@ Common statuses include:
 | --- | --- |
 | **Pending** | The run or item has been created but has not started processing |
 | **Running** | Agate is executing the flow |
-| **Succeeded** | Processing finished successfully |
-| **Failed** | Processing stopped because a node, model call, input file, or output step failed |
+| **Completed** | Every item reached a successful technical result |
+| **Completed with errors** | One or more items failed or the run was stopped |
 
-For batches, the overall status summarizes the item list. A run can finish with some items succeeded and others failed, so check the item rows before assuming the whole batch is usable.
+For batches, the overall status summarizes the item list. Individual rows use
+item-level states such as succeeded or failed. A run can finish with some items
+succeeded and others failed, so check the rows before assuming the whole batch
+is usable. Technical completion also does not mean every extraction is
+editorially correct; that judgment happens during review.
 
 ![Run summary showing item counts, estimated AI usage cost, and processed item status](images/runsum.png)
 
@@ -66,11 +77,29 @@ Runs preserve the operational details you need to understand what happened:
 
 Cost estimates depend on the [AI models](../settings/ai-models.md) selected in the flow. Treat them as operational estimates for monitoring and comparison, not as audited billing records.
 
-## Failures and reruns
+## Cancellation, failures, and reruns
 
 If a run fails, start by checking the failed processed item or node. The most common causes are missing input fields, invalid JSON, inaccessible S3 files, model configuration problems, or one-off network or LLM errors.
 
-After fixing the flow, input, or settings, run it again. Reruns generate new model output from the current flow configuration; review corrections on processed items are kept separate from the original model output so you can tell what the model produced and what an editor later changed.
+Long-running work can be cancelled from the run interface. Cancellation is
+bounded: work already executing may need a short time to stop, and items that
+finished remain visible.
+
+After fixing the flow, input, or settings, run it again. A rerun uses the
+currently saved flow rather than the historical snapshot. Before it starts,
+Agate identifies the Backfield Output reconciliation policy and warns that
+run-local review edits for affected items will be cleared as those items are
+regenerated. Canonical Stylebook edits are separate and are not silently
+rewritten by rerunning an article.
+
+The run table supports selecting failed items and rerunning them together. A
+full **Replay run** creates a new run from stored inputs; manually replaying an
+API-triggered flow is disabled because its input contract belongs to the
+calling system.
+
+For S3 batches, replaying stored inputs differs from a normal new scan: replay
+intentionally re-executes the stored items, while a normal scan skips unchanged
+objects unless **Process files again** is enabled.
 
 ## Triggering via the API
 

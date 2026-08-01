@@ -24,4 +24,41 @@ You can choose from preset tag categories or define project-specific metadata ty
 | **Topic** | Broad coverage areas, such as local government, public safety, sports, or education | [Topic](../../../api/taxonomy/article-meta/topic.md) |
 | **User need** | The audience need the story serves, such as explaining, updating, guiding, or contextualizing | [User Need](../../../api/taxonomy/article-meta/user-need.md) |
 
-Article metadata appears in article `metadata[]` and can be queried with `meta` filters in the [Public API](../../../api/taxonomy/article-meta/index.md#querying-with-meta).
+Article metadata becomes available to
+[Backfield API](../../../api/taxonomy/article-meta/index.md#querying-with-meta),
+where applications can use it for filtering and analysis.
+
+The node records the selected value, a rationale, and confidence information
+that editors can inspect on the processed item's **Meta** tab. Reviewers can
+correct, add, or remove tags without changing the original model output.
+
+Choose categories that serve a real downstream question. A small, consistently
+applied taxonomy is usually more useful than many overlapping tags.
+
+## Geocoding places
+
+The **Geocode** node consumes the locations produced by Place Extract. It uses
+the extracted name, type, address components, jurisdiction, and contextual
+hints to look for a defensible map result.
+
+A location can finish with:
+
+- accepted point, line, or area geography;
+- a match to known Stylebook geography;
+- identity information but no safe geometry;
+- a review-required result explaining why the lookup was uncertain.
+
+Backfield does not force every place onto a map. Keeping “no geography” is
+safer than attaching a story to the wrong city, address, district, or venue.
+Editors can inspect and adjust results on the processed item's **Places** tab.
+
+Geocoding uses the services configured under
+[Integrations](../../settings/integrations.md). Missing credentials, ambiguous
+names, conflicting jurisdictions, or incomplete addresses can all affect the
+result without invalidating the extracted mention itself.
+
+## Enrichment and provenance
+
+Enrichment adds information to an existing article or entity result; it does
+not replace the source evidence. The original mention remains available so an
+editor can judge whether the added tag or geography is supported.

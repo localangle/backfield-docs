@@ -8,11 +8,9 @@ Because the model's original output is always preserved, your edits are saved as
 
 From a [run](runs.md), click through to an individual item. The page shows the article headline, which flow produced the result, and a row of tabs — one for each kind of extracted data.
 
-![Processed item Info tab: headline, tab bar, and item metadata](../../assets/platform/agate/processed-item-info.png)
-
 Entity review tabs (**Places**, **People**, **Organizations**, and similar) share the same basic layout: the **story text on one side**, the **extracted entities on the other**, with highlights that connect mentions in the prose to the rows in the list.
 
-![Places tab: story text with highlighted passages alongside a map and geocoded place list](../../assets/platform/agate/processed-item-places.png)
+![Places tab: story text with highlighted passages alongside a map and geocoded place list](../images/simple-example/qs5-1.png)
 
 When an editor has saved corrections on a tab, an amber banner appears at the top: *"… has been corrected or enhanced by an editor."* That is your signal that the displayed data includes human review, not just the raw model output.
 
@@ -53,11 +51,14 @@ See [Geography](../stylebook/geography.md) for how place geometry flows into Sty
 
 The **Meta** tab works differently — there is no side-by-side story pane — but the same provenance idea applies. Each tag shows the **category** the model chose, a **rationale** explaining why, and a **confidence** score. You can edit categories, add tags, or remove ones that do not fit.
 
-![Meta tab: topic and subject tags with rationale and confidence scores](../../assets/platform/agate/processed-item-meta.png)
+![Meta tab: topic and subject tags with rationale and confidence scores](../images/simple-example/qs5-4.png)
 
 ## Editing and saving
 
-Review edits do not overwrite the model's first pass. They accumulate in a **review overlay** that Agate merges when displaying the item and when building **reviewed output** for export.
+Review edits do not overwrite the model's first pass. They accumulate in a
+**review overlay** that Agate merges when displaying the item and when building
+**reviewed output** for export. When the article has already been saved to
+Backfield, supported edits also update that article's stored entity evidence.
 
 Typical corrections include:
 
@@ -70,11 +71,18 @@ Save your changes on each tab before leaving. Unsaved edits trigger a warning if
 
 While a **rerun** is in progress, review editing is **paused** until processing finishes — the item is being regenerated from the flow.
 
+Rerunning an item uses the current flow and clears the run-local review overlay
+for the regenerated result. Make sure intentional corrections have been
+accounted for before rerunning.
+
 ## Stylebook and canonical records
 
 When a flow's output step saves results, extracted entities can link to **canonical** records in [Stylebook](../stylebook/index.md). On a processed item you may see catalog links for matched people, places, and organizations.
 
-Your review corrections update what is stored for **this article** — see [Data model](../concepts/content-model.md). Canonical catalog fields remain authoritative in Stylebook; the processed item is where you fix article-specific mistakes before they propagate.
+Your review corrections update what is stored for **this article** — see
+[Data model](../concepts/content-model.md). They do not silently change the
+canonical record's label, metadata, geography, or connections. Open the linked
+Stylebook record when the newsroom-wide identity itself needs correction.
 
 ## JSON and export
 

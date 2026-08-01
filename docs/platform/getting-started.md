@@ -1,97 +1,106 @@
 # Getting Started
 
-Runing Backfield locally starts with cloning the [Backfield repository](https://github.com/localangle/backfield). The **`backfield`** command is a project launcher that bootstraps your environment, starts the Docker stack, migrates the database, and seeds your first organization and admin user.
+This page orients you after your newsroom has given you a Backfield account.
+It explains what to choose when you sign in and where the main kinds of work
+live. Detailed task tutorials can build on these concepts later.
 
-This guide covers local development setup. For querying data from your own code after the stack is running, see the [API Reference](../api/index.md).
+## Before you sign in
 
-## Prerequisites
+An organization administrator normally prepares:
 
-Install these before you begin:
+- your account and temporary password;
+- access to the workspaces where your projects live;
+- editing access to any Stylebooks you will curate;
+- approved AI models and integrations for the flows your team uses.
 
-- **[Docker and Docker Compose](https://docs.docker.com/compose/)** — runs Postgres, Redis, APIs, and the worker
-- **[uv](https://docs.astral.sh/uv/)** — installs Python dependencies for the monorepo
-- **Git** — clone the Backfield repository
+There is no public self-registration screen. If you cannot see an expected
+workspace, project, or Stylebook, ask an organization administrator to check
+your access.
 
-## 1. Clone and bootstrap
+## 1. Sign in and choose an organization
 
-```bash
-git clone git@github.com:localangle/backfield.git
-cd backfield
-make bootstrap
-source .venv/bin/activate    # once per shell
-```
+Sign in with your Backfield email and password. If your account belongs to more
+than one organization, choose the newsroom or company you want to work in.
+You can switch organizations later from the account menu.
 
-`make bootstrap` runs `uv sync` for the whole workspace and copies the project launcher into `.venv/bin/backfield`. After activating the venv, the `backfield` command is available in that shell.
+A temporary password must be changed before the rest of the platform opens.
 
-You can also run `./scripts/backfield` or `make up` without activating the venv, as long as you are in the repo root.
+## 2. Find your workspace and project
 
-## 2. First-run setup with `backfield init`
+Agate opens on the workspace grid. A workspace groups related projects, often
+by desk, publication, beat, or initiative. Open a workspace, then choose the
+project that contains the work you need.
 
-From the repo root (with the venv activated or the user CLI installed):
+The project page brings together:
 
-```bash
-backfield init
-```
+- **Flows** — reusable processing recipes;
+- **Runs** — individual executions and their progress;
+- **Models** and **Integrations** — the project's approved processing services;
+- **API** — credentials for external applications.
 
-The interactive setup will walk you through five steps:
+See [Organizations & workspaces](concepts/organizations.md) and
+[Projects](concepts/projects.md) for how these boundaries affect what you can
+see and change.
 
-1. **Prepare environment secrets** — creates `.env` from `.env.example` when missing and generates local secrets
-2. **Start the Docker Compose stack** — builds and starts services (APIs, worker, databases, UIs)
-3. **Run database migrations** — applies Alembic schema via a one-off compose migrate service
-4. **Wait for API readiness** — blocks until core services respond
-5. **Seed organization and admin user** — creates your org, default Stylebook, and superuser login
+## 3. Know the three applications
 
-When `init` finishes, it prints your local app URLs and admin email. By default it also opens **Settings → AI models** in Agate so you can add provider credentials.
+Use **Agate** when the question is about a particular article or processing
+job:
 
-## 3. Open the apps
+- build or inspect a flow;
+- start and monitor a run;
+- review extracted people, organizations, places, and article metadata;
+- correct evidence or geography for one story.
 
-After a successful `init`, use these local URLs:
+Use **Stylebook** when the question is about shared reference knowledge:
 
-| App | URL |
-| --- | --- |
-| **Agate** | [http://localhost:5173](http://localhost:5173) |
-| **Stylebook** | [http://localhost:5175](http://localhost:5175) |
-| **Public API** | [http://localhost:8004/public/v1](http://localhost:8004/public/v1) |
+- decide whether an extracted item matches an existing canonical record;
+- create or merge canonical people, organizations, and locations;
+- maintain newsroom-wide metadata, geography, and connections;
+- review possible duplicates or other catalog-quality issues.
 
-Log in to Agate and Stylebook with the superuser email and password you chose during `init`.
+Use **Backfield API** when a product, service, tool, or analysis needs to use
+the structured data:
 
-## 4. Configure models and integrations
+- retrieve articles and their extracted details;
+- search by keyword, meaning, entity, metadata, or geography;
+- follow mentions and connections across reporting;
+- trigger approved flows from trusted automation.
 
-Before running flows, you'll beed to add credentials for your organization:
+The API is a first-class part of Backfield, even though people usually interact
+with it through software rather than an editorial screen. The hosted
+[API Playground](../api/playground.md) provides an interactive way to explore
+it, while the [API Reference](../api/index.md) contains the complete contract.
 
-1. **Settings → AI models** — provider API keys and approved models for extractors ([AI models](settings/ai-models.md))
-2. **Settings → Integrations** — geocoding, search, and storage credentials ([Integrations](settings/integrations.md))
+Your project already has one assigned Stylebook. You do not choose a different
+Stylebook for each flow.
 
-## Day-to-day stack commands
+## 4. Understand what your edits affect
 
-After the first run, you usually start and stop the stack with:
+Before editing, ask whether the change belongs to one story or to the shared
+record:
 
-| Command | Purpose |
-| --- | --- |
-| `backfield up` | Start the stack in the foreground (Ctrl+C stops) |
-| `backfield up --detached` | Start in the background |
-| `backfield down` | Stop the stack |
-| `backfield logs` | Follow service logs |
-| `backfield ps` | List running containers |
-| `backfield restart` | Restart services |
+- Fix a wrong extraction, quote attribution, article tag, or story-specific
+  place in the Agate processed item.
+- Fix a canonical name, alias, maintained geography, metadata value, or
+  relationship in Stylebook.
 
-Other operator commands:
+The [Data model](concepts/content-model.md) explains this distinction in more
+detail.
 
-| Command | Purpose |
-| --- | --- |
-| `backfield doctor` | Verify local setup |
-| `backfield migrate` | Apply migrations from the host (Postgres on `:5433`) |
-| `backfield seed` | Ensure org and admin exist (idempotent; used in production provisioning) |
-| `backfield reset-db` | Stop the stack and remove volumes — **deletes all local data** |
-| `backfield clear-entity-data` | Truncate entity and run tables while keeping identity rows (local dev) |
+## For local development
 
-`reset-db` and `clear-entity-data` prompt for confirmation unless you pass `--yes`.
+Developers and technical evaluators can run the source checkout locally. See
+the repository's
+[Quickstart](https://github.com/localangle/backfield#quickstart) for current
+requirements, setup commands, local addresses, and stack operations.
 
 ## Next steps
 
 - See one story go from raw text to queryable data in the [Simple Example](simple-example.md)
 - Understand how accounts are organized in [Organizations & workspaces](concepts/organizations.md)
 - Learn what a [Project](concepts/projects.md) contains
-- Build a pipeline in [Agate](agate/index.md), or curate your catalog in [Stylebook](stylebook/index.md)
-- Query your data from code in the [API Reference](../api/index.md)
+- Learn how article processing works in [Agate](agate/index.md), or how shared
+  records are curated in [Stylebook](stylebook/index.md)
+- Explore and use project data through [Backfield API](../api/index.md)
 - Follow the [Quickstart tutorial](../tutorials/quickstart.md) for a first end-to-end workflow

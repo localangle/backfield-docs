@@ -19,13 +19,27 @@ Most flows follow the same pattern:
 
 ## Building flows
 
-Nodes can be inserted into your flow either in parallel or in serial. Nodes at the same level of the graph execute simultaneously, which can save time on complex processing tasks.
+Agate uses a guided builder rather than asking you to wire a technical graph by
+hand:
+
+1. Choose the input that describes where content comes from.
+2. Choose the output that describes where results go.
+3. Use the **+** controls between steps or on a branch to add compatible nodes.
+4. Open a node to review its settings, prompt, model choice, and help text.
+
+Agate creates the connections automatically and offers only steps that can use
+the available upstream data.
 
 ![Flow builder menu for adding extract, embed, enrich, and other nodes](images/flow2.png)
 
-The output of each node serves as input for the next. For example, extracting places with the **PlaceExtract** node feeds those places to the **GeocodeAgent** for geocoding. Most nodes just require the text of the article, which persists across all nodes from the flow's input.
+Steps can be inserted in sequence or placed on parallel branches. For example,
+person and organization extraction can run independently from the same article,
+while **Geocode** must come after **Place Extract** because it needs the places
+that step produced.
 
-Each node has its own settings panel. Use it to set options that are unique to each node, including the LLMs the node should use, prompt language and other configurable instructions.
+Each node has its own panel. Depending on the node, it may include Settings,
+Prompt, Models, Info, Stylebook, or Output tabs. The builder draws model choices
+from the project's approved [AI models](../settings/ai-models.md).
 
 ![Person Extract node settings panel showing prompt configuration](images/flow3.png)
 
@@ -46,6 +60,20 @@ A flow does not have to be a single straight line. You can branch when several s
 
 Branching keeps each node focused. It also makes runs easier to debug because each extraction or enrichment step has its own output.
 
+## Saving and editing
+
+Saving validates the complete flow and its node settings. When you edit an
+existing flow, **Cancel** restores the saved version and **Save flow** makes the
+new definition available to future runs.
+
+A run keeps a snapshot of the flow it executed. This matters when diagnosing
+older results: changing today's prompt or model does not rewrite yesterday's
+run graph.
+
+Flows can also be duplicated when a team needs a safe starting point for a
+different process. Deleting a flow is a separate, confirmed action; historical
+run records retain the execution context needed to understand past work.
+
 ## Validation
 
 Before you run a flow, check that it is complete:
@@ -61,6 +89,26 @@ Agate surfaces validation issues in the builder so you can fix missing settings 
 ## Running a flow
 
 Building a flow defines the pipeline. A [run](runs.md) executes that pipeline. After a run finishes, each article becomes a [processed item](processed-items.md), where you can inspect node outputs, review extracted entities and correct article-level results before they feed the rest of Backfield.
+
+For Text and JSON inputs, the run view lets you supply or update the current
+item before starting. S3 inputs instead describe a batch source. A flow may
+also be enabled for trusted API-triggered runs when an external system needs to
+start it.
+
+## Reconciliation on rerun
+
+When Backfield Output saves an article that has been processed before, its
+reconciliation policy determines how new machine-produced evidence combines
+with existing evidence:
+
+- **Add Only** keeps prior machine output and adds new results.
+- **Smart Merge** updates compatible data without treating the new run as a
+  complete replacement.
+- **Replace** treats emitted machine domains as authoritative, removing prior
+  machine associations that are no longer present.
+
+Editor-added and editor-modified evidence is preserved. Agate shows this policy
+in rerun confirmation so the effect is clear before processing starts.
 
 ## Related
 

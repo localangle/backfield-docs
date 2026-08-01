@@ -1,29 +1,71 @@
 # Platform
 
-Backfield helps newsrooms turn narrative articles into durable, structured data that can be used to create new products, generate new insights and better transact in the AI economy.
+Backfield helps newsrooms turn narrative articles into durable, structured
+data. Instead of treating every story as an isolated block of text, Backfield
+records the people, places, organizations, topics, and relationships found
+across your reporting.
 
-You work with Backfield through two connected apps:
+Backfield is three interconnected applications:
 
-- **[Agate](agate/index.md)** is where you build and run composable pipelines that enrich articles with data — and allow editors to verify that data and clean it up.
-- **[Stylebook](stylebook/index.md)** is where that data is consolidated into a clean, deduplicated canonical entity store that editorial teams can manage and build on.
+- **[Agate](agate/index.md)** turns articles into structured data through
+  reusable flows and gives editors a place to verify article-level results.
+- **[Stylebook](stylebook/index.md)** cleans, standardizes, and enriches the
+  people, organizations, and locations found across your reporting.
+- **[Backfield API](../api/index.md)** makes the resulting data available for
+  queries by location, entity, keyword, or meaning—and for products, services,
+  tools, and story forms your organization builds.
 
-The data from both tools is available via a [Public API](../api/index.md) that can be used to power your own tools and services.
+Agate and Stylebook are primarily editorial interfaces. Backfield API is the
+application-facing part of the same platform: it turns the structured and
+curated work into something other tools and services can use.
 
-## The two apps at a glance
+## The three apps at a glance
 
-| | Agate | Stylebook |
-| --- | --- | --- |
-| **Think of it as** | The assembly line | The reference desk |
-| **You use it to** | Build pipelines, run them on your articles, review the results | Curate a master list of entities, such as people places, and organizations, and manage information about them |
-| **Core idea** | A **flow** that runs on your articles | A **canonical** record that many mentions point to |
-| **Who spends time here** | Administrators setting up extraction flows; optionally editors and reporters checking output | Editors enriching the catalog or keeping it accurate |
+| | Agate | Stylebook | Backfield API |
+| --- | --- | --- | --- |
+| **Think of it as** | The processing workspace | The reference desk | The delivery layer |
+| **You use it to** | Build flows, process articles, and review results | Maintain canonical people, organizations, locations, and their relationships | Query structured data and power products, services, tools, and story forms |
+| **Core idea** | A **flow** that runs on articles | A **canonical record** that many mentions can point to | A project-scoped interface to Backfield data |
+| **Who uses it** | Flow builders and editors | Editors maintaining shared knowledge | Developers, data teams, and applications |
 
 ## How a story moves through Backfield
 
 1. You feed text into an **Agate flow**.
-2. The flow extracts details — places, people, organizations, topics — and saves each result as a **processed item** you can optionally review and correct.
-3. Confirmed details flow into **Stylebook**, where repeated mentions of the same real-world person or place are merged into a single **canonical** record that can be enriched with metadata or connected to others.
-4. Your own applications read the finished data through the **Public API**.
+2. The flow extracts details — places, people, organizations, topics — and
+   saves one **processed item** for each article. Editors can compare those
+   results with the source text and correct article-specific mistakes.
+3. Confirmed entity data flows into the project's assigned **Stylebook**.
+   Repeated references to the same real-world person, organization, or place
+   can point to one shared **canonical** record.
+4. **Backfield API** exposes the saved data so your own applications can
+   retrieve, search, and combine it.
+
+## A useful mental model
+
+Backfield separates what a story said from what your newsroom knows:
+
+- **Article evidence** belongs to a project. It includes the story, its
+  extracted mentions, and the editor's corrections to that story.
+- **Canonical knowledge** belongs to a Stylebook. It includes the durable
+  identity, metadata, geography, and connections your newsroom maintains
+  across stories.
+- **Programmatic access** comes through Backfield API. It lets other systems
+  use project data without turning the API into a separate source of truth.
+
+This distinction determines where to make a correction. Fix a mistaken
+extraction in the Agate processed item. Edit a person's newsroom-wide title,
+aliases, or relationships on the canonical record in Stylebook.
+
+## How the platform is organized
+
+An **organization** is the top-level newsroom account. It contains
+**workspaces**, which group related **projects**. Each project contains its own
+flows, runs, articles, and evidence, and is assigned one Stylebook. A Stylebook
+may be shared by several projects in the same organization.
+
+See [Organizations & workspaces](concepts/organizations.md),
+[Projects](concepts/projects.md), and [Users & access](concepts/users.md) for
+the boundaries that control navigation, settings, and editing rights.
 
 ## Where to start
 
@@ -34,7 +76,7 @@ The data from both tools is available via a [Public API](../api/index.md) that c
 | Understand how accounts and projects are organized | [Organizations & workspaces](concepts/organizations.md) |
 | Learn what a project contains | [Projects](concepts/projects.md) |
 | Understand how Backfield models your data | [Data model](concepts/content-model.md) |
-| Build a pipeline | [Agate](agate/index.md) |
-| Curate your catalog | [Stylebook](stylebook/index.md) |
+| Process and review articles | [Agate](agate/index.md) |
+| Curate shared reference knowledge | [Stylebook](stylebook/index.md) |
+| Search data or power another product | [Backfield API](../api/index.md) |
 | Configure models, integrations, and keys | [Settings](settings/index.md) |
-| Query your data from code | [API Reference](../api/index.md) |

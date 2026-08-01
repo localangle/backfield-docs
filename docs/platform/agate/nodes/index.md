@@ -1,6 +1,9 @@
 # Nodes
 
-A **node** is a single step in an Agate [flow](../flows.md). Each node does one job, and you connect nodes together so that the output of one becomes the input of the next. You build a pipeline by dragging nodes onto a canvas and connecting them to each other.
+A **node** is one step in an Agate [flow](../flows.md). Each node has a focused
+job and declares what information it needs and what it produces. In the guided
+builder, you add nodes with **+** controls; Agate creates compatible connections
+automatically.
 
 Every flow starts with an **input** step and ends with an **output** step. In between, you add steps that find and refine the details you care about.
 
@@ -25,9 +28,37 @@ For example, a flow that maps the places in your reporting might be:
 
 > **Paste text → Find places → Geocode → Save to database**
 
+## How data moves between nodes
+
+The article supplied by the input remains available throughout the flow.
+Specialized outputs travel along their branch: Place Extract produces places
+that Geocode can enrich, while Person Extract produces people. A later Gather
+step can collect several branches for an output that needs them together.
+
+Agate uses these requirements to limit the add-step menu. If a node is not
+offered at a particular point, its required upstream data is not available
+there yet.
+
+## Node panels
+
+Selecting a node opens its panel. The available tabs depend on the node:
+
+- **Settings** controls its normal behavior.
+- **Prompt** shows configurable instructions for model-backed extraction.
+- **Models** selects approved model roles where a step needs more than one.
+- **Info** explains inputs, outputs, and other details.
+- **Output** shows that node's result when viewing a completed run.
+
+The names and choices shown in a panel belong to the node itself, but model and
+integration options come from the current project's settings.
+
 ## How nodes use AI
 
 Many extractors and enrichment steps use AI models to read text and identify details. You choose which model a node uses from a list your administrators have approved, and Backfield tracks the estimated cost of each run. See [AI models](../../settings/ai-models.md).
+
+Not every node uses AI. Inputs, outputs, Gather, and some deterministic
+enrichment work without a generative model. A model-backed node should still
+produce structured output and evidence that editors can inspect later.
 
 ## In this section
 

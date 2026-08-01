@@ -1,6 +1,8 @@
 # Agate
 
-Agate is where you build and run the pipelines that pull structured data from your text and enrich it with arbitrary metadata. It does this by executing composable workflows that you construct from a library of nodes.
+Agate is Backfield's processing workspace. It is where teams define how an
+article should be read, enriched, and saved; run that process on one article or
+a batch; and review the result against the source text.
 
 ![Demo flow showing a text input, metadata and embedding nodes, entity extraction, geocoding, and JSON output](../images/simple-example/qs2.png)
 
@@ -16,19 +18,46 @@ Agate executions revolve around three connected concepts:
 
 ## Building flows
 
-A flow is built from **[nodes](nodes/index.md)**. Each node does one job, such as assigning a topic to an article or extracting its places. Nodes can be run in parallel or in serial, and the output of each one serves as input for the next. A typical flow begins with an article, extracts and enriches data from the text, then saves the results.
+A flow is built from **[nodes](nodes/index.md)**. Each node does one job, such
+as assigning a topic, extracting people, or geocoding places. Agate's guided
+builder starts by asking for an input and an output, then offers compatible
+steps that can be inserted between them. Connections are created
+automatically; flow builders do not have to wire technical ports by hand.
 
 Nodes come in a variety of flavors, and developers can create new ones for specific tasks. See the [Nodes overview](nodes/index.md) for the full catalog.
+
+## Running and reviewing
+
+A flow is a reusable definition, not a result. Starting it creates a
+[run](runs.md). Each article in that run becomes a
+[processed item](processed-items.md), where an editor can:
+
+- compare extracted data with highlighted passages in the story;
+- correct fields, remove mistakes, or add something the model missed;
+- inspect geography and article metadata;
+- compare original model output with reviewed output.
+
+Completed runs keep their own snapshot of what executed. Editing the flow
+affects later runs rather than silently changing past results.
 
 ## How Agate works with Stylebook
 
 Agate either produces raw JSON (via JSON or S3 Output nodes) or sends its output into a shared Backfield database.
 
-The **Backfield Output** node is responsible for saving data into the Backfield ecosystem. As it saves, it can match each extracted person or place against your [Stylebook](../stylebook/index.md), reconciling data with known records, proposing new ones and forming connections between them.
+The **Backfield Output** node saves articles and structured results into the
+Backfield ecosystem. It always uses the Stylebook assigned to the project. As
+it saves, it can match each extracted person, organization, or place against
+that [Stylebook](../stylebook/index.md), propose new records, and form supported
+connections.
 
-This process is known as **[canonicalization](../stylebook/canonicalization.md)**. It can be performed using fixed rules or with AI assistance, with options set via the Backfield Output node.
+This identity-matching process is known as
+**[canonicalization](../stylebook/canonicalization.md)**. The output step also
+controls how a rerun reconciles new machine output with data already saved for
+an article: add only, smart merge, or replace. Editor-created and
+editor-modified evidence is protected from automatic replacement.
 
-![Backfield Output node settings showing Stylebook selection, matching strategy, and decision model](images/bfpanel.png)
+Canonical matching can use deterministic rules and, when configured, guarded
+AI assistance. Uncertain decisions go to Stylebook for editorial review.
 
 ## In this section
 

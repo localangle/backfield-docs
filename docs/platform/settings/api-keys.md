@@ -1,6 +1,8 @@
 # API keys
 
-**API keys** let your own applications and scripts read a project's data through the [Public API](../../api/index.md). Unlike a personal login, an API key is tied to one project and is meant to be used by software. Project keys authenticate `/public/v1` only, not Backfield's internal APIs.
+**API keys** let your own applications and scripts use a project's
+[Backfield API](../../api/index.md). Editorial users do not need a key to work in
+Agate or Stylebook. A key is for software and is tied to one project.
 
 Open the project in **Agate**, select the **API** tab, and choose **New access key**. Keys begin with the prefix `bfk_` and are sent with each request in an authorization header.
 
@@ -12,15 +14,23 @@ Treat API keys like passwords:
 - Share them only with the systems that need them.
 - Replace a key if you suspect it's been exposed.
 
-Personal keys belong to the user who created them; that user can rotate or
-revoke the key, and organization administrators can revoke it. Backfield
-rechecks the owner's account, organization membership, and project access on
-every request, so removing any required access invalidates the key immediately.
-Legacy personal keys without an owner are rejected.
+## Personal and service keys
 
-Service keys are ownerless credentials managed by organization administrators
-for trusted automation. They can optionally receive the `runs:trigger` scope.
+| Type | Use it for | Who manages it |
+| --- | --- | --- |
+| **Personal** | A script or tool operated on behalf of one user | The owner can rotate or revoke it; an organization administrator can revoke it |
+| **Service** | Shared, trusted automation that should not depend on one person's account | Organization administrators |
+
+Backfield rechecks a personal key owner's account, organization membership,
+and project access on every request. Removing required access therefore
+invalidates the key on its next request.
+
+All keys can read the project. A service key can optionally receive the
+`runs:trigger` scope when trusted automation must start a configured flow.
+
+## Rotation and revocation
 
 To rotate safely, create a replacement, update and test every client, then revoke the old key. Do not revoke the old key until the replacement is in use.
 
-For the full request format and examples, see [Authentication](../../api/authentication.md) in the API reference.
+For bearer authentication, scopes, and request examples, see
+[Authentication](../../api/authentication.md) in the API reference.

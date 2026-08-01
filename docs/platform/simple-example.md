@@ -26,6 +26,12 @@ And then we will construct a pipeline of interconnected [nodes](agate/nodes/inde
 
 ![Demo flow with text input, metadata, embedding, person, organization, place, geocoding, and JSON output nodes](images/simple-example/qs2.png)
 
+The screenshot ends with **JSON Output**, which is useful while inspecting and
+testing the structure. To save the article, evidence, and canonical links used
+in Steps 4 and 5, the reusable production flow must instead end with
+**Backfield Output**. Output choice is a real behavior difference, not just a
+display preference.
+
 Executing the flow creates [Run](agate/runs.md), which processes the article in a matter of seconds.
 
 The run details drawer confirms that the flow has started, and the run page shows each processed item's status with a link to review the story.
@@ -42,7 +48,9 @@ The run details drawer confirms that the flow has started, and the run page show
 
 Once the run finishes, the story becomes a [processed item](agate/processed-items.md) — a review page with one tab for each type of data extracted by the flow.
 
-Editors can review and change each canonical type of data extracted from the story, as well as metadata we assign to the story itself.
+Editors can review and change the article-specific people, places,
+organizations, and metadata extracted from the story. These corrections affect
+this story's evidence; canonical Stylebook records are maintained separately.
 
 === "Places"
 
@@ -60,7 +68,10 @@ Editors can review and change each canonical type of data extracted from the sto
 
     ![Meta tab showing topic tags, rationale, and confidence](images/simple-example/qs5-4.png)
 
-Every piece of extracted data is tied to **evidence** — the exact, word-for-word passages within an article that reference the data. Select a person, organization or location and the source material for each will be highlighted in the review interface.
+Extracted people, organizations, and places are tied to **evidence** — the
+passages that refer to them. Select one and the supporting source material is
+highlighted in the review interface. Other outputs, such as embeddings and
+generated classification rationales, are not textual mentions.
 
 ## Step 3: Correct any mistakes
 
@@ -71,7 +82,11 @@ Models make mistakes, so Agate is built for verification. When reviewing a proce
 - Add something the model missed, anchored to a passage in the story
 - Adjust map coordinates for a place
 
-Corrections are saved as a **review layer** on top of the original model output, and you always recover the original extraction if you need it. See [Processed items](agate/processed-items.md).
+Corrections are saved as a **review layer** on top of the original model
+output, so you can compare the original and reviewed versions. Rerunning the
+item regenerates that run-local result and clears its review overlay, so review
+the rerun warning before proceeding. See
+[Processed items](agate/processed-items.md).
 
 === "Adjust geography"
 
@@ -83,11 +98,21 @@ Corrections are saved as a **review layer** on top of the original model output,
 
 ## Step 4: Curate Stylebook records
 
-Suppose your newsroom has written 50 stories about Mayor Jane Doe. Backfield treats each as a separate **mention** — all tied to a single canonical person.
+Suppose your newsroom has written 50 stories about Mayor Jane Doe. Each story
+has its own article evidence, potentially with several textual **mentions**,
+while all of them can link to a single canonical person.
 
-When a flow saves its results, [Stylebook](stylebook/index.md) matches each extracted person, place, and organization against your catalog of **canonical records**. This story's "Mayor Jane Doe" links to the same canonical Jane Doe as every previous story, through a process called [canonicalization](stylebook/canonicalization.md).
+When **Backfield Output** saves the results,
+[Stylebook](stylebook/index.md) matches each extracted person, place, and
+organization against the project's assigned Stylebook. This story's "Mayor
+Jane Doe" can link to the same canonical Jane Doe as previous stories through
+a process called [canonicalization](stylebook/canonicalization.md).
 
-The canonical record accumulates everything the newsroom knows: every variation of a source's name; each mention with its evidence, [connections](stylebook/connections.md) to other entities (Jane Doe *works at* City Hall), and any metadata your editors choose to add. See [Data model](concepts/content-model.md) for how mentions and entities fit together.
+The canonical record brings together trusted names and aliases, mentions with
+their evidence, [connections](stylebook/connections.md) to other entities
+(Jane Doe *works at* City Hall), geography where relevant, and metadata your
+editors maintain. See [Data model](concepts/content-model.md) for how article
+evidence and canonical entities fit together.
 
 === "Canonical details"
 
@@ -99,38 +124,26 @@ The canonical record accumulates everything the newsroom knows: every variation 
 
 === "Connections"
 
-    ![Stylebook canonical location page showing metadata and connections to other canonical records](images/simple-example/qs7-3.png)
+    ![Stylebook canonical location page showing its advanced connections area](images/simple-example/qs7-3.png)
 
-## Step 5: Query data via the API
+## Step 5: Use the data through Backfield API
 
-Everything above is now available through the [Public API](../api/index.md). A few things you could ask for:
+After Backfield Output saves the article, your own products can use the
+[Backfield API](../api/index.md) to ask questions such as:
 
-Every story that mentions Jane Doe:
+- Which stories mention Jane Doe?
+- Which people were quoted in local-government coverage?
+- Which articles mention locations near the bridge?
+- What metadata, mentions, images, and connections belong to this article or
+  canonical record?
 
-```bash
-curl "http://localhost:8004/public/v1/projects/general/people/{jane_doe_id}/articles" \
-  -H "Authorization: Bearer bfk_your_project_api_key"
-```
-
-Every source your organization has quoted in local-government coverage:
-
-```bash
-curl "http://localhost:8004/public/v1/projects/general/mentions/search?entity_type=person&quote=true&meta=topic:local_government_politics" \
-  -H "Authorization: Bearer bfk_your_project_api_key"
-```
-
-Articles that mention places near the bridge:
-
-```bash
-curl "http://localhost:8004/public/v1/projects/general/articles/geo-search?center_lng=-89.65&center_lat=39.80&radius_miles=2" \
-  -H "Authorization: Bearer bfk_your_project_api_key"
-```
-
-And much more. See the [API Reference](../api/index.md) for more examples of what data can be queried and how.
+The API uses a project key, so results remain within that project's access and
+evidence scope. The [API Reference](../api/index.md) documents the request
+format when you are ready to build an integration.
 
 ## Where to go next
 
-- Set up the stack locally in [Getting Started](getting-started.md)
-- Build the pipeline in [Agate → Flows](agate/flows.md)
+- Get oriented in [Getting Started](getting-started.md)
+- Understand reusable processing in [Agate → Flows](agate/flows.md)
 - Understand the catalog in [Stylebook](stylebook/index.md)
-- Query your data in the [API Reference](../api/index.md)
+- Use your data through [Backfield API](../api/index.md)
