@@ -5,8 +5,8 @@
    --------------------------------------------------------------------------- */
 
 :root {
-  --bf-bg: #faf8f4;
-  --bf-surface: #f3efe6;
+  --bf-bg: #fdfcf9;
+  --bf-surface: #f7f4ed;
   --bf-rule: #e6e1d7;
   --bf-ink: #211e1a;
   --bf-muted: #756e63;
@@ -92,6 +92,74 @@
 
 .md-header__title:hover {
   color: inherit;
+}
+
+/* Compact product links in the upper-right masthead */
+.md-header__source {
+  width: auto;
+  max-width: none;
+}
+
+.bf-header-links {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.bf-header-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  width: auto;
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.bf-header-link .md-source__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+}
+
+.bf-header-link .md-source__icon img {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.bf-header-link--github .md-source__icon {
+  width: 20px;
+  height: 20px;
+}
+
+.bf-header-link--github .md-source__icon svg {
+  display: block;
+  width: 18px !important;
+  height: 18px !important;
+  margin: 0 !important;
+}
+
+.bf-header-link .md-source__repository {
+  flex: 0 0 auto;
+  width: auto !important;
+  min-width: 0;
+  max-width: none;
+  overflow: visible;
+  font-size: 0.62rem;
+  line-height: 1;
+  margin-left: 0 !important;
+  padding: 0 !important;
+  white-space: nowrap;
+  text-overflow: clip;
+}
+
+.md-source__facts {
+  display: none;
 }
 
 /* Header and tabs: flat cream with a hairline rule, like a print masthead */

@@ -1,9 +1,12 @@
 site_name: Backfield documentation
 site_description: Documentation for the Backfield platform and APIs.
 site_url: https://docs.backfield.news
+repo_url: https://github.com/localangle/backfield
+repo_name: Backfield
 
 theme:
   name: material
+  custom_dir: overrides
   font:
     text: Inter
     code: JetBrains Mono

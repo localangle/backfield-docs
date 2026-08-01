@@ -1,6 +1,8 @@
 site_name: Backfield documentation
 site_description: Documentation for the Backfield APIs.
 site_url: https://docs.backfield.news
+repo_url: https://github.com/localangle/backfield
+repo_name: Backfield
 
 # Same chrome as the full site, without Platform. `/index.md` is root-only
 # (gitignore-style); a bare `index.md` would exclude every section hub page.
@@ -17,6 +19,7 @@ hooks:
 
 theme:
   name: material
+  custom_dir: overrides
   font:
     text: Inter
     code: JetBrains Mono
