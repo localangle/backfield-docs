@@ -1,23 +1,24 @@
 # Canonicalization
 
 **Canonicalization** is the process of deciding whether a person, organization,
-or place found in an article is already in the Stylebook, is genuinely new, or
-needs an editor's judgment. It connects article evidence to durable identities
-without treating every extracted name as a new record.
+or location found in an article matches a Stylebook record, is new, or needs an
+editor's judgment.
 
-This happens when an Agate flow saves its results (the **Backfield Output** step — see [Output nodes](../agate/nodes/outputs.md)). For each extracted entity, the result is one of:
+This happens when an Agate flow saves results through
+[Backfield Output](../agate/nodes/outputs.md). Each extracted entity has one of
+three outcomes:
 
 | Outcome | What it means |
 | --- | --- |
-| **Link** | The entity confidently matches an existing canonical record, so the mention is attached to it |
+| **Link** | Attach the article evidence to an existing canonical record |
 | **Create** | No good match exists, so a new canonical record is created |
-| **Set aside for review** | The match is uncertain, so the item waits in a **candidate** queue for an editor to decide |
+| **Review** | The match is uncertain, so the item enters a candidate queue |
 
 Linking to an existing canonical does not overwrite its editorial fields with
 the latest article extraction. The article-specific record and evidence are
 attached while the canonical remains the newsroom's authoritative identity.
 
-## What matching considers
+## How matching works
 
 Matching rules differ by entity type:
 
@@ -25,51 +26,49 @@ Matching rules differ by entity type:
   names are not enough when evidence suggests different people.
 - **Organizations** use names, aliases, acronyms, and organization types.
   Ambiguous acronym matches are held for review.
-- **Locations** use names, location types, address and jurisdiction
-  information, and available geography. Missing geography is not automatically
-  an identity conflict.
+- **Locations** use names, location types, addresses, jurisdictions, and
+  available geography.
 
-Inactive records are excluded from automatic linking. Final safeguards can
-reject a proposed link when type, name, address, or jurisdiction evidence
-conflicts.
+Inactive records are not linked automatically. Conflicting identity
+information can prevent a proposed match.
 
-## Rules and AI assistance
+## Rules and AI suggestions
 
 You can run canonicalization in two modes:
 
-- **Rules** — match using fixed, predictable logic only.
-- **AI-assisted** — when the rules are unsure, an AI model helps judge whether two records are really the same real-world thing, within careful guardrails.
+- **Rules** uses fixed matching logic.
+- **AI-assisted** asks a model for help when the rules are unsure.
 
-AI assistance considers only a limited set of recalled candidates and must
-return a structured, sufficiently confident decision. It cannot bypass the
-same final identity safeguards. Uncertain or contradictory results remain for
-editorial review.
+AI assistance cannot bypass the identity safeguards. Uncertain or conflicting
+results still go to an editor.
 
 ## Candidate queues
 
-Items set aside for review appear in a candidate queue for their entity type.
-The queue spans accessible projects assigned to the current Stylebook and shows
-project provenance when several projects contribute.
+Unresolved people, organizations, and locations appear in separate candidate
+queues. A queue can include work from several projects using the Stylebook and
+shows which project produced each candidate.
 
 For each candidate, an editor can:
 
 - **link** it to an existing canonical;
 - **create** a new canonical from the article record;
-- **defer** it, moving it out of the active linking queue;
-- inspect review reasons, evidence, suggested matches, and similar records.
+- **defer** it for later;
+- inspect its evidence, suggested matches, and similar records.
 
-The queue separates **For review** and **Deferred** work. Deferral is useful
-when a record should not be resolved now; it is not the same as linking or
-deleting the article evidence.
+Deferring a candidate moves it out of the active queue. It does not delete the
+article evidence.
 
-AI review can suggest link, create, or defer actions, and editors can accept
-suggestions individually or in supported bulk workflows. The accepted action
-uses the normal editorial operation and remains attributable as a decision.
+AI review can suggest link, create, or defer actions. Nothing changes until an
+editor accepts a suggestion.
 
 ## Canonical cleanup
 
-Canonicalization handles incoming article records. **Stylebook Review** checks
-the catalog after records exist. Its checks can flag duplicates, mismatched
-records, questionable canonicals, and location geography concerns. Editors can
-merge, keep separate, delete an empty record, or dismiss an issue; dismissals
-remain in place until new evidence warrants another review.
+Canonicalization handles incoming article entities. **Stylebook Review** checks
+records already in the catalog. It can flag duplicates, questionable links,
+and location geography concerns. Editors can merge records, keep them
+separate, delete an empty record, or dismiss the issue.
+
+Merging moves the linked article records from the duplicate into the record
+you choose to keep, then deletes the duplicate. Review both records before
+confirming; Stylebook does not provide an undo action. The **Recent** view can
+show that the merge occurred, but it cannot restore the deleted record.

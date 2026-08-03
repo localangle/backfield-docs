@@ -1,56 +1,88 @@
 # Getting Started
 
-This page orients you after your newsroom has given you a Backfield account.
-It explains what to choose when you sign in and where the main kinds of work
-live. Detailed task tutorials can build on these concepts later.
+Backfield helps a news organization turn reporting into structured information
+that can be reviewed, maintained, searched, and reused. This page introduces
+the platform from the perspective of someone signing in for the first time.
 
-## Before you sign in
+You do not need to understand every part of Backfield before you begin. Most
+people work in only the parts relevant to their role.
+
+## What your newsroom uses Backfield for
+
+A story contains more than text. It refers to people, organizations, places,
+events, topics, and relationships. Backfield helps your newsroom:
+
+- identify and organize those details consistently;
+- let editors verify what automated processing found;
+- connect repeated references to the same real-world person, place, or
+  organization;
+- build a shared body of structured editorial knowledge;
+- make that data available to newsroom products and other systems.
+
+The original reporting remains the evidence behind the structured data.
+Backfield does not replace editorial judgment: automated results can be
+reviewed and corrected by people.
+
+## Before your first visit
 
 An organization administrator normally prepares:
 
-- your account and temporary password;
-- access to the workspaces where your projects live;
-- editing access to any Stylebooks you will curate;
-- approved AI models and integrations for the flows your team uses.
+- your account and initial password;
+- access to the workspaces where your team works;
+- access to any Stylebooks you help maintain;
+- the projects and processing tools needed for your role.
 
 There is no public self-registration screen. If you cannot see an expected
 workspace, project, or Stylebook, ask an organization administrator to check
 your access.
 
-## 1. Sign in and choose an organization
+If an administrator gave you an initial password, change it promptly from your
+account menu and store the replacement in your password manager.
+
+## Sign in and choose your organization
 
 Sign in with your Backfield email and password. If your account belongs to more
-than one organization, choose the newsroom or company you want to work in.
-You can switch organizations later from the account menu.
+than one organization, choose the one you want to work in. You can switch
+organizations later from the account menu.
 
-A temporary password must be changed before the rest of the platform opens.
+Everything you see after choosing an organization—people, settings,
+workspaces, projects, and Stylebooks—belongs to that organization.
 
-## 2. Find your workspace and project
+## Find your team's work
 
-Agate opens on the workspace grid. A workspace groups related projects, often
-by desk, publication, beat, or initiative. Open a workspace, then choose the
-project that contains the work you need.
+Backfield is organized in three levels:
 
-The project page brings together:
+- Your **organization** is usually your newsroom, publication group, or
+  company.
+- A **workspace** groups related work, often by publication, desk, beat, or
+  initiative.
+- A **project** contains the flows, processing runs, and article-level results
+  for a particular body of work.
 
-- **Flows** — reusable processing recipes;
-- **Runs** — individual executions and their progress;
-- **Models** and **Integrations** — the project's approved processing services;
-- **API** — credentials for external applications.
+Agate opens with the workspaces you are allowed to use. Open the workspace
+named by your team, then select the appropriate project. It is normal for
+different people in the same organization to see different workspaces and
+Stylebooks.
 
-See [Organizations & workspaces](concepts/organizations.md) and
-[Projects](concepts/projects.md) for how these boundaries affect what you can
-see and change.
+## Know the three parts of Backfield
 
-## 3. Know the three applications
+The platform has three connected applications. They serve different purposes,
+but they work with the same underlying information.
+
+### Agate: process and review reporting
 
 Use **Agate** when the question is about a particular article or processing
 job:
 
-- build or inspect a flow;
-- start and monitor a run;
+- run or inspect a reusable processing flow;
+- monitor its progress;
 - review extracted people, organizations, places, and article metadata;
-- correct evidence or geography for one story.
+- correct a result that applies to one story.
+
+Depending on your role, you may run existing flows, review completed work, or
+design the flows your newsroom uses.
+
+### Stylebook: maintain shared knowledge
 
 Use **Stylebook** when the question is about shared reference knowledge:
 
@@ -58,6 +90,11 @@ Use **Stylebook** when the question is about shared reference knowledge:
 - create or merge canonical people, organizations, and locations;
 - maintain newsroom-wide metadata, geography, and connections;
 - review possible duplicates or other catalog-quality issues.
+
+For example, each article mentioning a mayor contains its own evidence, while
+the mayor can have one shared Stylebook record used across many articles.
+
+### Backfield API: use the data in other systems
 
 Use **Backfield API** when a product, service, tool, or analysis needs to use
 the structured data:
@@ -67,15 +104,10 @@ the structured data:
 - follow mentions and connections across reporting;
 - trigger approved flows from trusted automation.
 
-The API is a first-class part of Backfield, even though people usually interact
-with it through software rather than an editorial screen. The hosted
-[API Playground](../api/playground.md) provides an interactive way to explore
-it, while the [API Reference](../api/index.md) contains the complete contract.
+The API is primarily used by developers, data teams, and newsroom applications.
+You do not need to use it to review articles or maintain Stylebook records.
 
-Your project already has one assigned Stylebook. You do not choose a different
-Stylebook for each flow.
-
-## 4. Understand what your edits affect
+## Make changes in the right place
 
 Before editing, ask whether the change belongs to one story or to the shared
 record:
@@ -88,19 +120,27 @@ record:
 The [Data model](concepts/content-model.md) explains this distinction in more
 detail.
 
-## For local development
+## A good first tour
 
-Developers and technical evaluators can run the source checkout locally. See
-the repository's
-[Quickstart](https://github.com/localangle/backfield#quickstart) for current
-requirements, setup commands, local addresses, and stack operations.
+If you are exploring rather than completing an assigned task:
 
-## Next steps
+1. Open the workspace and project your team uses.
+2. Look at the project's **Flows** to see what information your newsroom
+   extracts or adds.
+3. Open a completed **Run**, then select a processed item to see the source
+   article beside its structured results.
+4. Open **Stylebook** and inspect a familiar person, organization, or location.
+   Notice how mentions from individual articles support one shared record.
+5. Ask your team which actions are part of your role before changing a flow,
+   canonical record, model, or integration.
 
-- See one story go from raw text to queryable data in the [Simple Example](simple-example.md)
-- Understand how accounts are organized in [Organizations & workspaces](concepts/organizations.md)
-- Learn what a [Project](concepts/projects.md) contains
+## Learn more
+
+- Follow a sample story through the platform in the
+  [Simple Example](simple-example.md).
+- Understand access and navigation in
+  [Organizations & workspaces](concepts/organizations.md).
+- Learn what a [Project](concepts/projects.md) contains.
 - Learn how article processing works in [Agate](agate/index.md), or how shared
-  records are curated in [Stylebook](stylebook/index.md)
-- Explore and use project data through [Backfield API](../api/index.md)
-- Follow the [Quickstart tutorial](../tutorials/quickstart.md) for a first end-to-end workflow
+  records are curated in [Stylebook](stylebook/index.md).
+- Explore project data through the [Backfield API](../api/index.md).

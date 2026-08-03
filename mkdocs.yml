@@ -47,6 +47,7 @@ nav:
       - platform/index.md
       - Getting Started: platform/getting-started.md
       - Simple Example: platform/simple-example.md
+      - AI Disclosure: platform/ai-disclosure.md
       - Core concepts:
           - Organizations & workspaces: platform/concepts/organizations.md
           - Projects: platform/concepts/projects.md
@@ -68,7 +69,7 @@ nav:
       - Stylebook:
           - platform/stylebook/index.md
           - Entity types: platform/stylebook/entity-types.md
-          - Stylebooks & the library: platform/stylebook/stylebooks.md
+          - Managing Stylebooks: platform/stylebook/stylebooks.md
           - Canonicalization: platform/stylebook/canonicalization.md
           - Mentions & evidence: platform/stylebook/mentions.md
           - Metadata: platform/stylebook/meta.md

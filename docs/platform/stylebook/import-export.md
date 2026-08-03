@@ -1,32 +1,45 @@
 # Import & export
 
-Besides building your catalog from reporting, you can bring records into [Stylebook](index.md) in bulk and move catalogs between organizations.
+You can add records to [Stylebook](index.md) in bulk instead of creating them
+one at a time.
 
 | Method | Use it for |
 | --- | --- |
 | **Spreadsheet import (CSV)** | Loading lists of people or organizations you already maintain |
 | **Geographic import (GeoJSON)** | Loading locations with map geometry |
-| **Stylebook copy** | Copying supported canonical records into a new Stylebook |
+| **Stylebook copy** | Starting a new Stylebook with supported records from another one |
 
 ## Spreadsheet and geographic imports
 
-CSV import creates canonical people or organizations from rows in a
-spreadsheet. GeoJSON import creates canonical locations and can preserve point,
-line, or area geometry from each feature.
+CSV import creates canonical people or organizations from spreadsheet rows.
+GeoJSON import creates canonical locations and can preserve point, line, or
+area geography.
 
-These imports are best for reference lists your newsroom already maintains.
-They create canonical records directly; they do not pretend that the records
-were extracted from an article and therefore do not create article mentions.
+These methods work well for reference lists your newsroom already maintains.
+They create canonical records directly and do not create article mentions.
 
-Prepare one clear real-world identity per row or feature. Consistent names,
-types, affiliations, addresses, and identifiers make later matching more
-reliable.
+For CSV:
+
+- include a header row and a name for every person or organization;
+- map your columns to Stylebook fields before importing;
+- review the parsed rows and remove any that should not be imported.
+
+For GeoJSON:
+
+- use a valid `FeatureCollection`;
+- map a label and location type for each feature;
+- review geography and any optional address or metadata fields.
+
+Both importers accept files up to 25 MB and report records that could not be
+created. Start with a small file, keep the source, and inspect the result before
+loading a larger set. Imports do not guarantee that similarly named records
+will be deduplicated.
 
 ## Stylebook copies
 
-Organization administrators can download a Stylebook file and upload it to
-create a new Stylebook. The current copy workflow includes canonical locations
-and people and assigns them new internal identifiers in the destination.
+Organization administrators can export a Stylebook package and import it as a
+new Stylebook. The current package includes canonical people and locations,
+which receive new internal identifiers in the new Stylebook.
 
 It is not a complete backup or clone. The current workflow does **not** include:
 
@@ -36,14 +49,15 @@ It is not a complete backup or clone. The current workflow does **not** include:
 - candidate and review queues;
 - semantic embeddings, geocoding caches, or activity history.
 
-Those exclusions matter: copied records carry a starting set of canonical
-people and locations, not the full evidence and editorial context of the
-source Stylebook.
-
-The import screen previews the package before creating the new Stylebook.
+The result is a starting set of people and locations, not a backup or complete
+copy of the source Stylebook.
 
 ## Before importing
 
-Review the destination Stylebook and the import preview. Imports can introduce
-records that resemble existing canonicals, so run the relevant Stylebook
-Review checks afterward rather than assuming every imported name is unique.
+Review the source file before importing. The current Stylebook copy dialog does
+not provide a record-by-record preview.
+
+After any import, inspect the new records and run the relevant Stylebook Review
+checks. Imported records may resemble canonicals already in the catalog.
+Correct imported records individually if the source mapping or values were
+wrong; there is no one-click rollback for the completed import.

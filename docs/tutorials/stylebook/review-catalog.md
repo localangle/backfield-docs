@@ -33,5 +33,5 @@ issues for the first walkthrough.
 
 ## Related concepts
 
-- [Stylebook](../../platform/stylebook/index.md#the-two-editorial-work-areas)
+- [Stylebook](../../platform/stylebook/index.md#two-kinds-of-review)
 - [Canonicalization](../../platform/stylebook/canonicalization.md#canonical-cleanup)

@@ -114,5 +114,5 @@ a way to change an existing project's Stylebook.
 
 ## Related concepts
 
-- [Stylebooks & the library](../../platform/stylebook/stylebooks.md)
+- [Managing Stylebooks](../../platform/stylebook/stylebooks.md)
 - [Import & export](../../platform/stylebook/import-export.md)

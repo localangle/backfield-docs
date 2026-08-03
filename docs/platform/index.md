@@ -71,7 +71,7 @@ the boundaries that control navigation, settings, and editing rights.
 
 | If you want to… | Go to |
 | --- | --- |
-| Set up Backfield locally | [Getting Started](getting-started.md) |
+| Get oriented on your first visit | [Getting Started](getting-started.md) |
 | See one story go end to end | [Simple Example](simple-example.md) |
 | Understand how accounts and projects are organized | [Organizations & workspaces](concepts/organizations.md) |
 | Learn what a project contains | [Projects](concepts/projects.md) |

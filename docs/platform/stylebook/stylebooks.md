@@ -1,56 +1,51 @@
-# Stylebooks & the library
+# Managing Stylebooks
 
-An organization can keep more than one **Stylebook** — each a separate catalog of people, places, and organizations. This is useful when different desks or projects need parallel reference sets that shouldn't mix.
+An organization can have more than one **Stylebook**. Each is a separate
+catalog of people, organizations, and locations.
 
-A few ground rules keep this predictable:
+## Share or separate?
 
-- Every organization always has **at least one** Stylebook, with **exactly one** marked as the **default**.
-- Each project is assigned exactly one Stylebook from its organization. New
-  projects use the selected Stylebook (the organization or workspace default
-  when no other choice is made), and every flow in that project uses that
-  assignment. Individual flow steps cannot select a different Stylebook.
-- Stylebooks have readable names and stable URL slugs for navigation.
+Projects should share a Stylebook when they cover the same people, institutions,
+and places. This lets them reuse identities, aliases, metadata, and
+connections.
 
-## Why use more than one?
+Use separate Stylebooks only when the records should remain independent—for
+example, for publications or datasets with different editorial standards. A
+second Stylebook is not a folder or filtered view. It creates a separate set of
+canonical records.
 
-Sharing one Stylebook lets projects reuse the same identities and aliases. That
-is useful when several desks cover the same people and institutions.
+## Assigning a Stylebook to a project
 
-Separate Stylebooks are appropriate when two catalogs intentionally should not
-share identity—for example, different publications, clients, or datasets with
-independent editorial standards. Creating a second Stylebook is not merely a
-visual folder; it creates a separate canonical namespace.
+Each project uses one Stylebook. The choice is made when the project is created
+and applies to every flow and article in that project. Individual flows cannot
+choose a different Stylebook.
 
-## Project assignment
+Every organization has at least one Stylebook and exactly one organization
+default. A workspace can supply the initial choice when a project is created,
+and the person creating the project can choose another Stylebook in the same
+organization. Changing a default does not move existing projects.
 
-When a project is created, Backfield offers the Stylebooks in its organization.
-If no other selection is made, the workspace or organization default is used.
-The chosen Stylebook is then authoritative for every flow and entity operation
-in that project and appears read-only in project settings.
+## Create, rename, copy, or remove a Stylebook
 
-This fixed assignment prevents different runs in one project from sending
-people and places into unrelated catalogs. Choose deliberately when creating a
-project.
-
-## The default Stylebook
-
-The organization must always have at least one Stylebook and exactly one
-default. Changing the default affects future project creation; it does not
-silently move existing projects.
-
-## Managing the library
-
-Organization administrators manage the library in Agate. They can:
+Organization administrators manage Stylebooks in Agate. They can:
 
 - create and rename Stylebooks;
 - choose the organization default;
 - export a Stylebook bundle or import one as a new Stylebook;
 - review the impact before deleting a Stylebook.
 
-Deletion is guarded because projects, editor assignments, and canonical data
-may depend on the Stylebook. The interface shows an impact preview and may
-require a replacement. The last Stylebook in an organization cannot be
-deleted.
+!!! warning "Deleting a Stylebook cannot be undone"
+    Deletion removes its canonical records and editorial context. Projects and
+    workspaces that used it are reassigned to the organization default, or to a
+    replacement chosen when deleting the default Stylebook. Existing article
+    entities may need to be matched again.
+
+    Review the impact screen, export anything you need to retain, and update
+    dependencies before continuing. The last Stylebook in an organization
+    cannot be deleted.
+
+For the complete administration workflow, see
+[Create and manage Stylebooks](../../tutorials/agate/manage-stylebooks.md).
 
 ## Who may edit
 

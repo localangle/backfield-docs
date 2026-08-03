@@ -1,28 +1,28 @@
 # Mentions & evidence
 
-A **mention** is a single reference to an entity in a single article — for example, one place name appearing in one story. A canonical record in [Stylebook](index.md) gathers together all the mentions that refer to the same real-world person, organization, or place.
+A **mention** is one reference to a person, organization, or location in an
+article. A canonical record in [Stylebook](index.md) brings together the
+mentions that refer to the same real-world entity.
 
-Each mention keeps its **evidence**: the exact passage it came from, so you can always trace a catalog entry back to the reporting that supports it. Mentions can also carry context such as the **role** the entity played in the story.
+Each mention retains its **evidence**: the passage from which it came. This
+lets editors trace a record back to the reporting that supports it. A mention
+can also record the entity's role in that story.
 
-Mentions are part of Backfield's [data model](../concepts/content-model.md) and are queryable through the API — see [Mentions](../../api/mentions/index.md).
+See the [Data model](../concepts/content-model.md) for how mentions relate to
+articles and canonical records.
 
 ![Canonical location mentions grouped with their source articles](../images/simple-example/qs7-2.png)
 
-## Evidence can appear more than once
+## One entity can have several mentions
 
-One article-level entity may have several evidence occurrences. A person might
-be named in the opening paragraph, referred to by surname later, and quoted
-near the end. Stylebook groups those occurrences under the article evidence
-linked to the canonical person.
-
-Where exact character positions can be mapped safely, Backfield keeps them so
-the interface can highlight the source text. When text normalization prevents
-an exact offset, the evidence text can still be retained without pretending to
-know a precise position.
+A person might be named in the opening paragraph, referred to by surname later,
+and quoted near the end. These are separate mentions of one article entity.
+Stylebook groups them under the linked canonical person and preserves the
+passages needed for review.
 
 ## Story context belongs to the mention
 
-A mention can describe the entity's role in that particular story—for example,
+A mention can describe the entity's role in that story—for example,
 whether a person is a subject, source, or quoted speaker. That context does not
 become a permanent property of the canonical person.
 
@@ -31,17 +31,15 @@ while “Jane Doe is the mayor” may belong in canonical metadata.
 
 ## Project scope
 
-Mentions remain project-scoped even when several projects share a Stylebook.
-Canonical detail pages can filter evidence by project, and candidate queues
-show which project produced an unresolved item. Changing the project filter
-does not change canonical metadata or connections.
+Mentions remain tied to their project and article even when several projects
+share a Stylebook. A project filter narrows the evidence shown on a canonical
+record; it does not create a separate version of the record.
 
 ## Correcting a link
 
-Editors can move or unlink article evidence when it points to the wrong
-canonical. That changes the relationship between the project record and the
-Stylebook identity; it does not rewrite the source article or merge the two
-canonicals.
+Editors can move or unlink evidence when it points to the wrong canonical
+record. This corrects the link without rewriting the source article or merging
+the canonical records.
 
 When the final piece of evidence is removed from an otherwise empty canonical,
 Stylebook may offer to delete the empty record. Records with useful editorial

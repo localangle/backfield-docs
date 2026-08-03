@@ -1,73 +1,166 @@
 # Data model
 
-Backfield turns the articles you process into a few simple, connected building
-blocks. Understanding them explains why the same article, person, or place
-shows up consistently across [Agate](../agate/index.md),
-[Stylebook](../stylebook/index.md), and
-[Backfield API](../../api/index.md).
+Backfield keeps two related kinds of information:
 
-## The building blocks
+- **Article evidence** records what appeared in a particular story and what a
+  processing flow found there.
+- **Canonical knowledge** records what your organization knows about a person,
+  organization, or place across many stories.
 
-| Thing | What it is |
-| --- | --- |
-| **Articles** | The stories and documents you process, plus their text and basic details (headline, author, publication date, source) |
-| **Mentions** | Each time a person, organization, or place is referred to in an article — with the exact passage it came from |
-| **Article entities** | The people, places, and organizations found in one article, including their article-specific fields and mentions |
-| **Canonical entities** | Durable Stylebook records that identify the same real-world person, place, or organization across articles |
-| **Metadata** | Article-level tags such as topic, format, subject, scope, timeframe, user need, and custom categories |
-| **Custom records** | Project-defined structured records, such as events or recipes, extracted from an article |
-| **Images** | Images attached to an article, including captions and generated descriptions when a flow creates them |
+Keeping these layers separate allows editors to correct one article without
+accidentally changing a shared record—or improve a shared record without
+rewriting the reporting that supports it.
 
-Together these form the article-by-article record of *what was found and
-where*. [Stylebook](../stylebook/index.md) connects that evidence to clean
-canonical identities.
+## From one article to shared knowledge
 
-## Article entities, mentions, and canonicals
+When an [Agate](../agate/index.md) flow processes an article, it can produce
+several kinds of structured data:
 
-These three ideas are related but not interchangeable:
+```text
+Article
+├── Basic details and source text
+├── Article metadata
+├── People, organizations, and locations
+│   └── Mentions and supporting evidence
+├── Custom records
+├── Images
+└── Embeddings for semantic search
+```
 
-- An **article entity** says that a particular person, organization, or place
-  appears in this article. It can carry story-specific context, such as whether
+If the flow ends with **Backfield Output**, the article and its structured data
+are saved in the project. Its people, organizations, and locations can then be
+linked to shared canonical records in the project's
+[Stylebook](../stylebook/index.md):
+
+```text
+Canonical entity
+├── Names, aliases, and identifying details
+├── Mentions from linked articles
+├── Editor-maintained metadata
+├── Geography, when relevant
+└── Connections to other canonical entities
+```
+
+A flow result is not automatically part of this stored model. **JSON Output**
+can leave results available for inspection without saving an article or
+linking entities to Stylebook. See [Output nodes](../agate/nodes/outputs.md).
+
+## The main records
+
+| Record | What it represents | Scope |
+| --- | --- | --- |
+| **Article** | A story or document, including its text, headline, byline, publication date, source identifiers, and other basic details | Project |
+| **Article metadata** | Classifications that apply to the article as a whole, such as topic, format, subject, scope, timeframe, user need, and custom categories | Project |
+| **Article entity** | One person, organization, or location as represented in one article, including story-specific context | Project |
+| **Mention** | One textual reference to an article entity, tied to the passage that supports it | Project |
+| **Custom record** | A project-defined structure extracted from an article, such as an event, inspection, or recipe | Project |
+| **Image** | An image associated with an article, including available source information, captions, and generated descriptions | Project |
+| **Embedding** | A machine-readable representation used to compare articles or images by meaning | Project |
+| **Canonical entity** | The durable Stylebook identity for a real-world person, organization, or location | Stylebook |
+| **Canonical metadata and geography** | Editor-maintained reference information about a canonical entity | Stylebook |
+| **Connection** | A directional relationship between two canonical entities, optionally supported by article evidence | Stylebook |
+
+Workspaces help people find projects, but they do not create another copy of
+the article data. Projects own article evidence. Stylebooks belong to the
+organization and can be shared by several projects.
+
+## Entities, mentions, and canonicals
+
+An **article entity**, a **mention**, and a **canonical entity** describe
+different levels of the same reporting:
+
+- An article entity says that a particular person, organization, or place
+  appears in one article. It can record story-specific context, such as whether
   a person was quoted or what role an organization played.
-- A **mention** is the supporting reference in the text. One article entity may
-  have several mentions if the same person appears repeatedly.
-- A **canonical entity** is the Stylebook identity that article entities from
-  many stories can link to.
+- A mention is one occurrence of that entity in the source material. One
+  article entity may have several mentions—for example, a full name in the
+  opening paragraph, a surname later, and a quoted passage near the end.
+- A canonical entity is the shared Stylebook identity to which article
+  entities from many stories can link.
 
-So a politician covered in fifty articles may have fifty article-level records
-and many more textual mentions, but ideally one canonical person in Stylebook.
-The story evidence remains project-scoped; the canonical identity can be shared
-by every project assigned to that Stylebook. See
-[Mentions & evidence](../stylebook/mentions.md).
+A mayor covered in fifty articles may therefore have fifty article entities
+and many more mentions, but ideally one canonical person in Stylebook. The
+mentions remain traceable to their source articles even though they point to a
+shared identity. See [Mentions & evidence](../stylebook/mentions.md).
 
-## Article metadata vs. Stylebook metadata
+## How article entities become canonical knowledge
 
-Backfield uses “metadata” in two places:
+When Backfield Output saves an extracted person, organization, or location,
+[canonicalization](../stylebook/canonicalization.md) determines what happens:
 
-- **Article metadata** classifies a story as a whole: topic, format, subject,
-  scope, timeframe, user need, critical information need, or a custom category.
-- **Stylebook metadata** records editor-maintained information about a
-  canonical person, organization, or location.
+- link it to an existing canonical record;
+- create a new canonical record when policy allows; or
+- place it in a candidate queue when an editor needs to decide.
 
-Changing an article's topic does not change a canonical person. Changing a
-canonical person's metadata does not rewrite the articles where that person
-appeared.
+Linking an article entity does not replace the canonical record's maintained
+fields with the latest extraction. It adds article evidence to the shared
+identity. Custom records and images remain attached to articles and do not
+become additional canonical entity types.
 
-## Original output and reviewed output
+## Article facts and canonical facts
 
-Agate preserves what a flow originally produced. Editor corrections are stored
-as a review layer and combined with the original to form reviewed output. This
-lets a newsroom see what automation did, what a person changed, and which
-version should be exported.
+Some information can look similar while belonging to different layers.
 
-Edits made on a processed item apply to that article's evidence. Canonical
-fields remain authoritative in Stylebook.
+**Article metadata** classifies a story as a whole. It includes categories such
+as topic, format, subject, scope, timeframe, user need, critical information
+need, and newsroom-defined values. A flow may also retain a rationale and
+confidence score for editorial review.
 
-## Where this shows up
+**Canonical metadata** describes a shared person, organization, or location.
+Examples include a person's title or affiliation, an organization's type, or
+reference information your editors maintain.
 
-- In Agate, after a run, the extracted details for each article appear as a [processed item](../agate/processed-items.md) you can review.
-- In Stylebook, mentions are grouped under the canonical people, places, and organizations they refer to.
-- Through the API, you can search [articles](../../api/articles/index.md), explore [mentions](../../api/mentions/index.md), and retrieve [entities](../../api/entities/index.md).
+Geography follows the same distinction. An article can contain a geocoded
+place as it was understood in that story, while the canonical location keeps
+the maintained coordinates or geometry used across the Stylebook.
+
+Changing an article's topic, mention role, or story-specific geography does not
+change the canonical entity. Changing canonical metadata or geography does not
+rewrite the articles linked to it.
+
+## Connections
+
+[Connections](../stylebook/connections.md) relate canonical entities to one
+another—for example, a person who works for an organization or an organization
+based in a location. A connection has direction and may be:
+
+- maintained manually as editorial knowledge; or
+- inferred from reporting and supported by project and article evidence.
+
+Connections belong to the Stylebook knowledge graph. Their supporting evidence,
+when present, still points back to the project and article from which it came.
+
+## Original, reviewed, and stored results
+
+Each processed item begins with the output produced by its Agate flow. Editor
+corrections are saved as a separate review layer, which Agate combines with the
+original result to produce **reviewed output**. This preserves the distinction
+between what automation produced and what a person changed.
+
+Edits in a [processed item](../agate/processed-items.md) apply to that article's
+results and, where supported, its stored evidence. They do not silently change
+the linked canonical record. Canonical names, metadata, geography, and
+connections remain authoritative in Stylebook.
+
+Rerunning an item creates a new result from the current flow and clears that
+run-local review layer. When Backfield Output saves an article that already
+exists, its reconciliation policy determines how new machine-generated results
+are combined with stored data while preserving supported editorial changes.
+
+## Where the model appears
+
+- **Agate** presents each flow result as a processed item, where editors can
+  compare structured results with the source and make article-level
+  corrections.
+- **Stylebook** groups evidence under canonical people, organizations, and
+  locations, and provides tools for metadata, geography, connections,
+  candidates, and catalog review.
+- **Backfield API** exposes project-scoped
+  [articles](../../api/articles/index.md),
+  [mentions](../../api/mentions/index.md), and
+  [entities](../../api/entities/index.md), including links to canonical
+  identities where available.
 
 !!! note "Article metadata"
-    Predefined article tagging categories are listed in [Article Meta](../../api/taxonomy/article-meta/index.md).
+    The predefined article classification categories are listed in
+    [Article Meta](../../api/taxonomy/article-meta/index.md).

@@ -1,25 +1,43 @@
 # Metadata
 
-**Metadata** (shown as **Meta** in Stylebook) is the set of editor-maintained facts you attach to a canonical record — details that aren't extracted from any single article but that your team wants to keep on file. For a person that might be a title or affiliation; for an organization, a category or identifier.
+**Metadata**, shown as **Meta** in Stylebook, enriches a canonical record with
+structured information your newsroom wants to maintain. It can describe almost
+anything useful about a person, organization, or location.
 
-Metadata belongs to the canonical record and applies across the whole catalog, independent of any one article [mention](mentions.md).
+Metadata belongs to the shared canonical record, not to any one article
+[mention](mentions.md). Once added, it can be used wherever that Stylebook
+record appears.
 
 ## What belongs in Meta
 
-Use Meta for stable, editor-maintained information that helps people understand
-or classify the canonical record. Examples include:
+The fields are defined by your newsroom and can vary by entity type. Examples
+include:
 
-- a person's current title, affiliation, public-figure status, or person type;
-- an organization's type or newsroom identifier;
-- a location's type and other reference attributes.
+- a person's political party, current title, affiliation, or public-figure
+  status;
+- an organization's type, jurisdiction, size, or newsroom identifier;
+- a town's population, demographics, or other civic data;
+- any other maintained category or value that makes the record more useful.
 
-The exact fields differ by entity type. Some prominent fields appear in the
-record's main Details section, while additional structured values appear under
-Meta.
+Some common fields appear under **Details** and others under **Meta**. Metadata
+can be added or curated by editors, or included when canonical records are
+imported.
 
-Each Meta item has a metadata type and a value. Simple, flat values can be
-edited in a table; more complex structured data can be reviewed as JSON.
-Editors can add, change, or remove these items from the canonical detail page.
+## What metadata makes possible
+
+Metadata turns a record from an identity into a richer source of information.
+It allows newsroom tools and queries to combine what an entity *is* with what
+appeared in reporting.
+
+For example, if canonical people include political-party metadata, a newsroom
+could ask:
+
+> Show me all quotes by Republicans about issue X.
+
+That question combines maintained information about people with article
+evidence about quotes and issues. Similar combinations can support source
+audits, geographic analysis, directories, election products, and other
+newsroom uses.
 
 ## What does not belong in Meta
 
@@ -27,17 +45,24 @@ Article-specific facts belong to the article entity or mention. A person's role
 as a quoted source in one story, for example, should remain with that story's
 evidence rather than becoming a permanent canonical fact.
 
-Article classifications such as topic, format, subject, or user need are also a
-different kind of metadata. They are reviewed in Agate and apply to the article
-as a whole. See [Data model](../concepts/content-model.md#article-metadata-vs-stylebook-metadata).
+Article classifications such as topic, format, subject, or user need apply to
+the article as a whole and are reviewed in Agate. See
+[Data model](../concepts/content-model.md#article-facts-and-canonical-facts).
 
 ## Scope and editing
 
-Canonical metadata is Stylebook-wide. If several projects share the Stylebook,
-an editor's change is visible wherever that canonical is used. Project filters
-on a detail page narrow mentions and evidence; they do not create separate
-versions of the canonical metadata.
+If several projects share a Stylebook, a metadata change is visible wherever
+that canonical record is used. Project filters narrow the mentions shown; they
+do not create project-specific metadata.
 
-Treat canonical metadata as maintained reference information. Prefer clear,
-current values and use [connections](connections.md) when the information is
-really a relationship to another canonical record.
+Metadata requires editorial maintenance. Population figures change, political
+affiliations change, and categories may need clearer definitions over time.
+The richer the metadata, the more powerful the catalog becomes—but the more
+important ownership, sourcing, and regular review become.
+
+Use [connections](connections.md) when the information is really a
+relationship to another canonical record rather than a property of this one.
+
+!!! note "Active development"
+    Canonical metadata is an area of active development. The available editing,
+    import, and query tools will continue to expand.

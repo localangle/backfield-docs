@@ -23,6 +23,21 @@ mkdocs build
 
 Static output is written to `site/`.
 
+## Deployment
+
+Pushes to `main` deploy the complete documentation site to the `gh-pages`
+branch through `.github/workflows/deploy-docs.yml`.
+
+To deploy the full site manually:
+
+```bash
+mkdocs gh-deploy --strict --force
+```
+
+The Pages deployment intentionally uses the default `mkdocs.yml`. The
+`mkdocs-api.yml` configuration is reserved for API-only builds and must not be
+used for the main documentation deployment.
+
 ## Export API reference as PDF
 
 One command builds the site and writes a merged PDF to `dist/backfield-api.pdf`:
