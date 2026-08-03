@@ -1,14 +1,16 @@
 # Organizations & workspaces
 
-Backfield is organized in a simple hierarchy. Understanding it helps you know where settings live and who can see what.
+Backfield is organized in a simple hierarchy. Understanding it helps you know
+where settings live and who can see or change what.
 
 ## Organization
 
-An **organization** is your newsroom or company — the top-level account. It owns
-everything else: the people who have access, your shared settings (AI models,
-integrations), your Stylebooks, and all of your projects. Backfield can host
-several organizations while keeping their data separate; users with several
-memberships choose an organization when signing in and can switch afterward.
+An **organization** generally corresponds to your news organization or
+company. It is the top-level account and owns everything else: the people who
+have access, shared settings such as AI models and integrations, Stylebooks,
+and projects. Backfield can host several organizations while keeping their data
+separate; users with several memberships choose an organization when signing
+in and can switch afterward.
 
 Changing organizations changes the whole working context. The workspaces,
 projects, Stylebooks, users, and settings shown in the interface all belong to

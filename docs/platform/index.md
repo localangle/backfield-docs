@@ -1,18 +1,19 @@
-# Platform
+# Backfield
 
-Backfield helps newsrooms turn narrative articles into durable, structured
-data. Instead of treating every story as an isolated block of text, Backfield
-records the people, places, organizations, topics, and relationships found
-across your reporting.
+Backfield helps news organizations turn articles and reporting materials into
+durable, structured data. Instead of treating every story as a block of text,
+Backfield organizes it into entities, metadata, and relationships that can
+support new products, services, and understanding.
 
-Backfield is three interconnected applications:
+The Backfield platform consists of three interconnected applications:
 
-- **[Agate](agate/index.md)** turns articles into structured data through
-  reusable flows and gives editors a place to verify article-level results.
-- **[Stylebook](stylebook/index.md)** cleans, standardizes, and enriches the
-  people, organizations, and locations found across your reporting.
+- **[Agate](agate/index.md)** lets users create customizable workflows that
+  turn articles into structured data and gives editors a place to verify
+  article-level results.
+- **[Stylebook](stylebook/index.md)** cleans, standardizes and enriches the
+  entities found across your reporting.
 - **[Backfield API](../api/index.md)** makes the resulting data available for
-  queries by location, entity, keyword, or meaning—and for products, services,
+  queries by location, entity, keyword, or meaning — and for products, services,
   tools, and story forms your organization builds.
 
 Agate and Stylebook are primarily editorial interfaces. Backfield API is the
@@ -31,9 +32,9 @@ curated work into something other tools and services can use.
 ## How a story moves through Backfield
 
 1. You feed text into an **Agate flow**.
-2. The flow extracts details — places, people, organizations, topics — and
-   saves one **processed item** for each article. Editors can compare those
-   results with the source text and correct article-specific mistakes.
+2. The flow enriches the article, leaving behind a **processed item**. Editors
+   can compare enrichments and extracted entities with the source text and
+   correct article-specific mistakes.
 3. Confirmed entity data flows into the project's assigned **Stylebook**.
    Repeated references to the same real-world person, organization, or place
    can point to one shared **canonical** record.
@@ -44,8 +45,8 @@ curated work into something other tools and services can use.
 
 Backfield separates what a story said from what your newsroom knows:
 
-- **Article evidence** belongs to a project. It includes the story, its
-  extracted mentions, and the editor's corrections to that story.
+- **Processed items** belong to a project. They include the story itself, its
+  extracted and enriched data, and the editor's additions and corrections.
 - **Canonical knowledge** belongs to a Stylebook. It includes the durable
   identity, metadata, geography, and connections your newsroom maintains
   across stories.
@@ -58,10 +59,9 @@ aliases, or relationships on the canonical record in Stylebook.
 
 ## How the platform is organized
 
-An **organization** is the top-level newsroom account. It contains
-**workspaces**, which group related **projects**. Each project contains its own
-flows, runs, articles, and evidence, and is assigned one Stylebook. A Stylebook
-may be shared by several projects in the same organization.
+An **organization** is the top-level account. It contains **workspaces**, which
+group related **projects**. Each project is assigned one Stylebook, and a
+Stylebook may be shared by several projects in the same organization.
 
 See [Organizations & workspaces](concepts/organizations.md),
 [Projects](concepts/projects.md), and [Users & access](concepts/users.md) for

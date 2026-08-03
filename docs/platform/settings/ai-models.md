@@ -1,15 +1,18 @@
 # AI models
 
-Many Agate steps — especially
-[extractors](../agate/nodes/extractors.md) — use AI models to read text,
+Many Agate steps use AI models to read text,
 identify details, or create semantic embeddings. The **AI models** settings
 create an approved catalog so flow builders choose named configurations rather
 than entering provider and billing details on every node.
 
+Custom configurations use LiteLLM-compatible model identifiers. See the
+[LiteLLM model catalog](https://models.litellm.ai/) for available providers and
+models.
+
 ## The model catalog
 
-An organization administrator can add a curated preset or define a custom model
-configuration. A catalog entry records:
+Organization administrators can add presets or define custom model
+configurations. A catalog entry records:
 
 - a readable name shown to flow builders;
 - the provider model identifier;
@@ -51,4 +54,4 @@ flows.
 
 Estimates use the prices stored with the model configuration and the usage
 reported during execution. They are useful for comparison and monitoring, but
-the provider's invoice remains the billing record.
+the provider's invoice remains the authoritative billing record.

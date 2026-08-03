@@ -104,7 +104,7 @@ the structured data:
 - follow mentions and connections across reporting;
 - trigger approved flows from trusted automation.
 
-The API is primarily used by developers, data teams, and newsroom applications.
+The API is primarily used by developers, data teams, and other builders.
 You do not need to use it to review articles or maintain Stylebook records.
 
 ## Make changes in the right place

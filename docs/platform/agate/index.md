@@ -1,8 +1,8 @@
 # Agate
 
-Agate is Backfield's processing workspace. It is where teams define how an
-article should be read, enriched, and saved; run that process on one article or
-a batch; and review the result against the source text.
+Agate is a tool for creating, running, and reviewing data extraction and
+enrichment workflows. Teams use it to customize workflows and review the data
+they produce.
 
 ![Demo flow showing a text input, metadata and embedding nodes, entity extraction, geocoding, and JSON output](../images/simple-example/qs2.png)
 
@@ -21,15 +21,15 @@ Agate executions revolve around three connected concepts:
 A flow is built from **[nodes](nodes/index.md)**. Each node does one job, such
 as assigning a topic, extracting people, or geocoding places. Agate's guided
 builder starts by asking for an input and an output, then offers compatible
-steps that can be inserted between them. Connections are created
-automatically; flow builders do not have to wire technical ports by hand.
+steps that can be inserted between them.
 
-Nodes come in a variety of flavors, and developers can create new ones for specific tasks. See the [Nodes overview](nodes/index.md) for the full catalog.
+Nodes come in several types, and developers can create new ones for specific
+tasks. See the [Nodes overview](nodes/index.md) for the full catalog.
 
 ## Running and reviewing
 
-A flow is a reusable definition, not a result. Starting it creates a
-[run](runs.md). Each article in that run becomes a
+A flow is a reusable definition of an extraction or enrichment process.
+Starting it creates a [run](runs.md). Each article in that run becomes a
 [processed item](processed-items.md), where an editor can:
 
 - compare extracted data with highlighted passages in the story;
