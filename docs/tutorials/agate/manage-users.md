@@ -1,113 +1,75 @@
 # Manage users and access
 
-Create a member, give them access to the right workspaces and Stylebooks, verify
-their view, and disable the account when it is no longer needed.
+Add a person to your organization and decide what they can use.
 
 ## Before you begin
 
-You must be an organization administrator. Collect:
+You must be an organization administrator. You will need the person's email
+address and a strong initial password.
 
-- the person's email address and display name;
-- a strong initial password that you can share securely;
-- whether they should be a member or organization administrator;
-- every workspace they need;
-- every Stylebook they should be allowed to edit.
+## 1. Open the Users page
 
-Organization administrators can access every project and Stylebook. The
-workspace and Stylebook assignments in this tutorial matter primarily for
-members.
+In Agate, choose **Settings**, then **Users**.
 
-## 1. Open user administration
+The Tutorial Organization currently has one organization administrator.
 
-In Agate, choose **Settings** in the sidebar, then open **Users**. The table
-shows each person's role and status.
+![The Users page in the Tutorial Organization](../../images/tutorials/administration/users-overview.png)
 
-## 2. Add the user
+## 2. Add a user
 
 1. Choose **Add user**.
-2. Enter the person's **Email**.
-3. Enter a strong **Temporary password**.
-4. Add a **Display name** if your team uses one.
-5. Keep **Member**, or choose **Organization admin** only when the person needs
-   to manage organization-wide settings.
+2. Enter the person's email address.
+3. Enter a temporary password.
+4. Add a display name if useful.
+5. Choose **Member** for most people.
 6. Choose **Create**.
 
-![The Add user dialog with a member's account details](../../images/tutorials/administration/manage-users-add.png)
+![The Add user dialog in the Tutorial Organization](../../images/tutorials/administration/users-add.png)
 
-!!! warning "Share the initial password securely"
-    In the version verified for this tutorial, an account created from this
-    screen can sign in with the initial password without being forced through a
-    password-change screen. Treat the password as temporary anyway. Ask the
-    person to change it immediately from their account menu, and do not send it
-    in the same message as their username.
+Use **Organization admin** only when the person needs to manage users,
+credentials, models, integrations, and Stylebooks.
 
-## 3. Assign workspace access
+!!! warning "Share the password securely"
+    The person can sign in with the password you create. Ask them to change it
+    promptly, and do not send the password in the same message as their email
+    address.
 
-1. Find the new member and choose **Workspaces**.
-2. Select every workspace the person should be able to open.
-3. Review the project names listed beneath each workspace.
-4. Choose **Save**.
+## 3. Assign access
 
-The selection is a complete access list, not an additional permission. Clearing
-a checked workspace removes access to every project in it.
+Use the actions on the new member's row:
 
-## 4. Assign Stylebook editing access
+- **Workspaces** controls which workspaces and projects they can open.
+- **Stylebooks** controls which Stylebooks they may edit.
 
-1. Choose **Stylebooks** on the member's row.
-2. Wait for the Stylebook list to load.
-3. Select each Stylebook the person may edit.
-4. Choose **Save**.
+Select the complete access list in each dialog, then choose **Save**. Removing a
+selection removes that access.
 
-Workspace access and Stylebook editing are independent. A member may review
-project runs without being allowed to change canonical records, or curate a
-shared Stylebook used by several workspaces.
+Organization administrators already have access to every workspace and
+Stylebook, so these two buttons are unavailable on administrator rows.
 
-## 5. Verify the member's view
+## 4. Check their account
 
-Ask the person to sign in, or use a separate browser profile for a test account.
-Confirm that:
+Ask the person to sign in and confirm that:
 
-- only assigned workspaces appear on the Agate home page;
-- the expected projects appear inside each workspace;
-- unassigned workspaces do not appear;
-- the person can edit only the assigned Stylebooks;
-- **Settings** is absent for a member.
+- they can see the assigned workspaces and projects;
+- they cannot see unassigned workspaces;
+- they can edit only the assigned Stylebooks;
+- organization **Settings** are unavailable to a member.
 
-The test member below can open one workspace containing two projects.
+Workspace access and Stylebook editing are separate. A person can review project
+runs without being allowed to change shared canonical records.
 
-![A member's Agate home page showing one assigned workspace](../../images/tutorials/administration/manage-users-member-view.png)
+## Change a role or disable an account
 
-## 6. Change access or role
+Use the menu in the **Org role** column to switch between **Member** and
+**Organization admin**.
 
-Return to **Settings → Users**:
-
-- use **Workspaces** or **Stylebooks** to replace the corresponding access
-  list;
-- open the role menu in the **Org role** column to switch between **Member**
-  and **Organization admin**.
-
-Changing a member to an organization administrator immediately grants access to
-all organization settings, projects, and Stylebooks. Changing an administrator
-to a member makes their explicit workspace and Stylebook assignments effective.
-
-Email, display name, and password do not have administrator edit controls on
-this screen. A signed-in person changes their own password from the account
-menu.
-
-## 7. Disable an account
-
-1. Choose **Disable** on the person's row.
-2. Read the confirmation.
-3. Choose **Disable** again.
-
-The status changes to **Disabled**, and the person can no longer sign in. The
-login screen returns a generic invalid-credentials message rather than
-revealing that the account exists. Historical editorial work remains attached
-to the user.
+Choose **Disable** when a person should no longer be able to sign in. Their
+historical work remains in Backfield.
 
 !!! warning
-    The current Users screen does not provide a re-enable action. Confirm the
-    account and person carefully before disabling it.
+    The current Users page does not provide a re-enable action. Check the email
+    address carefully before disabling an account.
 
 ## Related concepts
 

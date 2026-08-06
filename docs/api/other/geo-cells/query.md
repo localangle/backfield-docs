@@ -140,7 +140,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
-| `400` | Empty `cells`, invalid cell ID, resolution mismatch, more than 200 cells, invalid date format, or malformed `meta` clause |
+| `400` | Empty `cells`, invalid cell ID, resolution mismatch, more than 200 cells, invalid date, malformed `meta` clause, more than 25 `meta` clauses, or more than 50 categories in one clause |
 | `422` | Missing or invalid JSON body fields, such as `cells`, `resolution`, or pagination bounds |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |

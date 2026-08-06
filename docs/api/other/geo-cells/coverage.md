@@ -111,7 +111,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When                                                                                                                                          |
 | ------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| `400`  | Invalid or inverted `bbox`, invalid date format, malformed `meta` clause, or aggregation still exceeds 5,000 cells at the coarsest resolution |
+| `400`  | Invalid or inverted `bbox`, invalid date, malformed `meta` clause, more than 25 `meta` clauses, more than 50 categories in one clause, or aggregation still exceeds 5,000 cells at the coarsest resolution |
 | `401`  | Missing or invalid API key                                                                                                                    |
 | `403`  | API key not valid for this project                                                                                                            |
 | `404`  | Unknown `project_slug`                                                                                                                        |

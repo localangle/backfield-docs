@@ -130,7 +130,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
-| `400` | Invalid `h3_cell`, invalid date format, or malformed `meta` clause |
+| `400` | Invalid `h3_cell`, invalid date, malformed `meta` clause, more than 25 `meta` clauses, or more than 50 categories in one clause |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
 | `404` | Unknown `project_slug` |

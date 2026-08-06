@@ -16,8 +16,8 @@ flows, runs, and article-level review.
 
 ## Flows
 
-- [Build a first flow](build-flow.md)
-- [Extract people, organizations, and places](extract-entities.md)
+- [Build your first flow](build-flow.md)
+- [Extract people and places](extract-entities.md)
 - [Add article metadata](article-metadata.md)
 - [Build a custom extraction](custom-extraction.md)
 - [Run and monitor a flow](run-flow.md)

@@ -4,6 +4,9 @@ site_url: https://docs.backfield.news
 repo_url: https://github.com/localangle/backfield
 repo_name: Backfield
 
+exclude_docs: |
+  tutorials/agate/sample-minnesota-articles.md
+
 theme:
   name: material
   custom_dir: overrides
@@ -195,8 +198,8 @@ nav:
           - Projects:
               - Create and tour a project: tutorials/agate/create-project.md
           - Flows:
-              - Build a first flow: tutorials/agate/build-flow.md
-              - Extract entities: tutorials/agate/extract-entities.md
+              - Build your first flow: tutorials/agate/build-flow.md
+              - Extract people and places: tutorials/agate/extract-entities.md
               - Add article metadata: tutorials/agate/article-metadata.md
               - Build a custom extraction: tutorials/agate/custom-extraction.md
               - Run and monitor a flow: tutorials/agate/run-flow.md

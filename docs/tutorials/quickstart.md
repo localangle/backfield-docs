@@ -39,7 +39,7 @@ retrieve the saved result through Backfield API.
 
 ## Where to go next
 
-- [Build a first flow](agate/build-flow.md)
+- [Build your first flow](agate/build-flow.md)
 - [Correct processed items](agate/review-processed-items.md)
 - [Review candidate queues](stylebook/review-candidates.md)
 - [Use the API Playground](api/playground.md)

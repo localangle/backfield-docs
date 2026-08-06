@@ -149,7 +149,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
-| `400` | Invalid `entity_type`, invalid `pub_date_from` / `pub_date_to`, malformed `meta` clause, or more than 25 `meta` clauses |
+| `400` | Invalid entity type or date, malformed `meta` clause, more than 25 `meta` clauses, or more than 50 categories in one clause |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
 | `404` | Unknown `project_slug` |

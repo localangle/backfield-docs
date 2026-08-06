@@ -1,114 +1,83 @@
 # Configure integrations
 
-Save organization credentials for geocoding, web search, and S3, then add and
-remove a project-specific override.
+Add the outside services used for geocoding, web search, and S3 storage.
 
 ## Before you begin
 
-You need organization-administrator access and the credentials your team plans
-to use:
+You need organization-administrator access and the credentials for the services
+your organization uses.
 
-- a Geocode Earth key, a Geocodio key, or both;
-- a Brave Search key;
-- for S3, an access-key ID and secret access key, plus a session token when
-  using temporary credentials.
+Saved secrets are write-only. Agate shows whether a secret is configured but
+does not reveal its value.
 
-All fields are write-only. After saving, Backfield shows status rather than the
-secret.
+## 1. Open Integrations
 
-## 1. Open organization integrations
+In Agate, choose **Settings**, then **Integrations**.
 
-In Agate, choose **Settings → Integrations**. This page controls organization
-defaults inherited by projects.
+The Tutorial Organization already has Geocode Earth and Geocodio credentials.
 
-![Configured organization geocoding integrations](../../images/tutorials/administration/integrations-organization.png)
+![Configured geocoding services in the Tutorial Organization](../../images/tutorials/administration/integrations-overview.png)
 
 ## 2. Configure geocoding
 
-The Geocoding section contains:
+Backfield supports:
 
-- **Geocode Earth**, the primary place lookup;
-- **Geocodio**, useful for intersections and other special cases;
-- **Nominatim** and **Overpass**, built-in helpers that require no saved key.
+- **Geocode Earth** as the primary geocoding service;
+- **Geocodio** for intersections and other special cases;
+- **Nominatim** and **Overpass** as built-in helpers that require no key.
 
-For each paid service:
+For Geocode Earth or Geocodio:
 
 1. Paste the key into **API key**.
 2. Choose **Save**.
-3. Confirm that the card shows **Configured**.
+3. Confirm that the service shows **Configured**.
 
-Once saved, the field changes to a placeholder indicating that a secret is on
-file. Pasting and saving a new value replaces the old one.
+Pasting and saving another value replaces the existing secret.
 
 ## 3. Configure web search
 
-Under **Search**, paste a Brave Search key and choose **Save**. DuckDuckGo
-remains available as a built-in fallback and has no settings field.
+Scroll to **Search**, paste a Brave Search key, and choose **Save**. Brave can
+provide supporting evidence during place resolution. DuckDuckGo remains
+available as a built-in fallback.
 
-Brave Search supplies additional evidence used during place resolution. It is
-not a general article-search setting.
+## 4. Configure S3 when needed
 
-## 4. Configure S3
+Under **Storage**, enter the access-key ID and secret access key. Add a session
+token only for temporary credentials.
 
-Under **Storage**, enter:
+![Search and storage settings in the Tutorial Organization](../../images/tutorials/administration/integrations-storage.png)
 
-1. **Access key ID**;
-2. **Secret access key**;
-3. **Session token**, only when the credential is temporary.
-
-Choose **Save**. The access-key ID and secret key are treated as one credential
-set. Bucket names and prefixes are configured on S3 Input and S3 Output nodes,
-not on this page.
+Bucket names and folders are configured on S3 Input and S3 Output nodes, not on
+this page.
 
 !!! warning
     When rotating temporary credentials, replace the access-key ID, secret key,
-    and session token together. A mixture of old and new values will fail.
+    and session token together.
 
-## 5. Inspect effective project settings
+## 5. Check project settings
 
-Open a project and select **Integrations**. Every supported service has a
-project row:
+Open **Tutorial Project**, then its **Integrations** tab.
 
-- **Configured** means an organization credential is available;
-- **Overridden** means this project has its own saved value;
-- an unavailable **Remove** button means the project is already inheriting the
-  organization default.
+- **Configured** means the project inherits an organization secret.
+- **Overridden** means the project uses its own secret.
 
-The input remains blank in every case because secrets are never returned to the
-browser.
+To add an override, paste the project-specific value and choose **Save**. Choose
+**Remove** to return to the organization default.
 
-![A project inheriting configured organization integrations](../../images/tutorials/administration/integrations-inherited.png)
+Most projects should inherit the organization settings. Use an override only
+when a project needs a separate account, quota, or storage boundary.
 
-## 6. Add a project override
+## 6. Verify the integration
 
-1. Paste the project-specific value into the appropriate row.
-2. Choose **Save**.
-3. Confirm that the row changes to **Overridden**.
+The settings page does not test provider access. Run a small flow that uses the
+service:
 
-![Brave Search overridden for one project](../../images/tutorials/administration/integrations-project-override.png)
-
-Only runs in this project use the override. Other projects continue using the
-organization value.
-
-## 7. Return to the organization default
-
-Choose **Remove** on the overridden row. The badge returns to **Configured**,
-and future runs use the organization credential again.
-
-Removing a project override does not remove the organization secret.
-
-## 8. Verify the service in a flow
-
-The settings screens do not provide integration test buttons. Run the smallest
-flow that uses the service:
-
-- Place Extract followed by Geocode for geocoding and Brave Search;
+- Place Extract followed by Geocode for geocoding and search;
 - S3 Input for read access;
 - S3 Output for write access.
 
-Open the run and inspect the relevant step if it fails. A credential can be
-configured successfully but still lack provider permissions, quota, bucket
-access, or network reachability.
+If the run fails, inspect the failed step for provider permissions, quota, or
+bucket-access errors.
 
 ## Related concepts
 

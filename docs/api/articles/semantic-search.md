@@ -167,7 +167,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 | Status | When |
 | --- | --- |
-| `400` | Invalid `pub_date_from` or `pub_date_to` format, malformed `meta` clause, or unknown `include` token |
+| `400` | Invalid date, malformed `meta` clause, more than 25 `meta` clauses, more than 50 categories in one clause, or unknown `include` token |
 | `422` | Missing or invalid JSON body fields, such as `query`, `limit`, or `offset` |
 | `401` | Missing or invalid API key |
 | `403` | API key not valid for this project |
