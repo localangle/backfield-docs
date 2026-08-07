@@ -164,9 +164,7 @@ nav:
       - Search project data: tutorials/api/search.md
       - Trigger and monitor a run: tutorials/api/trigger-run.md
   - Changelog: changelog.md
-  - Support:
-      - support/index.md
-      - FAQ: support/faq.md
+  - Support: support/index.md
 
 markdown_extensions:
   - admonition

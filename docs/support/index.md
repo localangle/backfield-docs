@@ -1,42 +1,90 @@
 # Support
 
-Use the channel that matches your question. Backfield's public repository supports local development, source inspection, and external contributions. Production self-hosting from that checkout is not currently supported.
+**Have a question? Email [backfield@localangle.co](mailto:backfield@localangle.co).**
 
-## API questions
+Start with the resource closest to your question:
 
-Start with these resources:
+- [Platform overview](../platform/index.md) explains Backfield, Agate,
+  Stylebook, and the API.
+- [Tutorials](../tutorials/index.md) provide verified, step-by-step workflows.
+- [API reference](../api/index.md) documents endpoints, authentication, and
+  response formats.
 
-- [API overview](../api/index.md) — base URLs, project scoping, OpenAPI, and available resources
-- [Authentication](../api/authentication.md) — creating and protecting project API keys
-- [API Playground](../api/playground.md) — inspect the public contract and try requests interactively
-- [Errors](../api/conventions/errors.md) — error envelopes, status codes, and request IDs
-- [FAQ](faq.md) — common setup and usage questions
+## Help with hosted Backfield
 
-The hosted API Playground is client-specific. Open it from Agate or use the host provided for your organization. See [API Playground](../api/playground.md).
+Contact your organization's Backfield administrator first for:
 
-## Bugs and feature requests
+- account access and user roles;
+- workspace or project access;
+- Stylebook assignments;
+- AI model and integration settings;
+- project API keys.
 
-Use the public [Backfield issue tracker](https://github.com/localangle/backfield/issues) for non-security defects:
+For help evaluating Backfield, planning a deployment, or discussing a
+structured-journalism project, [contact Local Angle](https://localangle.co).
+
+When asking for help, include:
+
+1. The organization, workspace, and project.
+2. What you were trying to do.
+3. The steps that led to the problem.
+4. What you expected and what happened instead.
+5. The approximate time of the problem.
+6. A screenshot or error message with private information removed.
+
+Do not send API keys, passwords, provider credentials, private article content,
+or unnecessary personal data.
+
+## API troubleshooting
+
+Use the hosted [API Playground](../api/playground.md) to confirm the request
+before adding it to an application. Open the Playground from Backfield so it
+uses the correct organization.
+
+Check these resources:
+
+- [Authentication](../api/authentication.md) for key types, scopes, and
+  revocation.
+- [Errors](../api/conventions/errors.md) for status codes and error bodies.
+- [Rate limits](../api/conventions/rate-limits.md) for `429` responses and
+  `Retry-After`.
+- [Get project](../api/projects/get-project.md) to confirm that a key belongs
+  to the expected project.
+
+For a failed request, record the endpoint, HTTP method, status, sanitized
+response body, and the `X-Request-ID` response header or matching `request_id`
+from the error body. Never include the API key.
+
+## Report a bug or request a feature
+
+Use the public [Backfield issue tracker](https://github.com/localangle/backfield/issues)
+for non-security reports:
 
 - [Report a bug](https://github.com/localangle/backfield/issues/new?template=bug_report.yml)
 - [Request a feature](https://github.com/localangle/backfield/issues/new?template=feature_request.yml)
 
-Search existing issues first. For a bug, include:
+Search existing issues first. A useful bug report includes:
 
 1. What you were trying to do
 2. Steps to reproduce the problem
 3. What you expected and what happened instead
 4. Relevant versions or commit SHA
-5. Error status and response body, with secrets removed
-6. The `X-Request-ID` response header or matching `request_id` from the API error body
+5. Sanitized logs or error details
+6. How often the problem occurs
 
-Never include API keys, credentials, private article content, or unnecessary personal data in a public issue.
+Do not post customer data or credentials in a public issue.
 
-## Local development
+## Local development and contributions
 
-The public [Backfield repository](https://github.com/localangle/backfield) includes the application source and local development tooling. Start with its [README](https://github.com/localangle/backfield#quickstart) and [contribution guide](https://github.com/localangle/backfield/blob/main/CONTRIBUTING.md).
+The public [Backfield repository](https://github.com/localangle/backfield)
+supports local development, source inspection, and external contributions. It
+does not currently provide a supported production self-hosting path.
 
-Local setup requires Python 3.11, Docker with Compose v2, `uv`, Node.js 20, and Git. The standard bootstrap is:
+Start with the repository's
+[quickstart](https://github.com/localangle/backfield#quickstart) and
+[contribution guide](https://github.com/localangle/backfield/blob/main/CONTRIBUTING.md).
+Local setup requires Python 3.11, Docker with Compose v2, `uv`, Node.js 20, and
+Git:
 
 ```bash
 git clone https://github.com/localangle/backfield.git
@@ -46,14 +94,12 @@ source .venv/bin/activate
 backfield init
 ```
 
-After setup, run `backfield doctor` when diagnosing the local environment. Before submitting a contribution, run `make lint` and `make test`.
+Run `backfield doctor` to diagnose the local environment. Before opening a pull
+request, run `make lint` and `make test`.
 
-## Security reports
+## Report a security vulnerability
 
-Do **not** report vulnerabilities in a public issue. Use [GitHub private vulnerability reporting](https://github.com/localangle/backfield/security/advisories/new). Include the affected component, version or commit, reproduction steps, impact, and any known mitigation.
-
-If private reporting is unavailable, email [opensource@localangle.co](mailto:opensource@localangle.co) with the subject `Security report: Backfield`.
-
-## Deployment and other help
-
-The public repository does not currently include a supported production self-hosting path. For help evaluating Backfield, production deployment, or structured-journalism use cases, [contact Local Angle](https://localangle.co).
+Do not report vulnerabilities in a public issue. Use
+[GitHub private vulnerability reporting](https://github.com/localangle/backfield/security/advisories/new).
+Include the affected component, version or commit, reproduction steps, impact,
+and any known mitigation.
