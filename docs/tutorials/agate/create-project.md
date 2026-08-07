@@ -67,7 +67,7 @@ Before running a flow, confirm that:
 3. each model shows **Configured**;
 4. the listed Stylebook is correct.
 
-The Tutorial Project uses GPT-5 Nano, text-embedding-3-small, and Tutorial
+The Tutorial Project uses GPT-5.6 Luna, text-embedding-3-small, and Tutorial
 Stylebook.
 
 The bottom of this tab also contains the project **System prompt**. Add one only

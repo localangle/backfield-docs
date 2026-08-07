@@ -8,7 +8,7 @@ places, and saves the results to Backfield.
 You need:
 
 - access to Tutorial Project;
-- GPT-5 Nano enabled and configured for that project;
+- GPT-5.6 Luna enabled and configured for that project;
 - working geocoding integrations;
 - an article containing at least one named person and Minnesota place.
 
@@ -56,7 +56,7 @@ The builder begins with Text Input connected directly to Backfield Output.
 
 1. Choose the **+** on that connection.
 2. Under **Extract**, choose **Place Extract**.
-3. Open Place Extract and select **GPT-5 Nano** as its extraction model.
+3. Open Place Extract and select **GPT-5.6 Luna** as its extraction model.
 4. Choose the **+** after Place Extract.
 5. Under **Enrich**, choose **Geocode Agent**.
 
@@ -68,7 +68,7 @@ steps on the same path so geocoding receives the extracted places.
 
 Choose **Add another path** on Text Input, then select **Person Extract**.
 
-Open Person Extract and choose **GPT-5 Nano**. The default prompt is a good
+Open Person Extract and choose **GPT-5.6 Luna**. The default prompt is a good
 starting point for this tutorial.
 
 ![Selecting the model for Person Extract](../../images/tutorials/flows/person-extract-settings.png)
@@ -92,8 +92,10 @@ Select any node to open its panel:
 - **Output** describes the structured result.
 - **Info** explains what the node does.
 
-Keep the default prompts for your first run. Prompt changes should have a clear
-editorial purpose and should be tested with several articles.
+Start with the default prompts. The next tutorial shows how to make the people
+and place rules more explicit before running the prepared article. Prompt
+changes should have a clear editorial purpose and should be tested with several
+articles.
 
 ## 7. Save the flow
 

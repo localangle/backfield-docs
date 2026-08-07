@@ -16,8 +16,8 @@ The page has two parts:
 - **Credentials** stores provider API keys.
 - **Model catalog** lists the models flow builders can select.
 
-The Tutorial Organization has an OpenAI credential and two active model
-records.
+The Tutorial Organization has an OpenAI credential and several active model
+records, including GPT-5.6 Luna.
 
 ![AI credentials and models in the Tutorial Organization](../../images/tutorials/administration/models-overview.png)
 

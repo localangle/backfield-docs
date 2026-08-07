@@ -4,35 +4,29 @@ These fictional articles provide consistent source material for the tutorials.
 The Minnesota places and counties are real. The people, organizations, events,
 quotes, and statistics are invented for demonstration.
 
-Each article includes several locations and people so you can test extraction,
+The news articles include several locations and people for testing extraction,
 geocoding, Stylebook matching, metadata, review, and search. Some people appear
 in more than one article, which makes the collection useful for testing
-canonical records and mentions.
+canonical records and mentions. The recipe provides a separate custom-record
+example.
 
 Copy the full text of one article into the **Text Input** node when a tutorial
 asks for sample content.
 
-## Duluth opens neighborhood cooling rooms
+## Duluth announces a summer cooling program
 
 ```text
-Duluth opens neighborhood cooling rooms ahead of August heat
+Duluth officials announce summer cooling program
 
-By Nora Bell
-July 28, 2026
+DULUTH, Minn. — Mayor Maya Chen announced a summer cooling program Monday at Duluth City Hall in Duluth, Minnesota.
 
-DULUTH, Minn. — The City of Duluth will open three neighborhood cooling rooms this weekend as forecasters expect several days of unusually high temperatures across northeastern Minnesota.
+Chen said the city will open cooling rooms during periods of dangerous heat. "Residents need a safe place to rest when temperatures rise," Chen said.
 
-The rooms will operate at the fictional Harborview Community Center in Lincoln Park, the fictional North Hills Library and the fictional Lakeside Family Center. They will offer water, seating and charging stations from noon to 8 p.m. Friday through Monday.
+Andre Wallace, health director for St. Louis County, said the county will provide shuttle service for older residents. Wallace said the program will begin in July.
 
-Maya Chen, director of the fictional Minnesota Community Resilience Office, said Duluth's plan is part of a pilot program focused on communities near Lake Superior.
+Celia Hart, director of the North Shore Housing Coalition, attended the announcement. Hart said her group will help residents find the nearest cooling room.
 
-"Heat can be dangerous even in places known for cool summers," Chen said. "The goal is to give residents a nearby place to rest before a health concern becomes an emergency."
-
-St. Louis County will provide shuttle rides from several senior housing buildings. Fictional county health coordinator Andre Wallace said residents should call 911 for medical emergencies rather than traveling to a cooling room.
-
-Duluth Mayor Celia Hart, a fictional official, said the city will decide next month whether to make the program permanent. The city will track attendance but will not ask visitors for identification.
-
-The National Weather Service office in Duluth is not affiliated with this fictional program. All program details, organizations, officials and quotations in this article are invented for tutorial use.
+The program will serve neighborhoods across Duluth and other communities in St. Louis County near Lake Superior.
 ```
 
 ## Moorhead approves a floodplain park
@@ -150,6 +144,36 @@ Minneapolis resident Amina Yusuf, a fictional participant in the pilot planning 
 Officials will compare delivery costs, wait times and patron feedback before considering a permanent program. St. Paul, Minneapolis, Ramsey County and Hennepin County are real; the pilot, people, organizations, statistics and quotations are fictional.
 ```
 
+## North Shore wild rice soup
+
+```text
+North Shore wild rice soup
+
+This simple soup recipe makes four servings.
+
+Ingredients
+
+- 2 tablespoons butter
+- 1 small yellow onion, diced
+- 8 ounces cremini mushrooms, sliced
+- 3 tablespoons all-purpose flour
+- 4 cups vegetable broth
+- 1 cup cooked Minnesota wild rice
+- 1 cup whole milk
+- 1/2 teaspoon dried thyme
+- 1/2 teaspoon kosher salt
+- Black pepper, to taste
+
+Instructions
+
+1. Melt the butter in a large pot over medium heat. Add the onion and cook for 4 minutes.
+2. Add the mushrooms and cook for 6 minutes, until they begin to brown.
+3. Sprinkle in the flour and stir for 1 minute.
+4. Slowly stir in the vegetable broth. Bring the soup to a simmer and cook for 10 minutes.
+5. Stir in the wild rice, milk, thyme and salt. Cook for 5 minutes without boiling.
+6. Season with black pepper and serve warm.
+```
+
 ## What the collection tests
 
 - **Repeated people:** Maya Chen, Elena Ortiz, Nora Bell and Caleb Young appear
@@ -160,5 +184,7 @@ Officials will compare delivery costs, wait times and patron feedback before con
   for extraction and geocoding.
 - **Metadata:** The collection spans climate resilience, transportation, health,
   education, food access and libraries.
+- **Custom records:** The recipe provides a compact example for separating
+  ingredient names from their quantities.
 - **Editorial review:** Fictional institutions and programs create useful new
   records without mixing tutorial content with real client data.
