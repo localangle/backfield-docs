@@ -2,42 +2,74 @@
 
 Tutorials turn the concepts in the
 [Platform documentation](../platform/index.md) into practical workflows. They
-are organized around Backfield's three connected applications.
+are organized around Backfield's three connected applications: Agate,
+Stylebook, and the Backfield API.
 
-!!! note "Tutorial outlines"
-    The pages in this section define the scope and sequence of planned
-    walkthroughs. Detailed steps and current screenshots will be added as each
-    tutorial is completed.
+## How tutorials work
 
-## Start across all three applications
+Each tutorial focuses on a task with a visible result. A page usually includes:
 
-[Quickstart](quickstart.md) follows one article from an Agate flow through
-editorial review and Stylebook curation, then retrieves the result through
-Backfield API.
+- what you will learn;
+- what must already be configured;
+- step-by-step instructions;
+- screenshots of the relevant interface;
+- a result to review;
+- links to the underlying concepts.
+
+Tutorials use a fictional **Tutorial Organization**, **Tutorial Workspace**,
+**Tutorial Project**, and **Tutorial Stylebook**. The names in your environment
+may differ, but the workflow is the same. Sample stories and records are kept
+separate from client data.
+
+Within a section, tutorials often build on earlier work. Check **Before you
+begin** before starting, and follow linked next steps when you want the full
+sequence.
 
 ## Agate
 
-[Agate tutorials](agate/index.md) cover:
+[Agate](agate/index.md) is where you configure projects, build flows, process
+stories, and review article-level results.
 
-- organization administration, users, models, integrations, and Stylebooks;
-- project creation and project-level settings;
-- flow building, extraction, enrichment, and custom records;
-- running flows and correcting processed items.
+Start with:
+
+- [Create and tour a project](agate/create-project.md)
+- [Build your first flow](agate/build-flow.md)
+- [Run and monitor a flow](agate/run-flow.md)
+- [Correct processed items](agate/review-processed-items.md)
+
+Organization administrators can also use the administration tutorials for
+users, AI models, integrations, and Stylebooks.
 
 ## Stylebook
 
-[Stylebook tutorials](stylebook/index.md) cover:
+[Stylebook](stylebook/index.md) is where editors maintain canonical people,
+places, organizations, metadata, connections, and review queues.
 
-- importing and editing canonical records;
-- maintaining geography, metadata, and connections;
-- resolving candidate queues;
-- checking the catalog for duplicates and other quality concerns.
+Start with:
+
+- [Import canonical records](stylebook/import-canonicals.md)
+- [Edit canonical records](stylebook/edit-canonicals.md)
+- [Review candidate queues](stylebook/review-candidates.md)
+- [Check catalog quality](stylebook/review-catalog.md)
 
 ## Backfield API
 
-[Backfield API tutorials](api/index.md) cover:
+[Backfield API](api/index.md) tutorials show how to access project data from
+the API Playground or trusted software.
 
-- creating and protecting project API keys;
-- exploring endpoints in the API Playground;
-- querying and searching project data;
-- triggering approved flows from trusted automation.
+Start with:
+
+- [Create an API key](api/create-api-key.md)
+- [Use the API Playground](api/playground.md)
+- [Query project data](api/query-data.md)
+- [Search project data](api/search.md)
+
+API keys and responses are project-scoped. Use tutorial credentials and data
+for practice rather than copying keys or client content into documentation.
+
+## Concepts and tutorials
+
+Use tutorials when you want to complete a task. Use the
+[Platform documentation](../platform/index.md) when you need to understand a
+feature, its data model, or its editorial implications. API endpoint details
+remain in the [API reference](../api/index.md).

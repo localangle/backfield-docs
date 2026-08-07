@@ -187,7 +187,6 @@ nav:
               - Get run: api/runs/get-run.md
   - Tutorials:
       - tutorials/index.md
-      - Quickstart: tutorials/quickstart.md
       - Agate:
           - tutorials/agate/index.md
           - Administration:
