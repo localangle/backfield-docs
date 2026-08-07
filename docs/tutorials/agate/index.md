@@ -24,5 +24,5 @@ flows, runs, and article-level review.
 
 ## Review
 
-- [Review and correct processed items](review-processed-items.md)
+- [Correct processed items](review-processed-items.md)
 - [Rerun processed items safely](rerun-items.md)

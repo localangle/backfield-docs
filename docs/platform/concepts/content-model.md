@@ -142,10 +142,11 @@ results and, where supported, its stored evidence. They do not silently change
 the linked canonical record. Canonical names, metadata, geography, and
 connections remain authoritative in Stylebook.
 
-Rerunning an item creates a new result from the current flow and clears that
-run-local review layer. When Backfield Output saves an article that already
-exists, its reconciliation policy determines how new machine-generated results
-are combined with stored data while preserving supported editorial changes.
+Rerunning an item creates a new result from the flow settings stored with its
+original run and clears that run-local review layer. When Backfield Output
+saves an article that already exists, its reconciliation policy determines how
+new machine-generated results are combined with stored data while preserving
+supported editorial changes.
 
 ## Where the model appears
 

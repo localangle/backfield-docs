@@ -123,7 +123,7 @@ model blindly.
 
 ## Next step
 
-Continue with [Review and correct processed items](review-processed-items.md) to
+Continue with [Correct processed items](review-processed-items.md) to
 edit extraction results and save reviewed changes.
 
 ## Related concepts

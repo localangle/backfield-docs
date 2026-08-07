@@ -92,7 +92,8 @@ After a completed run:
 
 - **Replay run** creates another run from the stored inputs.
 - **Run flow** starts the currently saved flow again.
-- **Rerun Item** on a processed item reruns only that item.
+- **Rerun Item** regenerates only that item with its original run's saved flow
+  settings.
 
 Use these actions deliberately. Regenerating an item can replace its run-level
 review changes, while shared Stylebook edits remain separate.
