@@ -63,4 +63,12 @@ Pages are exported in **API Reference** nav order from `mkdocs.yml`.
 | `docs/api/` | Public API reference (resources and endpoints) |
 | `docs/tutorials/` | Step-by-step guides |
 | `docs/support/` | FAQ and support channels |
+| `docs/meta/` | Maintainer contracts (not part of the public nav) |
 | `docs/stylesheets/extra.css` | Custom styling on top of the Material theme |
+
+## Release documentation updates
+
+When Backfield cuts a SemVer release, a Cursor cloud agent may open a PR against
+this repository to update the changelog and targeted product pages. The agent
+must follow [`docs/meta/release-update-contract.md`](docs/meta/release-update-contract.md).
+Humans review and merge those PRs; deploy still happens only from `main`.
