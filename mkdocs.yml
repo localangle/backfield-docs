@@ -6,6 +6,7 @@ repo_name: Backfield
 
 exclude_docs: |
   tutorials/agate/sample-minnesota-articles.md
+  meta/**
 
 theme:
   name: material
