@@ -18,7 +18,7 @@ Nodes are grouped by what they do:
 | **[Enrichment](enrichment.md)** | Refine extracted details or assign article-level metadata | Geocoding places into map coordinates; adding Article Meta tags |
 | **[Embedding](embedding.md)** | Prepare content for semantic ("meaning-based") search | Indexing article text and images |
 | **[Outputs](outputs.md)** | Save or export the results | Save into your catalog, view as JSON, or write files back to cloud storage |
-| **[Flow control](flow-control.md)** | Shape how data moves through the flow | Gathering multiple branches together |
+| **[Flow control](flow-control.md)** | Shape how data moves through the flow | Splitting long documents for extraction; gathering multiple branches together |
 
 ## A typical flow
 

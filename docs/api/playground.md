@@ -6,9 +6,9 @@ Backfield tenant. The Playground URL is client-specific; open it from Agate or
 use the host provided for your organization.
 
 Opening the Playground requires a signed-in Backfield session. If your account
-belongs to more than one organization, select the organization whose project
-you intend to query. The project API key still determines the API project
-scope when you execute a request.
+belongs to more than one organization, use the left-rail organization switcher
+to select the organization whose project you intend to query. The project API
+key still determines the API project scope when you execute a request.
 
 The Playground loads the public contract from:
 

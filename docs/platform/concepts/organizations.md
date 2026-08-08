@@ -10,7 +10,7 @@ company. It is the top-level account and owns everything else: the people who
 have access, shared settings such as AI models and integrations, Stylebooks,
 and projects. Backfield can host several organizations while keeping their data
 separate; users with several memberships choose an organization when signing
-in and can switch afterward.
+in and can switch afterward from the left-rail organization switcher.
 
 Changing organizations changes the whole working context. The workspaces,
 projects, Stylebooks, users, and settings shown in the interface all belong to
