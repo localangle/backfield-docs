@@ -43,7 +43,7 @@ account menu and store the replacement in your password manager.
 
 Sign in with your Backfield email and password. If your account belongs to more
 than one organization, choose the one you want to work in. You can switch
-organizations later from the account menu.
+organizations later from the left-rail organization switcher.
 
 Everything you see after choosing an organization—people, settings,
 workspaces, projects, and Stylebooks—belongs to that organization.

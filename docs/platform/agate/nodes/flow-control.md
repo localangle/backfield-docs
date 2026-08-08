@@ -4,7 +4,22 @@
 
 | Node | What it does |
 | --- | --- |
+| **Document Chunker** | Splits a long document into manageable sections for downstream extraction, then merges the results back into one article-level output |
 | **Gather** | Combines the results of several upstream steps into a single, organized bundle |
+
+## Document Chunker
+
+Use **Document Chunker** when a single article is too long for reliable
+extraction in one pass. Place it immediately after an input node and before
+entity extractors such as Place, Person, Organization, or Custom Extract.
+
+The chunker divides the document into sections, runs downstream extractors on
+each section, and stitches the results back together with grounded evidence
+attached to the original passages. Saved output looks like a normal processed
+item; internal chunking details are not kept in the durable result.
+
+Agate validates chunker placement when you save or run a flow. Graphs that
+place the chunker incorrectly are blocked until the order is corrected.
 
 ## Why Gather exists
 

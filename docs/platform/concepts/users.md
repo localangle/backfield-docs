@@ -5,8 +5,8 @@ A Backfield **user** belongs to one or more
 from an organization role, workspace membership, and Stylebook editing rights.
 
 If a person belongs to several organizations, they choose one when signing in
-and can switch organizations from the account menu. Backfield keeps each
-organization's projects and settings separate.
+and can switch organizations from the left-rail organization switcher. Backfield
+keeps each organization's projects and settings separate.
 
 ## How access works
 

@@ -32,5 +32,8 @@ All keys can read the project. A service key can optionally receive the
 
 To rotate safely, create a replacement, update and test every client, then revoke the old key. Do not revoke the old key until the replacement is in use.
 
+Revoked keys no longer appear in the project's API key list. They remain
+invalid for requests even if you still have a copy of the secret.
+
 For bearer authentication, scopes, and request examples, see
 [Authentication](../../api/authentication.md) in the API reference.
