@@ -20,7 +20,7 @@ Connections describe relationships between canonical entities — for example, a
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `to_entity_type` | string | — | Filter the entity connected to this person to `person`, `organization`, or `location` |
-| `nature` | string | — | Filter by relationship nature (exact match) |
+| `nature` | string | — | Repeatable connection `nature` filter (OR across values) |
 | `limit` | integer | `25` | Page size (1–100) |
 | `offset` | integer | `0` | Offset for pagination |
 

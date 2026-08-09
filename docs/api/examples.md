@@ -191,7 +191,7 @@ curl "${BASE}/people/${PERSON_ID}/articles?pub_date_from=2024-01-01&pub_date_to=
 ```
 
 The same pattern applies to organizations and locations. All three entity
-article routes accept `nature`, `author`, `external_source`, repeatable `meta`,
+article routes accept repeatable `nature` (OR), `author`, `external_source`, repeatable `meta`,
 `pub_date_from`, `pub_date_to`, and repeatable `include=counts`:
 
 

@@ -31,6 +31,16 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 The `natures` array merges values from all entity types. Use the entity pages above to interpret which entity type each value applies to.
 
+## Filtering by nature in API requests
+
+Many public routes accept a repeatable `nature` query parameter. Repeat the
+parameter to match any listed value (OR). For example,
+`?nature=subject&nature=official` on a person mention list returns mentions
+tagged with either role.
+
+Connection lists use the same repeatable pattern for relationship `nature`
+values.
+
 ## Related
 
 - [Metadata overview](../index.md)

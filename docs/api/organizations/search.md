@@ -26,7 +26,7 @@ Use [Types](types.md) to discover available `organization_type` values for filte
 | `stylebook_slug` | string | — | Optional compatibility check; when set, must match the project's assigned Stylebook |
 | `q` | string | — | Case-insensitive match on label |
 | `organization_type` | string | — | Exact organization type filter |
-| `nature` | string | — | Organizations with at least one linked mention of this nature in the project |
+| `nature` | string | — | Repeatable filter: organizations with at least one linked mention whose `nature` matches any listed value (OR) |
 | `min_mentions` | integer | `0` | Minimum project mention count |
 | `sort` | string | `label` | `label` or `recent` |
 | `limit` | integer | `25` | Page size (1–100) |

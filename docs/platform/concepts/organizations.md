@@ -30,6 +30,12 @@ Workspace access is also an access shortcut: an organization administrator can
 give a member access to a workspace and therefore its projects. Organization
 administrators can see every workspace and project.
 
+Organization administrators can delete a workspace from its card on the Agate
+home page. Deletion removes the workspace and every project inside it, including
+flows, runs, articles, and API keys. Shared Stylebook records are kept. You must
+type the workspace name exactly to confirm. Workspaces that contain the
+organization's default project cannot be deleted.
+
 ## Project
 
 A **project** is where day-to-day processing happens — the flows you build, the

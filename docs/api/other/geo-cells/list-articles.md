@@ -22,7 +22,7 @@ Display resolution `R` is derived from the path `h3_cell` — there is no `resol
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | `location_type` | string | — | Filter matching locations by type |
-| `nature` | string | — | Filter matching location mentions by role, such as `primary` or `secondary` |
+| `nature` | string | — | Repeatable mention-role filter (OR). Include results with a matching location mention whose `nature` is any listed value, such as `primary` or `secondary` |
 | `meta` | string | — | Repeatable metadata filter clause (AND across clauses). Same grammar as [Article Meta](../../taxonomy/article-meta/index.md#querying-with-meta) |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound |
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound |

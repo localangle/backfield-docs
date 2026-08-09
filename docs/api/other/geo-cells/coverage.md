@@ -24,7 +24,7 @@ Each article counts once per cell, even if it has multiple location mentions in 
 | `bbox`          | string  | **required** | Bounding box `min_lng,min_lat,max_lng,max_lat`                                                                                                                |
 | `resolution`    | integer | —            | Optional H3 display resolution (0–15). When omitted, derived from bbox viewport size. Used as the starting resolution; the API may coarsen further if needed. |
 | `location_type` | string  | —            | Filter matching locations by type — see [Entity Meta → Locations](../../taxonomy/entity-meta/locations.md)                                                    |
-| `nature`        | string  | —            | Filter matching location mentions by role — see [Mention Meta → Locations](../../taxonomy/mention-meta/locations.md)                                          |
+| `nature`        | string  | —            | Repeatable mention-role filter (OR) — see [Mention Meta → Locations](../../taxonomy/mention-meta/locations.md)                                          |
 | `meta`          | string  | —            | Repeatable metadata filter clause (AND across clauses). Same grammar as [Article Meta](../../taxonomy/article-meta/index.md#querying-with-meta)               |
 | `pub_date_from` | string  | —            | ISO date `YYYY-MM-DD`, inclusive lower bound                                                                                                                  |
 | `pub_date_to`   | string  | —            | ISO date `YYYY-MM-DD`, inclusive upper bound                                                                                                                  |

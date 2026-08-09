@@ -21,7 +21,7 @@ Results are **deduplicated by article**. An article that matches several request
 | `cells` | string[] | **required** | H3 cell IDs (1–200 entries), all at the same display resolution |
 | `resolution` | integer | **required** | Shared display resolution (0–15); each cell must match this resolution |
 | `location_type` | string | — | Filter matching locations by type |
-| `nature` | string | — | Filter matching location mentions by role, such as `primary` or `secondary` |
+| `nature` | string | — | Repeatable mention-role filter (OR). Include results with a matching location mention whose `nature` is any listed value, such as `primary` or `secondary` |
 | `meta` | array of string | `[]` | Metadata filter clauses (AND across clauses). Same grammar as [Article Meta](../../taxonomy/article-meta/index.md#querying-with-meta) — pass as a JSON array |
 | `external_source` | string | — | Filter articles by publication or outlet (case-insensitive exact match) |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound |

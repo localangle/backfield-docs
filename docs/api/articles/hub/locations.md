@@ -17,7 +17,7 @@ List locations mentioned in an article, including map-friendly fields such as fo
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `nature` | string | — | Filter to mentions with this editorial `nature` (exact match) |
+| `nature` | string | — | Repeatable mention `nature` filter (OR across values) |
 | `quote` | boolean | — | When `true`, return only mentions whose first evidence span is a quote |
 | `location_type` | string | — | Filter by location type |
 | `limit` | integer | `25` | Page size (1–100) |

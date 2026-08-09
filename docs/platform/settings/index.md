@@ -20,7 +20,8 @@ Organization administrators manage:
 - approved [AI models](ai-models.md) and their credentials;
 - [integrations](integrations.md) for geocoding, web search, and S3;
 - users, workspace access, and Stylebook editing rights;
-- the organization's Stylebooks and default Stylebook.
+- the organization's Stylebooks and default Stylebook;
+- other organization-wide options such as the default map view used when a map has no data to center on (**Settings → Other** in Agate).
 
 Secrets are write-only after they are saved: the interface can show that a
 credential exists, but does not display its value again.

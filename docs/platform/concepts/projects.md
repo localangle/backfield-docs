@@ -66,6 +66,11 @@ also show:
 Organization defaults reduce repeated setup, while project overrides let a
 team use a different approved model or integration credential where supported.
 
+Organization administrators can delete a project from its card on the workspace
+or project page. Deletion removes the project's flows, runs, articles, and API
+keys. Shared Stylebook records are kept. You must type the project name exactly
+to confirm. The organization's default project cannot be deleted.
+
 ## The project slug
 
 Every project has a human-readable **slug**, unique within its organization.
