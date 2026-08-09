@@ -23,7 +23,7 @@ articles.
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `nature` | string | — | Filter to articles with a mention of this editorial `nature` (exact match) |
+| `nature` | string | — | Repeatable filter: articles with a mention whose `nature` matches any listed value (OR) |
 | `author` | string | — | Filter by article byline (case-insensitive exact match) |
 | `external_source` | string | — | Filter by publication or outlet (case-insensitive exact match) |
 | `meta` | string | — | Repeatable article metadata clause; see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |

@@ -29,7 +29,7 @@ Use [Types](types.md) to discover available `person_type` values in your project
 | `public_figure` | boolean | — | Filter by public-figure flag |
 | `title` | string | — | Case-insensitive substring match on title |
 | `affiliation` | string | — | Case-insensitive substring match on affiliation |
-| `nature` | string | — | People with at least one linked mention of this nature in the project |
+| `nature` | string | — | Repeatable filter: people with at least one linked mention whose `nature` matches any listed value (OR) |
 | `min_mentions` | integer | `0` | Minimum project mention count |
 | `sort` | string | `sort_key` | `sort_key`, `recent`, or `label` (alias for `sort_key`) |
 | `limit` | integer | `25` | Page size (1–100) |

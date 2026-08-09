@@ -23,7 +23,7 @@ This route is **not paginated** — it returns the full filtered set as a JSON a
 | Name          | Type    | Default | Description                                                                                                                                            |
 | ------------- | ------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `entity_type` | string  | —       | Filter to `location`, `person`, or `organization`                                                                                                      |
-| `nature`      | string  | —       | Filter to mentions with this editorial `nature` (exact match). Values depend on entity type — see [Mention Meta](../../taxonomy/mention-meta/index.md) |
+| `nature`      | string  | —       | Repeatable mention `nature` filter (OR across values). Values depend on entity type — see [Mention Meta](../../taxonomy/mention-meta/index.md) |
 | `quote`       | boolean | —       | When `true`, return only mentions whose first evidence span is a quote                                                                                 |
 
 

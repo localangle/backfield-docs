@@ -26,7 +26,7 @@ Use [Types](types.md) to discover available `location_type` values for filter co
 | `stylebook_slug` | string | — | Optional compatibility check; when set, must match the project's assigned Stylebook |
 | `q` | string | — | Case-insensitive match on label or formatted address |
 | `location_type` | string | — | Exact location type filter |
-| `nature` | string | — | Locations with at least one linked mention of this nature in the project |
+| `nature` | string | — | Repeatable filter: locations with at least one linked mention whose `nature` matches any listed value (OR) |
 | `min_mentions` | integer | `0` | Minimum project mention count |
 | `sort` | string | `label` | `label` or `recent` |
 | `limit` | integer | `25` | Page size (1–100) |

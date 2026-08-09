@@ -23,7 +23,7 @@ The response echoes **`location_id`** and **`label`**, then `items` and `paginat
 | --- | --- | --- | --- |
 | `sort` | string | `created_at` | `created_at` or `article` (headline) |
 | `sort_direction` | string | `desc` | `asc` or `desc` |
-| `nature` | string | — | Filter by mention `nature` (exact match) |
+| `nature` | string | — | Repeatable mention `nature` filter (OR across values) |
 | `author` | string | — | Filter by article byline (case-insensitive exact match) |
 | `external_source` | string | — | Filter by article publication or outlet (case-insensitive exact match) |
 | `meta` | string | — | Repeatable metadata filter clause on the parent article (AND across clauses). Same grammar as [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |

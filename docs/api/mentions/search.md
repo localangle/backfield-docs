@@ -22,7 +22,7 @@ Entity-first routes ([List mentions for people](../people/mentions.md), [organiz
 | --- | --- | --- | --- |
 | `entity_type` | string | — | Filter to `location`, `person`, or `organization` |
 | `q` | string | — | Keyword match on entity name (case-insensitive) |
-| `nature` | string | — | Filter by mention `nature` (exact match) |
+| `nature` | string | — | Repeatable mention `nature` filter (OR across values) |
 | `has_canonical` | boolean | — | When `true`, only mentions linked to a canonical record; when `false`, only unlinked |
 | `author` | string | — | Filter by article byline (case-insensitive exact match) |
 | `external_source` | string | — | Filter by article publication or outlet (case-insensitive exact match) |

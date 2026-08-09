@@ -8,7 +8,8 @@ Find articles that mention locations near a point or inside a bounding box. Each
 
 This endpoint is useful for map views, local monitoring, and place-based discovery.
 
-You can also narrow matches by location type (repeatable, OR across values) or by the role that location plays in the article.
+You can also narrow matches by location type or mention role. Both `location_type`
+and `nature` are repeatable (OR across values).
 
 ## Search modes
 
@@ -40,7 +41,7 @@ min_lng,min_lat,max_lng,max_lat
 | `radius_miles` | number | — | Radius in miles for point mode |
 | `bbox` | string | — | Bounding box `min_lng,min_lat,max_lng,max_lat` |
 | `location_type` | string | — | Repeatable location type filter (OR). Include articles with a matching mention of any listed `location_type`. Max 25 values. Discover types with `GET …/locations/types` — see [Entity Meta → Locations](../taxonomy/entity-meta/locations.md) |
-| `nature` | string | — | Filter matching location mentions by role, such as `primary` or `secondary` |
+| `nature` | string | — | Repeatable mention-role filter (OR). Include articles with a matching location mention whose `nature` is any listed value, such as `primary` or `secondary` |
 | `meta` | string | — | Repeatable metadata filter clause (AND across clauses). Same grammar as [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound |
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound |

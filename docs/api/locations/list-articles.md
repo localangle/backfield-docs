@@ -23,7 +23,7 @@ match [List articles for people](../people/list-articles.md).
 
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| `nature` | string | — | Filter to articles with a mention of this editorial `nature` (exact match), such as `primary` or `secondary` |
+| `nature` | string | — | Repeatable filter: articles with a location mention whose `nature` matches any listed value (OR), such as `primary` or `secondary` |
 | `author` | string | — | Filter by article byline (case-insensitive exact match) |
 | `external_source` | string | — | Filter by publication or outlet (case-insensitive exact match) |
 | `meta` | string | — | Repeatable article metadata clause; see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
