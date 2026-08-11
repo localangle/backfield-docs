@@ -9,6 +9,7 @@ Stylebook assigned to the project.
 | Method | Path | Doc |
 | --- | --- | --- |
 | `GET` | `…/projects/{project_slug}` | [Get project](get-project.md) |
+| `GET` | `…/projects/{project_slug}/events` | [List project events](list-events.md) |
 
 ## Project-scoped URLs
 

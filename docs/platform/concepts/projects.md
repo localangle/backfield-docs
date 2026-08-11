@@ -18,7 +18,7 @@ a specific project, identified by its **slug** (a short, URL-friendly name like
 | **Processed items** | The reviewable results of a run — see [Processed items](../agate/processed-items.md) |
 | **Content** | The articles and extracted details produced by runs — see [Data model](content-model.md) |
 | **Stylebook** | The shared catalog assigned to the project for confirmed people, places, and organizations |
-| **Settings** | Project-level choices for [AI models](../settings/ai-models.md), [integrations](../settings/integrations.md), and [API keys](../settings/api-keys.md) |
+| **Settings** | Project-level choices for [AI models](../settings/ai-models.md), [integrations](../settings/integrations.md), [webhooks](../settings/webhooks.md), and [API keys](../settings/api-keys.md) |
 
 ## How projects relate to the rest of Backfield
 
@@ -61,7 +61,8 @@ also show:
 - the assigned Stylebook;
 - project-specific model and integration choices;
 - a project system prompt that supplies shared model guidance where supported;
-- project API keys for external applications.
+- project API keys for external applications;
+- project webhooks that send signed notifications to external systems.
 
 Organization defaults reduce repeated setup, while project overrides let a
 team use a different approved model or integration credential where supported.

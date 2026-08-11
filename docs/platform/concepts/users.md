@@ -23,7 +23,7 @@ keeps each organization's projects and settings separate.
 | Role | What it means |
 | --- | --- |
 | **Member** | Can work in assigned workspaces and projects, and can edit only the Stylebooks explicitly assigned to them |
-| **Organization administrator** | Can access all projects and Stylebooks and manage users, Stylebooks, AI models, integrations, and other organization-wide settings |
+| **Organization administrator** | Can access all projects and Stylebooks and manage users, Stylebooks, AI models, integrations, webhooks, and other organization-wide settings |
 
 A member's day-to-day work can include building and running
 [flows](../agate/flows.md), reviewing

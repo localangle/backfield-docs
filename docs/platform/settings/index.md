@@ -21,6 +21,7 @@ Organization administrators manage:
 - [integrations](integrations.md) for geocoding, web search, and S3;
 - users, workspace access, and Stylebook editing rights;
 - the organization's Stylebooks and default Stylebook;
+- project [webhooks](webhooks.md) that notify external systems when selected events occur;
 - other organization-wide options such as the default map view used when a map has no data to center on (**Settings → Other** in Agate).
 
 Secrets are write-only after they are saved: the interface can show that a
@@ -42,6 +43,7 @@ organization setting where fallback is supported.
 | --- | --- |
 | [AI models](ai-models.md) | The approved AI models flows can use, and how cost is tracked |
 | [Integrations](integrations.md) | Outside services for geocoding, web search, and file storage |
+| [Webhooks](webhooks.md) | Signed notifications when project runs, articles, or canonical records change |
 | [API keys](api-keys.md) | Keys that let your own applications use [Backfield API](../../api/index.md) |
 
 !!! note "Who can change settings"

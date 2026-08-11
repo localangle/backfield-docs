@@ -84,6 +84,7 @@ nav:
           - platform/settings/index.md
           - AI models: platform/settings/ai-models.md
           - Integrations: platform/settings/integrations.md
+          - Webhooks: platform/settings/webhooks.md
           - API keys: platform/settings/api-keys.md
   - API Reference:
       - Overview: api/index.md
@@ -97,6 +98,7 @@ nav:
       - Projects:
           - api/projects/index.md
           - Get project: api/projects/get-project.md
+          - List project events: api/projects/list-events.md
       - Metadata:
           - api/taxonomy/index.md
           - Article Meta:
