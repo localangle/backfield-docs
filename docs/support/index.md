@@ -18,7 +18,8 @@ Contact your organization's Backfield administrator first for:
 - workspace or project access;
 - Stylebook assignments;
 - AI model and integration settings;
-- project API keys.
+- project API keys;
+- project webhooks.
 
 For help evaluating Backfield, planning a deployment, or discussing a
 structured-journalism project, [contact Local Angle](https://localangle.co).
