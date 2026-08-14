@@ -43,14 +43,13 @@ which receive new internal identifiers in the new Stylebook.
 
 It is not a complete backup or clone. The current workflow does **not** include:
 
-- canonical organizations;
-- aliases, metadata, or connections;
-- source articles, article entities, or mentions;
 - candidate and review queues;
+- source articles, article entities, or mentions;
 - semantic embeddings, geocoding caches, or activity history.
 
-The result is a starting set of people and locations, not a backup or complete
-copy of the source Stylebook.
+The package **does** include canonical people, organizations, and locations with
+their aliases, typed attributes, and connections. Imported records receive new
+internal identifiers in the new Stylebook.
 
 ## Before importing
 

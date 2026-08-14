@@ -59,17 +59,21 @@ Ask the person to sign in and confirm that:
 Workspace access and Stylebook editing are separate. A person can review project
 runs without being allowed to change shared canonical records.
 
-## Change a role or disable an account
+## Change a role, edit a profile, or disable an account
 
 Use the menu in the **Org role** column to switch between **Member** and
 **Organization admin**.
 
+Choose **Edit user** to change a member's display name or role.
+
 Choose **Disable** when a person should no longer be able to sign in. Their
-historical work remains in Backfield.
+historical work remains in Backfield. Organization administrators can choose
+**Re-enable** on a disabled account to restore sign-in access. The email
+address stays reserved; creating a new account with the same address is not
+allowed.
 
 !!! warning
-    The current Users page does not provide a re-enable action. Check the email
-    address carefully before disabling an account.
+    Check the email address carefully before disabling an account.
 
 ## Related concepts
 

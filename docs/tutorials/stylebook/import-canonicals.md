@@ -81,8 +81,9 @@ Select **Next: Metadata**.
 
 ## 4. Decide whether to add metadata
 
-Metadata mapping is optional. Each mapping stores one non-empty GeoJSON
-property as a metadata entry on the imported canonical.
+Metadata mapping is optional. Each mapping stores one scalar GeoJSON property
+as a typed attribute on the imported canonical. Nested or non-scalar property
+values are skipped.
 
 ![Optional metadata mapping step](../../images/tutorials/stylebook-import/metadata-optional.png)
 

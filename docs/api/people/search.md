@@ -30,6 +30,8 @@ Use [Types](types.md) to discover available `person_type` values in your project
 | `title` | string | — | Case-insensitive substring match on title |
 | `affiliation` | string | — | Case-insensitive substring match on affiliation |
 | `nature` | string | — | Repeatable filter: people with at least one linked mention whose `nature` matches any listed value (OR) |
+| `attr` | string | — | Repeatable canonical attribute filter; see [Canonical attributes](../taxonomy/index.md#canonical-attributes) |
+| `include` | string | — | Repeatable expansion; pass `metadata` to include typed attributes on each item |
 | `min_mentions` | integer | `0` | Minimum project mention count |
 | `sort` | string | `sort_key` | `sort_key`, `recent`, or `label` (alias for `sort_key`) |
 | `limit` | integer | `25` | Page size (1–100) |
@@ -57,6 +59,7 @@ See [Pagination](../conventions/pagination.md) for the list response envelope.
       "affiliation": "City Hall",
       "public_figure": true,
       "person_type": "elected_official",
+      "metadata": [],
       "counts": {
         "mentions": 3,
         "stories": 2
@@ -81,6 +84,7 @@ See [Pagination](../conventions/pagination.md) for the list response envelope.
 | `affiliation` | string \| null | Organization or affiliation when set |
 | `public_figure` | boolean | Whether the person is flagged as a public figure |
 | `person_type` | string \| null | Person type when set |
+| `metadata` | array | Typed canonical attributes when `include=metadata`; otherwise `[]` |
 | `counts` | object | Project-scoped activity totals |
 | `counts.mentions` | integer | Linked mention rows in the project |
 | `counts.stories` | integer | Distinct articles with at least one linked mention |

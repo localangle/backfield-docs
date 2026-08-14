@@ -32,9 +32,10 @@ A member's day-to-day work can include building and running
 
 ## When access changes
 
-Administrators can change a user's role, workspace memberships, and Stylebook
-editing access independently. They can also disable an account. Removing
-organization or project access invalidates affected user-owned
+Organization administrators can change a user's role, display name, workspace
+memberships, and Stylebook editing access independently. They can disable an
+account or re-enable a previously disabled one. Removing organization or project
+access invalidates affected user-owned
 [API keys](../settings/api-keys.md) on their next request, because those
 credentials are checked against the owner's current access every time.
 

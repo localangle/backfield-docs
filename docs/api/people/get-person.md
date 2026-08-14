@@ -25,6 +25,13 @@ Return one canonical person by UUID.
   "affiliation": "City Hall",
   "public_figure": true,
   "person_type": "elected_official",
+  "metadata": [
+    {
+      "meta_type": "party",
+      "value_type": "text",
+      "value": "Democrat"
+    }
+  ],
   "counts": {
     "mentions": 3,
     "stories": 2
@@ -42,6 +49,7 @@ Return one canonical person by UUID.
 | `affiliation` | string \| null | Organization or affiliation when set |
 | `public_figure` | boolean | Whether the person is flagged as a public figure |
 | `person_type` | string \| null | Person type when set |
+| `metadata` | array | Typed canonical attributes (`meta_type`, `value_type`, `value`) |
 | `counts` | object | Project-scoped activity totals |
 | `counts.mentions` | integer | Linked mention rows in the project |
 | `counts.stories` | integer | Distinct articles with at least one linked mention |

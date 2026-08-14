@@ -1,6 +1,10 @@
 # Entity Meta
 
-Entity Meta classifies **canonical** people, organizations, and locations in Stylebook. Types appear on mention rows and entity search filters as `person_type`, `organization_type`, and `location_type`.
+Entity Meta covers **canonical** people, organizations, and locations in Stylebook.
+
+**Entity types** — `person_type`, `organization_type`, and `location_type` — appear on mention rows and entity search filters.
+
+**Typed attributes** — editor-maintained scalar values such as population or political party — appear in each record's `metadata` array and can be filtered with repeatable `attr` clauses on list and search routes. See [Canonical attributes](../index.md#canonical-attributes) for the filter grammar and `include=metadata` behavior.
 
 This is **Entity Meta**, not Article Meta's `meta_type=subject` (what the story is about) or Mention Meta's `nature=subject` (when a person or place is the central focus of the narrative).
 

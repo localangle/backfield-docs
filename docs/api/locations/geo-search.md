@@ -43,6 +43,8 @@ min_lng,min_lat,max_lng,max_lat
 | `q` | string | — | Optional case-insensitive match on label or formatted address |
 | `location_type` | string | — | Exact location type filter |
 | `nature` | string | — | Repeatable filter: locations with at least one linked mention whose `nature` matches any listed value (OR) |
+| `attr` | string | — | Repeatable canonical attribute filter; see [Canonical attributes](../taxonomy/index.md#canonical-attributes) |
+| `include` | string | — | Repeatable expansion; pass `metadata` to include typed attributes on each item |
 | `min_mentions` | integer | `0` | Minimum project mention count |
 | `limit` | integer | `25` | Page size (1–100) |
 | `offset` | integer | `0` | Offset for pagination |
@@ -64,6 +66,7 @@ min_lng,min_lat,max_lng,max_lat
         "type": "Point",
         "coordinates": [-87.6, 41.8]
       },
+      "metadata": [],
       "counts": {
         "mentions": 3,
         "stories": 2

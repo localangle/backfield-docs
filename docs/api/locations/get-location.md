@@ -28,6 +28,13 @@ Return one canonical location by UUID.
     "type": "Point",
     "coordinates": [-87.6, 41.8]
   },
+  "metadata": [
+    {
+      "meta_type": "seasonal_use",
+      "value_type": "text",
+      "value": "summer cooling center"
+    }
+  ],
   "counts": {
     "mentions": 3,
     "stories": 2
@@ -45,6 +52,7 @@ Return one canonical location by UUID.
 | `formatted_address` | string \| null | Formatted address when set |
 | `geometry_type` | string \| null | GeoJSON geometry type when geometry is stored |
 | `geometry_json` | object \| null | GeoJSON geometry when stored on the canonical |
+| `metadata` | array | Typed canonical attributes (`meta_type`, `value_type`, `value`) |
 | `counts` | object | Project-scoped activity totals |
 | `counts.mentions` | integer | Linked mention rows in the project |
 | `counts.stories` | integer | Distinct articles with at least one linked mention |
