@@ -22,6 +22,13 @@ Return one canonical organization by UUID.
   "label": "City Council",
   "stylebook_slug": "default",
   "organization_type": "government",
+  "metadata": [
+    {
+      "meta_type": "jurisdiction",
+      "value_type": "text",
+      "value": "municipal"
+    }
+  ],
   "counts": {
     "mentions": 3,
     "stories": 2
@@ -36,6 +43,7 @@ Return one canonical organization by UUID.
 | `label` | string | Display name |
 | `stylebook_slug` | string \| null | Stylebook catalog slug for this record |
 | `organization_type` | string \| null | Organization type when set |
+| `metadata` | array | Typed canonical attributes (`meta_type`, `value_type`, `value`) |
 | `counts` | object | Project-scoped activity totals |
 | `counts.mentions` | integer | Linked mention rows in the project |
 | `counts.stories` | integer | Distinct articles with at least one linked mention |

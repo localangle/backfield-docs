@@ -27,6 +27,8 @@ Use [Types](types.md) to discover available `organization_type` values for filte
 | `q` | string | — | Case-insensitive match on label |
 | `organization_type` | string | — | Exact organization type filter |
 | `nature` | string | — | Repeatable filter: organizations with at least one linked mention whose `nature` matches any listed value (OR) |
+| `attr` | string | — | Repeatable canonical attribute filter; see [Canonical attributes](../taxonomy/index.md#canonical-attributes) |
+| `include` | string | — | Repeatable expansion; pass `metadata` to include typed attributes on each item |
 | `min_mentions` | integer | `0` | Minimum project mention count |
 | `sort` | string | `label` | `label` or `recent` |
 | `limit` | integer | `25` | Page size (1–100) |
@@ -51,6 +53,7 @@ See [Pagination](../conventions/pagination.md) for the list response envelope.
       "label": "City Council",
       "stylebook_slug": "default",
       "organization_type": "government",
+      "metadata": [],
       "counts": {
         "mentions": 3,
         "stories": 2
@@ -72,6 +75,7 @@ See [Pagination](../conventions/pagination.md) for the list response envelope.
 | `label` | string | Display name |
 | `stylebook_slug` | string \| null | Stylebook catalog slug for this record |
 | `organization_type` | string \| null | Organization type when set |
+| `metadata` | array | Typed canonical attributes when `include=metadata`; otherwise `[]` |
 | `counts` | object | Project-scoped activity totals |
 | `counts.mentions` | integer | Linked mention rows in the project |
 | `counts.stories` | integer | Distinct articles with at least one linked mention |

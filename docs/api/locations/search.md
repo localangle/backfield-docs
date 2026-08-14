@@ -27,6 +27,8 @@ Use [Types](types.md) to discover available `location_type` values for filter co
 | `q` | string | — | Case-insensitive match on label or formatted address |
 | `location_type` | string | — | Exact location type filter |
 | `nature` | string | — | Repeatable filter: locations with at least one linked mention whose `nature` matches any listed value (OR) |
+| `attr` | string | — | Repeatable canonical attribute filter; see [Canonical attributes](../taxonomy/index.md#canonical-attributes) |
+| `include` | string | — | Repeatable expansion; pass `metadata` to include typed attributes on each item |
 | `min_mentions` | integer | `0` | Minimum project mention count |
 | `sort` | string | `label` | `label` or `recent` |
 | `limit` | integer | `25` | Page size (1–100) |
@@ -57,6 +59,7 @@ See [Pagination](../conventions/pagination.md) for the list response envelope.
         "type": "Point",
         "coordinates": [-87.6, 41.8]
       },
+      "metadata": [],
       "counts": {
         "mentions": 3,
         "stories": 2
@@ -81,6 +84,7 @@ See [Pagination](../conventions/pagination.md) for the list response envelope.
 | `formatted_address` | string \| null | Formatted address when set |
 | `geometry_type` | string \| null | GeoJSON geometry type when stored |
 | `geometry_json` | object \| null | GeoJSON geometry when stored on the canonical |
+| `metadata` | array | Typed canonical attributes when `include=metadata`; otherwise `[]` |
 | `counts` | object | Project-scoped activity totals |
 | `counts.mentions` | integer | Linked mention rows in the project |
 | `counts.stories` | integer | Distinct articles with at least one linked mention |

@@ -99,25 +99,25 @@ shape is not always the most accurate or responsible choice.
 
 ## 5. Add maintained metadata
 
-Expand **Advanced options**, then select **Add metadata**. Enter:
+Expand **Advanced options**, then select **Add detail**. Enter:
 
-- **Meta type:** `facility`
 - **Key:** `seasonal_use`
+- **Type:** `Text`
 - **Value:** `summer cooling center`
 
 ![Adding structured metadata to the location](../../images/tutorials/stylebook-edit/add-metadata.png)
 
-Select **Create**.
+Select **Add detail**.
 
 ![Saved metadata on the canonical record](../../images/tutorials/stylebook-edit/canonical-complete.png)
 
-Metadata is maintained information about the shared place. It is not evidence
-that the place appeared in a particular story. Use a clearly defined type and
-key, record the source in your newsroom's normal system, and plan to review
-facts that can change.
+Each attribute stores one typed value for a single key. Metadata is maintained
+information about the shared place. It is not evidence that the place appeared
+in a particular story. Use a clearly defined key, record the source in your
+newsroom's normal system, and plan to review facts that can change.
 
-Use **Edit** or **Delete** on the metadata card when a value needs correction or
-should no longer be maintained.
+Use **Edit** or **Delete** on the attribute card when a value needs correction
+or should no longer be maintained.
 
 ## 6. Understand mentions
 
@@ -154,7 +154,7 @@ The completed canonical should have:
 - the type **Place**;
 - the updated formatted address;
 - point geography in Duluth;
-- `facility` metadata with the `seasonal_use` value;
+- a `seasonal_use` text attribute with the value `summer cooling center`;
 - no linked mentions.
 
 ## Related concepts

@@ -6,7 +6,10 @@ At the **Article** level, Agate can generate arbitrary metadata, including class
 
 At the **Mention** level, Agate uses a preset taxonomy to classify a number of attributes, such as the nature of the mention (is it central to the story vs. just context, etc.) and whether it is a direct quote. These taxonomies are fixed.
 
-At the **Entity** level, Stylebook allows for a mix: both fixed taxonomies to identify the type of entity (ex. a politician vs. a community member, in the case of people) and arbitrary, user-assigned metadata. Connections between entities also have their own arbitrary edge labels, known as the "nature" of a connection.
+At the **Entity** level, Stylebook uses fixed taxonomies to identify the type of
+entity (for example, a politician versus a community member) and typed scalar
+attributes editors maintain on canonical records. Connections between entities
+also have their own edge labels, known as the "nature" of a connection.
 
 ## Three families
 
@@ -15,7 +18,7 @@ At the **Entity** level, Stylebook allows for a mix: both fixed taxonomies to id
 | ---------------- | -------------------------------------------- | --------------------------------------------------------- | ------------------------------------- |
 | **Article Meta** | Story format, broad topics, concrete subject | `metadata[]` on articles; article-metadata filters        | [Article Meta](article-meta/index.md) |
 | **Mention Meta** | Editorial role of an entity **in one story** | Mention and hub responses; mention/entity article filters | [Mention Meta](mention-meta/index.md) |
-| **Entity Meta**  | People, organization and place types         | Canonical records; mention rows; entity search filters    | [Entity Meta](entity-meta/index.md)   |
+| **Entity Meta**  | People, organization and place types; typed canonical attributes | Canonical records; mention rows; entity search filters    | [Entity Meta](entity-meta/index.md)   |
 
 
 ## Discover values in your project
@@ -48,6 +51,32 @@ Once you know your available metadata values, you can use them to search for art
 | `person_type`                                  | [Entity Meta → People](entity-meta/people.md)                 |
 | `organization_type`                            | [Entity Meta → Organizations](entity-meta/organizations.md)   |
 | `location_type`                                | [Entity Meta → Locations](entity-meta/locations.md)           |
+
+## Canonical attributes
+
+Stylebook stores one typed scalar value per attribute key on each canonical
+person, organization, or location. Each attribute has `meta_type`, `value_type`
+(`text`, `number`, or `boolean`), and `value`.
+
+Entity **detail** responses always include a `metadata` array. **List**,
+**search**, and **geo-search** responses include `metadata: []` unless you pass
+`include=metadata`.
+
+Filter canonical lists with repeatable **`attr`** query parameters (distinct from
+article **`meta`** filters). Forms:
+
+| Form | Meaning |
+| --- | --- |
+| `key` | Attribute exists |
+| `!key` | Attribute missing |
+| `key:value` | Equals |
+| `key:op:value` | Compare with `eq`, `neq`, `ieq`, `ineq`, `lt`, `lte`, `gt`, or `gte` |
+
+Use `|` within an `eq` or `ieq` value for OR; repeated `attr` clauses combine
+with AND. Examples: `party`, `!party`, `party:Democrat`,
+`population:gt:100000`, `party:eq:Democrat|Independent`.
+
+See [Get person](../people/get-person.md), [List and search people](../people/search.md), and the matching organization and location routes.
 
 
 ## Related

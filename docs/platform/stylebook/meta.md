@@ -1,17 +1,19 @@
 # Metadata
 
-**Metadata**, shown as **Meta** in Stylebook, enriches a canonical record with
-structured information your newsroom wants to maintain. It can describe almost
-anything useful about a person, organization, or location.
+**Metadata**, shown as **Details** under **Advanced options** in Stylebook,
+enriches a canonical record with structured information your newsroom wants to
+maintain. Each attribute has a key, a value type, and one scalar value.
 
 Metadata belongs to the shared canonical record, not to any one article
 [mention](mentions.md). Once added, it can be used wherever that Stylebook
 record appears.
 
-## What belongs in Meta
+## What belongs in Details
 
-The fields are defined by your newsroom and can vary by entity type. Examples
-include:
+Each canonical record can hold one value per attribute key. Values are typed as
+**text**, **number**, or **yes/no**.
+
+Examples include:
 
 - a person's political party, current title, affiliation, or public-figure
   status;
@@ -19,9 +21,9 @@ include:
 - a town's population, demographics, or other civic data;
 - any other maintained category or value that makes the record more useful.
 
-Some common fields appear under **Details** and others under **Meta**. Metadata
-can be added or curated by editors, or included when canonical records are
-imported.
+Some common fields appear under the main **Details** section and others under
+**Advanced options**. Attributes can be added or curated by editors, or included
+when canonical records are imported from scalar GeoJSON properties.
 
 ## What metadata makes possible
 
@@ -39,7 +41,7 @@ evidence about quotes and issues. Similar combinations can support source
 audits, geographic analysis, directories, election products, and other
 newsroom uses.
 
-## What does not belong in Meta
+## What does not belong in Details
 
 Article-specific facts belong to the article entity or mention. A person's role
 as a quoted source in one story, for example, should remain with that story's
@@ -62,7 +64,3 @@ important ownership, sourcing, and regular review become.
 
 Use [connections](connections.md) when the information is really a
 relationship to another canonical record rather than a property of this one.
-
-!!! note "Active development"
-    Canonical metadata is an area of active development. The available editing,
-    import, and query tools will continue to expand.
