@@ -71,10 +71,11 @@ Save your changes on each tab before leaving. Unsaved edits trigger a warning if
 
 While a **rerun** is in progress, review editing is **paused** until processing finishes — the item is being regenerated from the flow.
 
-Rerunning an item uses the flow settings stored with its original run and
-clears the run-local review overlay for the regenerated result. Start a new run
-when you need the currently saved flow instead. Make sure intentional
-corrections have been accounted for before rerunning.
+Rerunning an item uses the flow settings stored with its original run by
+default and clears the run-local review overlay for the regenerated result.
+When the saved flow has changed since that run, Agate can instead reprocess
+through the currently saved flow. Start a new run when you need fresh inputs.
+Make sure intentional corrections have been accounted for before rerunning.
 
 ## Stylebook and canonical records
 

@@ -47,7 +47,7 @@ min_lng,min_lat,max_lng,max_lat
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound |
 | `limit` | integer | `25` | Page size (1–100) |
 | `offset` | integer | `0` | Offset for pagination |
-| `include` | string | — | Repeatable include token. Supported: `counts` |
+| `include` | string | — | Repeatable include token. Supported: `counts`, `images` |
 
 See [Pagination](../conventions/pagination.md) for the shared `items` and `pagination` envelope. Geographic search responses also **echo the effective geo and filter parameters** at the top level, consistent with [List and search](search.md) and [Semantic search](semantic-search.md).
 
@@ -55,7 +55,7 @@ See [Pagination](../conventions/pagination.md) for the shared `items` and `pagin
 
 The response echoes the geographic query at the top level, then `items` and `pagination`.
 
-Each **`items[]`** row uses the same article list shape as [List and search](search.md) plus **`matching_locations`**. Pass `include=counts` to populate `counts` and `embedded`; otherwise those fields are `null`. `images` is always `null` on this route.
+Each **`items[]`** row uses the same article list shape as [List and search](search.md) plus **`matching_locations`**. Pass `include=counts` to populate `counts` and `embedded`; otherwise those fields are `null`. Pass `include=images` to populate `images` with up to 10 attached image rows; otherwise `images` is `null`.
 
 ```json
 {
@@ -149,7 +149,7 @@ Each item is an article list row plus geographic matches. Core article fields ma
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
 | `embedded` | boolean \| null | `null` unless `include=counts` is requested |
 | `counts` | object \| null | `null` unless `include=counts` is requested — see [Get article](get-article.md#counts-embed-includecounts) |
-| `images` | null | Always `null` on list responses; use [Get article](get-article.md) for inline images |
+| `images` | array \| null | Up to 10 image rows when `include=images` is requested; otherwise `null` |
 | `matching_locations` | array | Location mentions that matched the geographic filter |
 
 Location objects use the same shape as [List locations](hub/locations.md).

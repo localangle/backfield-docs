@@ -31,9 +31,9 @@ For exact words, phrases, or simple date filtering, use [List and search](search
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound |
 | `limit` | integer | `25` | Page size (1–100) |
 | `offset` | integer | `0` | Offset for pagination |
-| `include` | array of string | `[]` | Repeatable include token. Supported: `counts` |
+| `include` | array of string | `[]` | Repeatable include token. Supported: `counts`, `images` |
 
-Each **`items[]`** row uses the same article list shape as [List and search](search.md) — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata` — plus **`score`**. Pass `"include": ["counts"]` to populate `counts` and `embedded`; otherwise both are `null`. The `images` field is also `null`; use [Get article](get-article.md) for inline images.
+Each **`items[]`** row uses the same article list shape as [List and search](search.md) — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata` — plus **`score`**. Pass `"include": ["counts"]` to populate `counts` and `embedded`; otherwise both are `null`. Pass `"include": ["images"]` to populate `images` with up to 10 attached image rows; otherwise `images` is `null`.
 
 See [Pagination](../conventions/pagination.md) for the list response envelope.
 
@@ -138,7 +138,7 @@ Each item is an article list row plus a similarity score. Core article fields ma
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
 | `embedded` | boolean \| null | `null` unless `"include": ["counts"]` is requested |
 | `counts` | object \| null | `null` unless `"include": ["counts"]` is requested — see [Get article](get-article.md#counts-embed-includecounts) |
-| `images` | null | Always `null` on search responses; use [Get article](get-article.md) for inline images |
+| `images` | array \| null | Up to 10 image rows when `"include": ["images"]` is requested; otherwise `null` |
 | `score` | number | Cosine similarity; higher means more relevant |
 
 Results are ordered by `score` descending, then `pub_date` descending (nulls last), then `id` descending.

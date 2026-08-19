@@ -12,7 +12,9 @@ models.
 ## The model catalog
 
 Organization administrators can add presets or define custom model
-configurations. A catalog entry records:
+configurations. Presets are generated from the LiteLLM model catalog so current
+flagship provider models appear without waiting for a product release. A catalog
+entry records:
 
 - a readable name shown to flow builders;
 - the provider model identifier;

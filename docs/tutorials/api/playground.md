@@ -21,8 +21,9 @@ Create a temporary personal key by following
 2. Paste your temporary key into **Project API key**.
 3. Select **Use API key**.
 
-The key field disappears after authorization. **Clear key** removes it from the
-current browser session.
+The Playground keeps keys in a tab-scoped vault so you can switch among saved
+keys without re-pasting. The active key field disappears after authorization.
+**Clear key** removes the current key from the session.
 
 ![The authorized API Playground](../../images/tutorials/api-playground/authorized.png)
 

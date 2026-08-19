@@ -30,6 +30,11 @@ Editors can review article evidence and adopt useful geography for the
 canonical record when appropriate. This prevents one questionable run from
 silently changing a shared map record.
 
+After correcting a canonical location's geography, editors can **apply** that
+shape onto selected linked article places. Applied geography updates how those
+places participate in geographic article search while leaving the canonical
+record as the maintained source of truth.
+
 ## No geography is a valid result
 
 Some places can be identified even when no reliable map result is available.

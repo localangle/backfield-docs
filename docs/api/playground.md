@@ -22,11 +22,12 @@ authentication.
 
 ## Key handling
 
-Project API keys entered in the Playground are written to tab-scoped browser
-session storage. They are not written to long-lived local storage, cookies, or
-the Playground server. A key survives a reload in the same tab and is removed
-when you clear it, sign out, or close the tab under the browser's normal
-session-storage lifecycle.
+Project API keys entered in the Playground are written to a tab-scoped **key
+vault** in browser session storage. You can save more than one key and switch
+among them without re-pasting. Keys are not written to long-lived local storage,
+cookies, or the Playground server. A key survives a reload in the same tab and
+is removed when you clear it, sign out, or close the tab under the browser's
+normal session-storage lifecycle.
 
 Use a key scoped to the project you are exploring. Because the key is still
 present in the active browser tab while you use it:
