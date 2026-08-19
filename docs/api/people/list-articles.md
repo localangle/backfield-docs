@@ -27,7 +27,7 @@ articles.
 | `author` | string | — | Filter by article byline (case-insensitive exact match) |
 | `external_source` | string | — | Filter by publication or outlet (case-insensitive exact match) |
 | `meta` | string | — | Repeatable article metadata clause; see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
-| `include` | string | — | Repeatable include token. Supported: `counts` |
+| `include` | string | — | Repeatable include token. Supported: `counts`, `images` |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound on article `pub_date` |
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound on article `pub_date` |
 | `limit` | integer | `25` | Page size (1–100) |
@@ -104,7 +104,7 @@ Each `items[]` entry uses the standard article list shape:
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
 | `embedded` | boolean \| null | Populated when `include=counts`; otherwise `null` |
 | `counts` | object \| null | Populated when `include=counts`; otherwise `null` |
-| `images` | null | Always `null` on this list route; use [Get article](../articles/get-article.md) for inline images |
+| `images` | array \| null | Up to 10 image rows when `include=images` is requested; otherwise `null` |
 
 ## Example
 

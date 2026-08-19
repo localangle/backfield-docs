@@ -62,6 +62,10 @@ For S3, object version information also controls whether a file is considered
 unchanged. Moving or rewriting source files can therefore affect what a later
 scan sees.
 
+When an article is saved, Backfield uses the optional `publication` field as
+its outlet in search and API responses. If `publication` is omitted, the URL
+hostname is used instead.
+
 ## Images
 
 Each image may include a source ID, URL, and caption. Image-aware nodes can

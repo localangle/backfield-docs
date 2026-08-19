@@ -85,8 +85,10 @@ Long-running work can be cancelled from the run interface. Cancellation is
 bounded: work already executing may need a short time to stop, and items that
 finished remain visible.
 
-An item rerun uses the flow settings and input stored with its original run.
-Use **Run flow** instead when you need the currently saved flow configuration.
+An item rerun uses the flow settings and input stored with its original run by
+default. When the saved flow has changed since that run, Agate also offers to
+reprocess through the **currently saved flow** instead. Use **Run flow** when
+you need a fresh run with new inputs rather than regenerating stored items.
 Before a rerun starts, Agate identifies the Backfield Output reconciliation
 policy and warns that run-local review edits for affected items will be cleared
 as those items are regenerated. Canonical Stylebook edits are separate and are

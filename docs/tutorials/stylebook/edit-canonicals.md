@@ -93,6 +93,11 @@ The editor can:
 Select **Save** only after checking that the point or shape represents the
 canonical place. Select **Cancel** to leave the existing geography unchanged.
 
+When linked article places still carry an outdated geocode shape, use **Apply to
+linked saved places** to copy the corrected catalog geography onto selected
+places. This helps geographic search follow the maintained Stylebook boundary
+instead of a stale article-level polygon.
+
 A point is appropriate for a specific venue. A neighborhood, city, park, or
 district may need an area. A road may use a line. The most detailed available
 shape is not always the most accurate or responsible choice.

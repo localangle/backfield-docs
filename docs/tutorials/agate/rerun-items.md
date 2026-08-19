@@ -24,15 +24,20 @@ Open the processed item and select **Rerun Item**.
 
 Read all three parts of the confirmation:
 
-- The item will use the **flow settings saved when its original run started**.
-  Later edits to Tutorial Flow are not substituted into this rerun.
+- The item will use the **flow settings saved when its original run started**
+  unless you choose the updated flow option described below. Later edits to
+  Tutorial Flow are not substituted into a default rerun.
 - The item's **run review edits will be cleared**. In this example, that
   includes the earlier removal of the duplicate place.
 - Backfield Output will use **Smart Merge**, updating saved machine data while
   preserving editor-made changes.
 
-If you need the latest saved flow instead, start a new run from the flow rather
-than rerunning this historical item.
+When the saved flow has changed since the original run, Agate also offers to
+reprocess through the **currently saved flow** instead. The default remains the
+flow pinned when the run started.
+
+If you need the latest saved flow instead, choose that updated-flow option or
+start a new run from the flow rather than rerunning this historical item.
 
 ## 2. Start the rerun
 
@@ -84,7 +89,8 @@ and are not silently rewritten.
 ## 5. Choose the right action
 
 - Use **Rerun Item** to regenerate one item from its original run's flow
-  settings and inputs.
+  settings and inputs, or from the currently saved flow when that option is
+  offered.
 - Use **Replay run** to create another run from all stored inputs.
 - Use **Run flow** when you want the currently saved flow configuration.
 - For a batch, select failed rows and rerun only those items when successful

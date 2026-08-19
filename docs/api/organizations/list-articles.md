@@ -27,7 +27,7 @@ match [List articles for people](../people/list-articles.md).
 | `author` | string | — | Filter by article byline (case-insensitive exact match) |
 | `external_source` | string | — | Filter by publication or outlet (case-insensitive exact match) |
 | `meta` | string | — | Repeatable article metadata clause; see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta) |
-| `include` | string | — | Repeatable include token. Supported: `counts` |
+| `include` | string | — | Repeatable include token. Supported: `counts`, `images` |
 | `pub_date_from` | string | — | ISO date `YYYY-MM-DD`, inclusive lower bound on article `pub_date` |
 | `pub_date_to` | string | — | ISO date `YYYY-MM-DD`, inclusive upper bound on article `pub_date` |
 | `limit` | integer | `25` | Page size (1–100) |

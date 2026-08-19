@@ -32,7 +32,7 @@ The `q` parameter performs a keyword search over **headline**, **article body te
 | `sort_direction`  | string  | `desc`  | `asc` or `desc`                                                                                                                      |
 | `limit`           | integer | `25`    | Page size (1–100)                                                                                                                    |
 | `offset`          | integer | `0`     | Offset for pagination                                                                                                                |
-| `include`         | string  | —       | Repeatable include token. Supported: `counts`                                                                                        |
+| `include`         | string  | —       | Repeatable include token. Supported: `counts`, `images`                                                                              |
 
 
 See [Pagination](../conventions/pagination.md) for the shared `items` and `pagination` envelope. Search responses also **echo the effective query filters** at the top level (alongside `items` and `pagination`), consistent with [Semantic search](semantic-search.md) and [Geographic search](geo-search.md).
@@ -77,7 +77,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 The response echoes the effective keyword and filter parameters at the top level, then `items` and `pagination`.
 
-Each **`items[]`** row uses the standard article list shape — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata`. Pass `include=counts` to populate `counts` and `embedded`; otherwise both are `null`. The `images` field is also `null` on list responses; use [Get article](get-article.md) for inline images.
+Each **`items[]`** row uses the standard article list shape — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata`. Pass `include=counts` to populate `counts` and `embedded`; otherwise both are `null`. Pass `include=images` to populate `images` with up to 10 attached image rows; otherwise `images` is `null`. See [Get article](get-article.md) for the image object shape.
 
 ```json
 {
@@ -171,13 +171,13 @@ Each item is an article list row. Core fields match [Get article](get-article.md
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
 | `embedded` | boolean \| null | `null` unless `include=counts` is requested |
 | `counts` | object \| null | `null` unless `include=counts` is requested — see [Get article](get-article.md#counts-embed-includecounts) |
-| `images` | null | Always `null` on list responses; use [Get article](get-article.md) for inline images |
+| `images` | array \| null | Up to 10 image rows when `include=images` is requested; otherwise `null` |
 
 By default, results use relevance descending when `q` is set and publication
 date descending when it is omitted. You may explicitly choose either
 publication-date direction. `sort=relevance` requires a non-empty `q`.
 
-Omit `include=counts` when you do not need `counts` or `embedded` on list items.
+Omit `include=counts` when you do not need `counts` or `embedded` on list items. Omit `include=images` when you do not need inline images on list items.
 
 ## Errors
 

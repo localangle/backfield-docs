@@ -42,7 +42,8 @@ Choose **Add model**, or choose **Edit** beside an existing model.
 
 1. Choose **Generative** for extraction and enrichment, or **Embedding** for
    semantic search.
-2. Choose a preset, or enter a custom LiteLLM-compatible model identifier.
+2. Choose a preset from the LiteLLM-backed catalog, or enter a custom
+   LiteLLM-compatible model identifier.
 3. Give the model a clear display name.
 4. Select its API credential.
 5. Keep the status **Active**.

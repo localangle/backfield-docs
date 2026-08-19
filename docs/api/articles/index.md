@@ -12,10 +12,10 @@ Each article has a detail endpoint, search endpoints, and separate detail endpoi
 | Endpoint type         | Use when                                                                                                          |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | **Detail**            | Show one article's summary data, inline images (up to 10), optional counts, optional full body via `include=text` |
-| **List and search**   | Find articles by exact terms, metadata, or date                                                                   |
+| **List and search**   | Find articles by exact terms, metadata, or date; optional `include=counts` or `include=images` on each result |
 | **Article facets**    | Convenience wrapper to populate article search filter controls in one call — see [Metadata](../taxonomy/index.md) |
-| **Semantic search**   | Find conceptually related articles with natural language; optional `include=counts` on each result |
-| **Geographic search** | Find articles that mention places near a point or inside a bounding box; optional `include=counts` on each result |
+| **Semantic search**   | Find conceptually related articles with natural language; optional `include=counts` or `include=images` on each result |
+| **Geographic search** | Find articles that mention places near a point or inside a bounding box; optional `include=counts` or `include=images` on each result |
 | **Geo cells**         | H3 hex coverage map with distinct-article counts per cell; batch drill-down for multi-cell selections             |
 | **Detail endpoints**  | Load related mentions, people, organizations, locations, custom records, or images                                |
 
@@ -57,23 +57,25 @@ Core fields (list and detail):
 - `metadata` — tags from article meta (`meta_type`, `category`, `confidence`)
 - `preview` — truncated body snippet (max 280 characters)
 
-Detail-only:
+Detail-only (unless requested on list/search routes):
 
-- `images` — up to 10 inline image rows on [Get article](get-article.md)
+- `images` — up to 10 inline image rows on [Get article](get-article.md), or on list/search routes with `include=images`
 
 Optional embeds on [Get article](get-article.md):
 
 - `include=counts` — populates `counts` (mention and entity totals, image count, custom record counts) and `embedded`; both are otherwise `null`
 - `include=text` — adds `text` (full article body; `preview` is always included)
 
-Optional embeds on list/search routes ([List and search](search.md), [Semantic search](semantic-search.md), [Geographic search](geo-search.md)):
+Optional embeds on list/search routes ([List and search](search.md), [Semantic search](semantic-search.md), [Geographic search](geo-search.md), and entity article lists):
 
 - `include=counts` (or `"include": ["counts"]` on POST semantic search) — populates `counts` and `embedded`; they are otherwise `null`
+- `include=images` (or `"include": ["images"]` on POST semantic search) — populates `images` with up to 10 inline image rows; otherwise `images` is `null`
 
 Topic categories appear in `metadata[]` with `meta_type=topic`. Filter with `meta=topic:<category>` on any article-metadata filter endpoint — see [Article Meta](../taxonomy/article-meta/index.md#querying-with-meta).
 
 ## What article responses do not include
 
 - Full article body on list/search routes (use [Get article](get-article.md) with `include=text`)
-- Full mention, location, or image lists (use the [detail endpoints](hub/index.md); [Get article](get-article.md) includes up to 10 inline images)
+- Full mention or location lists (use the [detail endpoints](hub/index.md))
+- Full image lists beyond 10 rows (use [List images](hub/images.md); list/search routes return up to 10 inline images with `include=images`)
 
