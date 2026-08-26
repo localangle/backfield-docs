@@ -61,12 +61,16 @@ After selecting **Tutorial Project**, try these fields:
 - **q**: `Duluth`
 - **limit**: `3`
 - **Mention counts**: selected
+- **Attached images**: optional — adds `include=images` when you want inline
+  image rows on each article result
 
 Select **Execute request**. The response URL should contain:
 
 ```text
 /articles/search?q=Duluth&limit=3&include=counts
 ```
+
+Add `&include=images` when **Attached images** is selected.
 
 Path fields identify the project or resource. Query fields such as `q` and
 `limit` narrow a `GET` request. Endpoints that create work, such as **Trigger

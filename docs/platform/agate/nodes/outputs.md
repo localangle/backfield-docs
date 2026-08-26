@@ -19,17 +19,22 @@ entities.
 
 **Backfield Output** is the bridge into the rest of the Backfield platform. It
 saves article content, metadata, images, custom records, and entity evidence in
-the project. People, organizations, and locations are matched against the
-project's assigned Stylebook.
+the project when the flow produces them. A resolvable article body alone is
+enough to save the article — for example, Text or JSON Input wired directly to
+Backfield Output in a metadata-only or passthrough flow. People, organizations,
+and locations are matched against the project's assigned Stylebook when those
+domains are present.
 
 As it saves, canonicalization may link an existing record, create a new record
 when policy allows, or send an uncertain candidate to editors. See
 [Canonicalization](../../stylebook/canonicalization.md).
 
 Its settings can also enable supported semantic indexing and automatic
-connection inference. These features depend on compatible project models and
-the corresponding upstream data. Connection status may appear in Agate, while
-the canonical Stylebook record remains the place to edit a saved connection.
+connection inference. Automatic connection creation defaults off and can use a
+dedicated model separate from Stylebook matching. These features depend on
+compatible project models and the corresponding upstream data. Connection status
+may appear in Agate, while the canonical Stylebook record remains the place to
+edit a saved connection.
 
 The output also defines how a rerun reconciles machine-generated evidence that
 was already saved:

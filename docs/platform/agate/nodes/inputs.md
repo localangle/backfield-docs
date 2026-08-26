@@ -15,9 +15,12 @@ The text or document an input provides becomes the starting material that [extra
 **Text Input** is the quickest way to test a flow. The article is entered when
 you run it, so the same flow can be tried with different sample stories.
 
-**JSON Input** is useful when you have one structured article and want to keep
+**JSON Input** is useful when you have structured articles and want to keep
 fields such as headline, URL, author, publication date, and images alongside
-the text.
+the text. Paste one article object, or upload up to 20 `.json` files by
+drag-and-drop or file picker. One file creates a single-item run; two or more
+create one processed item per file, similar to a small S3 batch without cloud
+storage.
 
 **S3 Input** is designed for repeatable batches. It scans a bucket and prefix
 for article JSON files, creates one processed item per accepted file, and keeps
@@ -49,7 +52,7 @@ JSON and S3 inputs expect each article as a JSON object. The only required field
 }
 ```
 
-For **JSON input**, paste or provide one object in this shape. For **S3 input**, store each article as a `.json` file with this shape, then point the node at the bucket and prefix that contain those files.
+For **JSON input**, paste one object or upload files in this shape. For **S3 input**, store each article as a `.json` file with this shape, then point the node at the bucket and prefix that contain those files.
 
 ## Identity and updates
 

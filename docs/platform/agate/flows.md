@@ -34,8 +34,9 @@ the available upstream data.
 
 Steps can be inserted in sequence or placed on parallel branches. For example,
 person and organization extraction can run independently from the same article,
-while **Geocode** must come after **Place Extract** because it needs the places
-that step produced.
+while **Geocode** must come after **Place Extract on the same branch** because
+it needs the places that step produced. A Place Extract on a parallel branch
+does not count.
 
 Each node has its own panel. Depending on the node, it may include Settings,
 Prompt, Models, Info, Stylebook, or Output tabs. The builder draws model choices
