@@ -40,6 +40,15 @@ present in the active browser tab while you use it:
 For production applications, keep API keys in a server-side secret store and
 call Backfield from your backend. See [Authentication](authentication.md).
 
+## Request parameters
+
+When an endpoint supports optional embeds, the Playground exposes them through
+an **include** control instead of asking you to type tokens by hand. On article
+list and search routes, choose **Attached images** to request
+`include=images` (up to 10 images per article). Entity article feeds expose the
+same option. Article detail routes offer counts and full text because images
+are already included on the response.
+
 ## Tenant host
 
 Set the server to your tenant host:

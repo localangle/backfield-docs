@@ -13,7 +13,7 @@ Nodes are grouped by what they do:
 
 | Family | What it does | Examples |
 | --- | --- | --- |
-| **[Inputs](inputs.md)** | Bring text into the flow | Paste text, supply a JSON document, or pull a batch of files from cloud storage |
+| **[Inputs](inputs.md)** | Bring text into the flow | Paste text, supply JSON (one document or up to 20 uploaded files), or pull a batch of files from cloud storage |
 | **[Extractors](extractors.md)** | Pull structured details out of the text | Places, people, organizations, and custom record types you define |
 | **[Enrichment](enrichment.md)** | Refine extracted details or assign article-level metadata | Geocoding places into map coordinates; adding Article Meta tags |
 | **[Embedding](embedding.md)** | Prepare content for semantic ("meaning-based") search | Indexing article text and images |

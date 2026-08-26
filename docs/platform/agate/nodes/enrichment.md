@@ -37,9 +37,11 @@ applied taxonomy is usually more useful than many overlapping tags.
 
 ## Geocoding places
 
-The **Geocode** node consumes the locations produced by Place Extract. It uses
-the extracted name, type, address components, jurisdiction, and contextual
-hints to look for a defensible map result.
+The **Geocode** node consumes the locations produced by Place Extract on the
+**same branch**. It uses the extracted name, type, address components,
+jurisdiction, and contextual hints to look for a defensible map result. Agate
+rejects flows where Geocode appears without Place Extract upstream on that
+branch; a Place Extract on a sibling branch does not satisfy the requirement.
 
 A location can finish with:
 

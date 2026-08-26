@@ -29,9 +29,10 @@ Output form one complete path.
 
 Select **Run flow**.
 
-Text Input and JSON Input create one processed item. S3 Input can create many
-items from a batch of files, so its run summary may contain a mixture of
-pending, running, succeeded, and failed items.
+Text Input and a single JSON Input document create one processed item. JSON
+Input with two or more uploaded files creates one item per file (up to 20).
+S3 Input can create many items from a batch of files, so its run summary may
+contain a mixture of pending, running, succeeded, and failed items.
 
 ## 2. Monitor an active run
 

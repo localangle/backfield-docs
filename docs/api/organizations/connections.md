@@ -21,6 +21,7 @@ Connections describe relationships between canonical entities — for example, a
 | --- | --- | --- | --- |
 | `to_entity_type` | string | — | Filter the entity connected to this organization to `person`, `organization`, or `location` |
 | `nature` | string | — | Repeatable connection `nature` filter (OR across values) |
+| `include_closed` | boolean | `false` | Include closed connections |
 | `limit` | integer | `25` | Page size (1–100) |
 | `offset` | integer | `0` | Offset for pagination |
 
@@ -38,7 +39,12 @@ Connections describe relationships between canonical entities — for example, a
       "to_entity_id": "660e8400-e29b-41d4-a716-446655440001",
       "to_label": "Jane Doe",
       "description": null,
-      "nature": "employs"
+      "nature": "employs",
+      "temporal_kind": "dynamic",
+      "currentness": "current",
+      "currentness_as_of": null,
+      "closed_at": null,
+      "evidence": []
     }
   ],
   "pagination": {
@@ -66,6 +72,23 @@ other side of the connection regardless of stored direction.
 | `to_label` | string | Resolved display label for the target |
 | `description` | string \| null | Human-readable description of the relationship when set |
 | `nature` | string \| null | Relationship nature when set (e.g. `employs`) |
+| `temporal_kind` | string \| null | `static` or `dynamic` when the nature defines temporal behavior |
+| `currentness` | string \| null | `current`, `former`, or `unknown` when set |
+| `currentness_as_of` | string \| null | ISO datetime when currentness was last assessed |
+| `closed_at` | string \| null | ISO datetime when the connection was closed; omitted from default lists |
+| `evidence` | array | Supporting article evidence rows (see below) |
+
+### Evidence fields
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `article_id` | integer \| null | Article that supports this relationship |
+| `description` | string \| null | Narrative for this evidence row |
+| `quote` | string \| null | Supporting passage when available |
+| `reason` | string \| null | Short rationale when the model supplies one |
+| `confidence` | number \| null | Confidence score when available |
+| `observed_at` | string \| null | ISO datetime for when the evidence was observed |
+| `asserted_currentness` | string | Currentness asserted for this evidence row |
 
 ## Example
 

@@ -11,7 +11,7 @@ Start a run from a flow when the pipeline is complete and valid. Agate uses the 
 | Input | What the run processes |
 | --- | --- |
 | **Text input** | One pasted article or document |
-| **JSON input** | One structured article object with fields such as `text`, `headline`, `publication`, and `images` |
+| **JSON input** | One structured article object, or up to 20 uploaded `.json` files (one processed item per file) |
 | **S3 input** | A batch of JSON files from a bucket and prefix |
 
 === "Start a run"
@@ -24,7 +24,11 @@ Start a run from a flow when the pipeline is complete and valid. Agate uses the 
 
 ## Single item and batch runs
 
-**Text Input** and **JSON Input** nodes are designed to process a single article. This is often helpful for testing a flow. Runs with a single input yield a single processed item.
+**Text Input** and a single JSON Input document create one processed item.
+This is often helpful for testing a flow.
+
+**JSON Input** with two or more uploaded files creates one processed item per
+file, up to 20 files per run.
 
 **S3 Input** processes a batch of article files and is more often used for
 regular production runs. Agate prepares the item list, then workers process

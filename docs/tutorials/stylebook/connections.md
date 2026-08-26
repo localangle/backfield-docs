@@ -115,9 +115,11 @@ This tutorial creates a **manual** connection: an editor chooses both records
 and writes the relationship.
 
 Backfield can also create an **inferred** connection from reporting. Inferred
-connections can display an **Automatic** label, confidence, a supporting
-passage, and a reason. Treat that evidence as material for editorial review,
-not as proof that the relationship is current or correctly directed.
+connections can display status such as automatic, current or former, a
+supporting passage, and a reason. Treat that evidence as material for editorial
+review, not as proof that the relationship is current or correctly directed.
+Editors can close an inferred connection when it is no longer accurate and
+reopen it later if new reporting supports the link.
 
 Connections belong to the shared Stylebook. Article evidence remains tied to
 its project and article, but changing a connection changes the maintained
