@@ -41,6 +41,17 @@ unchanged files so a recurring batch does not repeatedly process the same
 content. A **Process files again** setting is available when you deliberately
 need to reprocess those files.
 
+## Finding runs and items
+
+On the project page, the **Runs** tab lists executions for that project.
+Previous and Next controls page through long run histories so large projects
+stay manageable.
+
+When you need to open review for a story but do not know which run produced
+it, use the project **Articles** tab. Search by headline or URL (or source
+label when no headline is available) and open the matching processed item
+directly.
+
 ## Status and progress
 
 The run page shows both the overall run status and the status of each processed item. Use it to answer three questions:

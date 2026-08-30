@@ -55,8 +55,22 @@ changing Stylebook-wide canonical metadata or connections.
 ## Project overview and settings
 
 The project page brings together its flows and runs and summarizes activity
-such as article counts, processed items, and estimated AI cost. Its settings
-also show:
+such as article counts, processed items, and estimated AI cost. Overview
+statistics show average AI cost and processing time **per processed item**, with
+flow-level breakdowns aligned to that view.
+
+Below the summary cards, tabs organize day-to-day work:
+
+| Tab | What it shows |
+| --- | --- |
+| **Flows** | Reusable pipelines for the project |
+| **Runs** | Current and past executions, with pagination when a project has many runs |
+| **Articles** | Processed items across runs; search by headline or URL to open review without knowing the originating run |
+| **Models** | Project model choices and the assigned Stylebook |
+| **Integrations** | Project-specific credential overrides |
+| **API** | Project API keys for external applications |
+
+Project settings also show:
 
 - the assigned Stylebook;
 - project-specific model and integration choices;

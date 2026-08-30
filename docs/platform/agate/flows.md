@@ -72,8 +72,10 @@ older results: changing today's prompt or model does not rewrite yesterday's
 run graph.
 
 Flows can also be duplicated when a team needs a safe starting point for a
-different process. Deleting a flow is a separate, confirmed action; historical
-run records retain the execution context needed to understand past work.
+different process. Deleting a flow is a separate, confirmed action that removes
+its runs from Agate. Articles already saved through Backfield Output remain,
+but metadata tags that traced back to a deleted run no longer show that run as
+their source.
 
 ## Validation
 
