@@ -60,4 +60,6 @@ connection.
 
 The canonical detail page shows connections as a list and as a neighborhood
 graph with a detail panel. The graph is a view of the maintained records and
-evidence, not a separate source of information.
+evidence, not a separate source of information. For records with many
+connections, the graph shows a capped neighborhood so the view stays readable;
+use the List tab for the complete connection set.

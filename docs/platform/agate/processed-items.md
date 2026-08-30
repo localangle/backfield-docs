@@ -6,7 +6,11 @@ Because the model's original output is always preserved, your edits are saved as
 
 ## Opening a processed item
 
-From a [run](runs.md), click through to an individual item. The page shows the article headline, which flow produced the result, and a row of tabs — one for each kind of extracted data.
+From a [run](runs.md), click through to an individual item. You can also open
+items from the project **Articles** tab: search by headline or URL and jump
+straight to review without knowing which run produced the story.
+
+The page shows the article headline, which flow produced the result, and a row of tabs — one for each kind of extracted data.
 
 Entity review tabs (**Places**, **People**, **Organizations**, and similar) share the same basic layout: the **story text on one side**, the **extracted entities on the other**, with highlights that connect mentions in the prose to the rows in the list.
 

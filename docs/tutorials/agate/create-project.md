@@ -37,16 +37,17 @@ Open the project. The overview summarizes:
 
 - completed, active, and stopped runs;
 - estimated AI usage cost;
-- average cost and processing time for completed runs.
+- average cost and processing time per processed item.
 
 These cards remain empty until the project has run a flow.
 
 ![Tutorial Project before its first run](../../images/tutorials/projects/project-overview.png)
 
-The lower part of the page contains five tabs:
+The lower part of the page contains six tabs:
 
 - **Flows** lists reusable processing workflows.
-- **Runs** lists current and previous executions.
+- **Runs** lists current and previous executions, with pagination when the list is long.
+- **Articles** lists processed items across runs and supports search by headline or URL.
 - **Models** controls the models available to this project.
 - **Integrations** controls project-specific credential overrides.
 - **API** manages keys for outside applications.

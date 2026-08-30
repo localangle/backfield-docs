@@ -82,8 +82,9 @@ Select **Graph** to see the same records and relationship visually.
 ![Harborview Neighborhood Center and Duluth in the connection graph](../../images/tutorials/stylebook-connections/connection-graph.png)
 
 The graph is another view of the maintained connection. It does not create a
-second relationship or change the source of the information. Use the List view
-when you need to confirm the exact direction and wording.
+second relationship or change the source of the information. For records with
+many connections, the graph shows a capped neighborhood; use the List view for
+the full set and to confirm the exact direction and wording.
 
 ## 5. Edit the description
 
