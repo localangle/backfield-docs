@@ -88,6 +88,7 @@ Runs preserve the operational details you need to understand what happened:
 | **Node progress** | Helps identify which step is slow or failing |
 | **Errors** | Shows the message returned by a failed node or item |
 | **Estimated AI cost** | Helps track model usage for the run and its steps |
+| **Location lookup health** | When geocoding services report authentication or rate-limit problems during the run, the cost summary can flag degraded location lookup |
 | **Timestamps** | Show when the run started, updated, and finished |
 
 Cost estimates depend on the [AI models](../settings/ai-models.md) selected in the flow. Treat them as operational estimates for monitoring and comparison, not as audited billing records.

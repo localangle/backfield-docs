@@ -51,7 +51,9 @@ Same core fields as [List and search](search.md) items, but `evidence` is replac
     "id": 1,
     "headline": "City council votes on budget",
     "url": "https://example.com/budget",
-    "pub_date": "2024-03-01"
+    "pub_date": "2024-03-01",
+    "published": "2024-03-01T08:00:00Z",
+    "updated": "2024-03-01T18:15:18Z"
   }
 }
 ```

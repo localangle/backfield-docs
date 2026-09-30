@@ -101,7 +101,9 @@ Results are ordered by article `pub_date` descending (nulls last), then `mention
         "id": 1,
         "headline": "City council votes on budget",
         "url": "https://example.com/budget",
-        "pub_date": "2024-03-01"
+        "pub_date": "2024-03-01",
+        "published": "2024-03-01T08:00:00Z",
+        "updated": "2024-03-01T18:15:18Z"
       }
     }
   ],
@@ -131,7 +133,7 @@ Results are ordered by article `pub_date` descending (nulls last), then `mention
 | `public_figure` | boolean \| null | Present on person mentions |
 | `canonical` | object \| null | Linked canonical record, when available |
 | `evidence` | object \| null | First non-suppressed occurrence span |
-| `article` | object | Article summary (`id`, `headline`, `url`, `pub_date`) |
+| `article` | object | Article summary (`id`, `headline`, `url`, `pub_date`, optional `published` and `updated`) |
 
 Type-specific fields are `null` when they do not apply to the mention's entity type.
 

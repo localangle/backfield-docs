@@ -28,7 +28,7 @@ The `q` parameter performs a keyword search over **headline**, **article body te
 | `has_mentions`    | string  | —       | Require mentions of `location`, `person`, or `organization`                                                                          |
 | `pub_date_from`   | string  | —       | ISO date `YYYY-MM-DD`, inclusive lower bound                                                                                         |
 | `pub_date_to`     | string  | —       | ISO date `YYYY-MM-DD`, inclusive upper bound                                                                                         |
-| `sort`            | string  | varies  | `relevance` or `pub_date`; defaults to `relevance` with `q`, otherwise `pub_date`                                                    |
+| `sort`            | string  | varies  | `relevance`, `pub_date`, `published`, or `updated`; defaults to `relevance` with `q`, otherwise `pub_date`                           |
 | `sort_direction`  | string  | `desc`  | `asc` or `desc`                                                                                                                      |
 | `limit`           | integer | `25`    | Page size (1–100)                                                                                                                    |
 | `offset`          | integer | `0`     | Offset for pagination                                                                                                                |
@@ -77,7 +77,7 @@ curl "https://api.{organization_slug}.backfield.news/public/v1/projects/general/
 
 The response echoes the effective keyword and filter parameters at the top level, then `items` and `pagination`.
 
-Each **`items[]`** row uses the standard article list shape — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata`. Pass `include=counts` to populate `counts` and `embedded`; otherwise both are `null`. Pass `include=images` to populate `images` with up to 10 attached image rows; otherwise `images` is `null`. See [Get article](get-article.md) for the image object shape.
+Each **`items[]`** row uses the standard article list shape — `id`, `headline`, `url`, `author`, `pub_date`, optional `published` and `updated` instants, `source`, `preview`, and `metadata`. Pass `include=counts` to populate `counts` and `embedded`; otherwise both are `null`. Pass `include=images` to populate `images` with up to 10 attached image rows; otherwise `images` is `null`. See [Get article](get-article.md) for the image object shape.
 
 ```json
 {
@@ -96,6 +96,8 @@ Each **`items[]`** row uses the standard article list shape — `id`, `headline`
       "url": "https://example.com/budget",
       "author": "Jane Doe",
       "pub_date": "2024-03-01",
+      "published": "2024-03-01T08:00:00Z",
+      "updated": "2024-03-01T18:15:18Z",
       "source": {
         "id": "example.com",
         "name": "example.com"
@@ -150,7 +152,7 @@ The example above includes `embedded` and `counts` because the request used `inc
 | `has_mentions` | string \| null | Required mention type (`location`, `person`, or `organization`) |
 | `pub_date_from` | string \| null | Inclusive lower publication date bound |
 | `pub_date_to` | string \| null | Inclusive upper publication date bound |
-| `sort` | string | Effective sort (`relevance` or `pub_date`) |
+| `sort` | string | Effective sort (`relevance`, `pub_date`, `published`, or `updated`) |
 | `sort_direction` | string | Effective direction (`asc` or `desc`) |
 | `items[]` | array | Matching articles |
 | `pagination` | object | Pagination envelope |
@@ -166,6 +168,8 @@ Each item is an article list row. Core fields match [Get article](get-article.md
 | `url` | string \| null | Source URL |
 | `author` | string \| null | Author |
 | `pub_date` | string \| null | Publication date (`YYYY-MM-DD`) |
+| `published` | string \| null | Optional publication instant (UTC ISO 8601 with `Z`) when ingested |
+| `updated` | string \| null | Optional last-updated instant (UTC ISO 8601 with `Z`) when ingested |
 | `source` | object \| null | Publication or outlet when known |
 | `preview` | string \| null | Truncated body snippet (max 280 characters) |
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |
@@ -174,8 +178,12 @@ Each item is an article list row. Core fields match [Get article](get-article.md
 | `images` | array \| null | Up to 10 image rows when `include=images` is requested; otherwise `null` |
 
 By default, results use relevance descending when `q` is set and publication
-date descending when it is omitted. You may explicitly choose either
-publication-date direction. `sort=relevance` requires a non-empty `q`.
+date descending when it is omitted. You may explicitly choose `pub_date`,
+`published`, or `updated` in either direction. When sorting by `published` or
+`updated`, articles without that timestamp sort after dated rows on descending
+sorts and before them on ascending sorts; `id` breaks ties. Date filters
+(`pub_date_from`, `pub_date_to`) still apply to calendar `pub_date` only.
+`sort=relevance` requires a non-empty `q`.
 
 Omit `include=counts` when you do not need `counts` or `embedded` on list items. Omit `include=images` when you do not need inline images on list items.
 
