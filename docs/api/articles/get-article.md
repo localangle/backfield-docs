@@ -39,6 +39,8 @@ Detail responses use the same core article shape as [List and search](search.md)
   "url": "https://example.com/budget",
   "author": "Jane Doe",
   "pub_date": "2024-03-01",
+  "published": "2024-03-01T08:00:00Z",
+  "updated": "2024-03-01T18:15:18Z",
   "source": {
     "id": "example.com",
     "name": "example.com"
@@ -93,6 +95,8 @@ The example above includes `embedded` and `counts` because the request used `?in
 | `url`                   | string \| null  | Source URL                                                                                                      |
 | `author`                | string \| null  | Author                                                                                                          |
 | `pub_date`              | string \| null  | Publication date (`YYYY-MM-DD`)                                                                                 |
+| `published`             | string \| null  | Optional publication instant (UTC ISO 8601 with `Z`) when ingested                                              |
+| `updated`               | string \| null  | Optional last-updated instant (UTC ISO 8601 with `Z`) when ingested                                           |
 | `source`                | object \| null  | Publication or outlet when known                                                                                |
 | `source.id`             | string         | Stable source identifier — stored external source when set, otherwise the article URL hostname (without `www.`) |
 | `source.name`           | string         | Display label for the outlet                                                                                    |

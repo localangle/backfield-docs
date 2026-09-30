@@ -37,5 +37,13 @@ affected node may fail or be unable to complete its enrichment.
 
 Amazon S3 normally requires an access-key ID and secret access key; temporary
 credentials may also include a session token. Treat all three as secrets.
+
+Optionally, organization administrators and projects can also save an **S3 role
+ARN**. When a role ARN is set, S3 Input and S3 Output assume that role with the
+saved access key pair and use the resulting temporary credentials on S3 calls.
+Leave the role ARN blank to use the keys directly on the bucket, as before. A
+project override replaces the organization role when set; clearing the project
+field returns the flow to the organization default.
+
 Bucket names and prefixes are configured on the S3 nodes because they describe
 what a particular flow reads or writes, while credentials belong in settings.

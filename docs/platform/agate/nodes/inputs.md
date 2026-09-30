@@ -39,6 +39,7 @@ JSON and S3 inputs expect each article as a JSON object. The only required field
   "url": "https://example.com/news/bridge-repairs",
   "author": "Riley Chen",
   "pub_date": "2024-05-14",
+  "published": "2024-05-14T08:00:00-05:00",
   "updated": "2024-05-14T18:15:18.425000-05:00",
   "text": "The city council approved emergency repairs to the Riverside Bridge on Tuesday.\n\nMayor Jane Doe said the work will begin next month and is expected to take six weeks.\n\nThe project will be managed by the Department of Transportation.",
   "images": [
@@ -68,6 +69,11 @@ scan sees.
 When an article is saved, Backfield uses the optional `publication` field as
 its outlet in search and API responses. If `publication` is omitted, the URL
 hostname is used instead.
+
+Optional `published` and `updated` values are stored when present and exposed
+on public article and mention responses as UTC timestamps (ISO 8601 with a `Z`
+suffix). Calendar `pub_date` remains the date used for publication-date filters
+on search routes.
 
 ## Images
 

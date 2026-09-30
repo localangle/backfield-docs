@@ -30,7 +30,7 @@ Mention responses vary slightly by route, but commonly include:
 - `canonical` — linked canonical record (`id`, `slug`, `label`) when available (project-wide search only)
 - `evidence` — first occurrence text span on list routes: `mention_text`, `quote`, `start_char`, and `end_char`
 - `occurrences` — all non-suppressed spans on [Get mention](get-mention.md)
-- `article` — article summary (`id`, `headline`, `url`, `pub_date`) on project-wide and entity-first routes
+- `article` — article summary (`id`, `headline`, `url`, `pub_date`, optional `published` and `updated`) on project-wide and entity-first routes
 
 Several list routes accept **`quote=true`** to return only mentions whose first evidence span is a quote — [List mentions](../articles/hub/mentions.md), [List and search](search.md), and entity-first [List mentions](../people/mentions.md) routes.
 

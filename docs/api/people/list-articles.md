@@ -97,6 +97,8 @@ Each `items[]` entry uses the standard article list shape:
 | `url` | string \| null | Source URL |
 | `author` | string \| null | Author |
 | `pub_date` | string \| null | Publication date (`YYYY-MM-DD`) |
+| `published` | string \| null | Optional publication instant (UTC ISO 8601 with `Z`) when ingested |
+| `updated` | string \| null | Optional last-updated instant (UTC ISO 8601 with `Z`) when ingested |
 | `source` | object \| null | Publication or outlet when known |
 | `source.id` | string | Stable source identifier |
 | `source.name` | string | Display label for the outlet |

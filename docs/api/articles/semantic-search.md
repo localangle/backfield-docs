@@ -33,7 +33,7 @@ For exact words, phrases, or simple date filtering, use [List and search](search
 | `offset` | integer | `0` | Offset for pagination |
 | `include` | array of string | `[]` | Repeatable include token. Supported: `counts`, `images` |
 
-Each **`items[]`** row uses the same article list shape as [List and search](search.md) — `id`, `headline`, `url`, `author`, `pub_date`, `source`, `preview`, and `metadata` — plus **`score`**. Pass `"include": ["counts"]` to populate `counts` and `embedded`; otherwise both are `null`. Pass `"include": ["images"]` to populate `images` with up to 10 attached image rows; otherwise `images` is `null`.
+Each **`items[]`** row uses the same article list shape as [List and search](search.md) — `id`, `headline`, `url`, `author`, `pub_date`, optional `published` and `updated`, `source`, `preview`, and `metadata` — plus **`score`**. Pass `"include": ["counts"]` to populate `counts` and `embedded`; otherwise both are `null`. Pass `"include": ["images"]` to populate `images` with up to 10 attached image rows; otherwise `images` is `null`.
 
 See [Pagination](../conventions/pagination.md) for the list response envelope.
 
@@ -133,6 +133,8 @@ Each item is an article list row plus a similarity score. Core article fields ma
 | `url` | string \| null | Source URL |
 | `author` | string \| null | Author |
 | `pub_date` | string \| null | Publication date (`YYYY-MM-DD`) |
+| `published` | string \| null | Optional publication instant (UTC ISO 8601 with `Z`) when ingested |
+| `updated` | string \| null | Optional last-updated instant (UTC ISO 8601 with `Z`) when ingested |
 | `source` | object \| null | Publication or outlet when known |
 | `preview` | string \| null | Truncated body snippet (max 280 characters) |
 | `metadata` | array | Metadata tags (`meta_type`, `category`, `confidence`) |

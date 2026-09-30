@@ -52,7 +52,7 @@ The article list shape is shared across [List and search](search.md), [Semantic 
 
 Core fields (list and detail):
 
-- `id`, `headline`, `url`, `author`, `pub_date`
+- `id`, `headline`, `url`, `author`, `pub_date`, optional `published` and `updated` instants when ingested
 - `source` — publication or outlet (`id`, `name`) when known; `null` otherwise
 - `metadata` — tags from article meta (`meta_type`, `category`, `confidence`)
 - `preview` — truncated body snippet (max 280 characters)
