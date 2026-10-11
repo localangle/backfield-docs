@@ -6,6 +6,8 @@
 | --- | --- |
 | **Article metadata** | Tags for the article as a whole, such as format, topic, subject, or other configured metadata categories |
 | **Geocode** | Turns a place name into map coordinates and a normalized address, so locations can be plotted and searched geographically |
+| **Person enrich** | For public figures, looks up reference data and can attach Wikidata and English Wikipedia links to canonical **Details** when a match is confident |
+| **Organization enrich** | For each extracted organization, looks up reference data and can attach Wikidata and English Wikipedia links to canonical **Details** when a match is confident |
 
 ## Article metadata
 
@@ -58,6 +60,28 @@ Geocoding uses the services configured under
 [Integrations](../../settings/integrations.md). Missing credentials, ambiguous
 names, conflicting jurisdictions, or incomplete addresses can all affect the
 result without invalidating the extracted mention itself.
+
+## Enriching people and organizations
+
+**Person Enrich** runs after **Person Extract** on the same branch. It targets
+people the extractor marked as public figures, looks up public reference data,
+and can attach Wikidata and English Wikipedia links to the linked canonical
+record's **Details** when the match is confident enough.
+
+**Organization Enrich** runs after **Organization Extract** on the same
+branch. It performs a similar lookup for every organization that step produced.
+
+Both enrichment steps use a configured [decision model](../../settings/ai-models.md)
+to choose among lookup candidates. Wire **Backfield Output** to the enrich
+node's people or organizations port so saved results include the enriched
+fields.
+
+Accepted links fill only empty canonical metadata fields. Values editors or
+imports already set are not overwritten. When lookup is uncertain or fails, the
+person or organization is left unchanged and the run continues.
+
+The project system prompt, when set, is sent with each match decision. An empty
+prompt leaves only the built-in match instructions.
 
 ## Enrichment and provenance
 

@@ -38,6 +38,12 @@ while **Geocode** must come after **Place Extract on the same branch** because
 it needs the places that step produced. A Place Extract on a parallel branch
 does not count.
 
+**Person Enrich** must follow **Person Extract** on the same branch, and
+**Organization Enrich** must follow **Organization Extract** on the same
+branch. Connect **Backfield Output** to the enrich step's people or
+organizations port when you want saved canonical **Details** to include accepted
+reference links.
+
 Each node has its own panel. Depending on the node, it may include Settings,
 Prompt, Models, Info, Stylebook, or Output tabs. The builder draws model choices
 from the project's approved [AI models](../settings/ai-models.md).

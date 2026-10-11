@@ -18,7 +18,8 @@ entry records:
 
 - a readable name shown to flow builders;
 - the provider model identifier;
-- whether it is generative or embedding-oriented;
+- whether it is generative, embedding-oriented, or a **decision** model used for
+  structured enrichment lookups (such as Person Enrich and Organization Enrich);
 - capabilities that determine which nodes may use it;
 - the saved provider credential or endpoint;
 - optional input and output prices used for estimates;
@@ -26,6 +27,18 @@ entry records:
 
 Disabling a configuration removes it from new choices without erasing the
 history of runs that used it.
+
+## Decision models
+
+**Decision models** are a separate catalog kind from generative extraction
+models. They power structured lookup steps—such as choosing a Wikidata match
+during person or organization enrichment—and do not appear in ordinary language-model
+pickers on extractors or Article Metadata.
+
+Organization administrators add decision models in **Settings → AI models**,
+assign credentials, and test the connection the same way as other model types.
+Projects enable the decision models their flows need and can set a default for
+that role on the **Models** tab.
 
 ## Organization and project choices
 

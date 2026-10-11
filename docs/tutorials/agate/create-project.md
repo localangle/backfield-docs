@@ -47,7 +47,7 @@ The lower part of the page contains six tabs:
 
 - **Flows** lists reusable processing workflows.
 - **Runs** lists current and previous executions, with pagination when the list is long.
-- **Articles** lists processed items across runs and supports search by headline or URL.
+- **Articles** lists each story once across runs (reprocessing does not add duplicate rows) and supports search by headline or URL.
 - **Models** controls the models available to this project.
 - **Integrations** controls project-specific credential overrides.
 - **API** manages keys for outside applications.

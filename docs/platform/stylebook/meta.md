@@ -22,8 +22,11 @@ Examples include:
 - any other maintained category or value that makes the record more useful.
 
 Some common fields appear under the main **Details** section and others under
-**Advanced options**. Attributes can be added or curated by editors, or included
-when canonical records are imported from scalar GeoJSON properties.
+**Advanced options**. Attributes can be added or curated by editors, included
+when canonical records are imported from scalar GeoJSON properties, or filled by
+Agate enrichment steps when a flow's Person Enrich or Organization Enrich node
+accepts a confident public reference match. Enrichment adds only to empty
+fields—it does not replace values editors already maintain.
 
 ## What metadata makes possible
 

@@ -7,7 +7,8 @@ Because the model's original output is always preserved, your edits are saved as
 ## Opening a processed item
 
 From a [run](runs.md), click through to an individual item. You can also open
-items from the project **Articles** tab: search by headline or URL and jump
+items from the project **Articles** tab. The tab lists each story once, even
+when it was processed in more than one run. Search by headline or URL and jump
 straight to review without knowing which run produced the story.
 
 The page shows the article headline, which flow produced the result, and a row of tabs — one for each kind of extracted data.

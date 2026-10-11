@@ -48,8 +48,10 @@ Previous and Next controls page through long run histories so large projects
 stay manageable.
 
 When you need to open review for a story but do not know which run produced
-it, use the project **Articles** tab. Search by headline or URL (or source
-label when no headline is available) and open the matching processed item
+it, use the project **Articles** tab. Each story appears once in that list,
+including when earlier runs reprocessed the same article. Search by headline or
+URL (or source label when no headline is available) and open the matching
+processed item
 directly.
 
 ## Status and progress
