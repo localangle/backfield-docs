@@ -40,8 +40,9 @@ will use the replacement.
 
 Choose **Add model**, or choose **Edit** beside an existing model.
 
-1. Choose **Generative** for extraction and enrichment, or **Embedding** for
-   semantic search.
+1. Choose **Generative** for extraction and article metadata, **Embedding** for
+   semantic search, or **Decision** for Person Enrich and Organization Enrich
+   lookup steps.
 2. Choose a preset from the LiteLLM-backed catalog, or enter a custom
    LiteLLM-compatible model identifier.
 3. Give the model a clear display name.
@@ -70,8 +71,11 @@ Open **Tutorial Project**, then its **Models** tab.
 1. Turn on **Available for this project**.
 2. Mark the normal generative model as the generative default.
 3. Mark the normal embedding model as the embedding default.
+4. When a flow uses person or organization enrichment, turn on a **Decision**
+   model and set it as the decision default.
 
 Flow nodes show only active models that are available to the current project.
+Generative lists do not include decision models.
 
 Use a project credential override only when that project needs a different
 provider account or billing boundary. Removing an override returns the project

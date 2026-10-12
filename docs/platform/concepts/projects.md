@@ -65,7 +65,7 @@ Below the summary cards, tabs organize day-to-day work:
 | --- | --- |
 | **Flows** | Reusable pipelines for the project |
 | **Runs** | Current and past executions, with pagination when a project has many runs |
-| **Articles** | Processed items across runs; search by headline or URL to open review without knowing the originating run |
+| **Articles** | One row per story across runs (reprocessing does not duplicate rows); search by headline or URL to open review without knowing the originating run |
 | **Models** | Project model choices and the assigned Stylebook |
 | **Integrations** | Project-specific credential overrides |
 | **API** | Project API keys for external applications |
