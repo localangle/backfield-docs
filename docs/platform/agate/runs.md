@@ -56,7 +56,7 @@ directly.
 
 ## Status and progress
 
-The run page shows both the overall run status and the status of each processed item. Use it to answer three questions:
+The run page shows both the overall run status and the status of each processed item. Status, item counts, and the first page of processed items load first; the **Estimated AI cost** summary fills in shortly afterward on large runs so the page stays responsive. Use it to answer three questions:
 
 - Did the run start?
 - Which items are still working?

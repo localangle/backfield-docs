@@ -34,9 +34,11 @@ this page does not run them. Each row shows:
 - when it last ran;
 - actions to run or open the check.
 
-Choose **Tutorial Project** when a project filter is available. The project
-scope controls which linked article records are considered by checks that use
-article evidence.
+Choose **Tutorial Project** when a project filter is available. When only one
+project contributes candidates or Review with AI scope, Backfield uses that
+project automatically and hides the control; choose explicitly when several
+projects share the Stylebook. The project scope controls which linked article
+records are considered by checks that use article evidence.
 
 ## 2. Run the duplicate-location check
 

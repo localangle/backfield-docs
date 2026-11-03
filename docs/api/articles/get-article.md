@@ -10,6 +10,7 @@ Use optional **`include`** tokens on detail only:
 
 - `include=counts` — mention and entity totals, custom record counts, and the article `embedded` flag
 - `include=text` — full article body in `text` (in addition to the always-included `preview`)
+- `include=embedding` — stored semantic embedding (`model`, `dimensions`, `vector`); `embedding` is `null` when the article has no vector
 
 ## Path parameters
 
@@ -25,12 +26,12 @@ Use optional **`include`** tokens on detail only:
 
 | Name      | Type   | Default | Description                                                                 |
 | --------- | ------ | ------- | --------------------------------------------------------------------------- |
-| `include` | string | —       | Repeatable include token. Supported: `counts`, `text`                       |
+| `include` | string | —       | Repeatable include token. Supported: `counts`, `text`, `embedding`          |
 
 
 ## Response `200`
 
-Detail responses use the same core article shape as [List and search](search.md), plus an `images` array (up to 10 rows). Without `include=counts`, `counts` and `embedded` are present as `null`. Without `include=text`, `text` is omitted — only `preview` is returned for body content.
+Detail responses use the same core article shape as [List and search](search.md), plus an `images` array (up to 10 rows). Without `include=counts`, `counts` and `embedded` are present as `null`. Without `include=text`, `text` is omitted — only `preview` is returned for body content. Without `include=embedding`, `embedding` is omitted. List and search routes reject `text` and `embedding`.
 
 ```json
 {
@@ -113,6 +114,7 @@ The example above includes `embedded` and `counts` because the request used `?in
 | `images[].caption`      | string \| null  | Caption when set                                                                                                |
 | `embedded`              | boolean \| null | `null` unless `include=counts` is requested; then indicates whether the article has an embedding row           |
 | `counts`                | object \| null  | `null` unless `include=counts` is requested — see below                                                        |
+| `embedding`             | object \| null  | Present with `include=embedding` — see below; `null` when requested but no vector is stored                      |
 
 
 Read Article Meta tags, such as topic, subject, format, scope, timeframe, and user need, from `metadata[]`.
@@ -168,6 +170,18 @@ Adds summary counts and `embedded` without loading full related records:
 
 
 Use [detail endpoints](hub/index.md) to fetch the actual mention, location, image, or custom record rows. Use [List images](hub/images.md) when you need more than the 10 inline images on detail.
+
+### Embedding embed (`include=embedding`)
+
+Adds the stored article text embedding produced by an **Embed Text** flow step. The object is suitable for custom similarity or downstream indexing; [Semantic search](semantic-search.md) ranks articles server-side and does not require clients to fetch vectors.
+
+| Field | Type | Description |
+| --- | --- | --- |
+| `embedding.model` | string | Provider model identifier used when the vector was created |
+| `embedding.dimensions` | integer | Length of `vector` |
+| `embedding.vector` | array of number | Embedding values |
+
+When the article has no stored vector, `embedding` is `null` even though the request asked for it.
 
 ## Example
 

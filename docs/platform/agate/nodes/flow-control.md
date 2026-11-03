@@ -15,8 +15,11 @@ entity extractors such as Place, Person, Organization, or Custom Extract.
 
 The chunker divides the document into sections, runs downstream extractors on
 each section, and stitches the results back together with grounded evidence
-attached to the original passages. Saved output looks like a normal processed
-item; internal chunking details are not kept in the durable result.
+attached to the original passages. Section boundaries follow sentence breaks
+that respect common abbreviations (for example street, title, and country
+abbreviations), so place names and honorifics are less likely to be split in
+the middle. Saved output looks like a normal processed item; internal chunking
+details are not kept in the durable result.
 
 Agate validates chunker placement when you save or run a flow. Graphs that
 place the chunker incorrectly are blocked until the order is corrected.

@@ -40,4 +40,7 @@ taxonomy tags, and source evidence when users need exact filtering or an
 explainable reason that an item matched.
 
 The project overview and API expose whether articles have an embedding, which
-helps teams see how much content is eligible for semantic search.
+helps teams see how much content is eligible for semantic search. Article
+detail in the public API can also return the stored vector with
+`include=embedding` when you need the values for custom tooling — see
+[Get article](../../../api/articles/get-article.md).
