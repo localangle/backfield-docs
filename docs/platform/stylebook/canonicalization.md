@@ -59,7 +59,9 @@ Deferring a candidate moves it out of the active queue. It does not delete the
 article evidence.
 
 AI review can suggest link, create, or defer actions. Nothing changes until an
-editor accepts a suggestion.
+editor accepts a suggestion. When only one project currently has open candidates,
+AI review uses that project automatically; choose a project filter when several
+projects contribute.
 
 ## Canonical cleanup
 
