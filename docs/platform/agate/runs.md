@@ -70,12 +70,19 @@ Common statuses include:
 | **Running** | Agate is executing the flow |
 | **Completed** | Every item reached a successful technical result |
 | **Completed with errors** | One or more items failed or the run was stopped |
+| **Needs attention** | At least one item was held by a [Processing Guard](nodes/flow-control.md#processing-guard) limit and no item failed outright |
 
 For batches, the overall status summarizes the item list. Individual rows use
-item-level states such as succeeded or failed. A run can finish with some items
-succeeded and others failed, so check the rows before assuming the whole batch
-is usable. Technical completion also does not mean every extraction is
+item-level states such as succeeded, failed, or needs attention when a
+Processing Guard held the story. A run can finish with some items succeeded and
+others failed or held, so check the rows before assuming the whole batch is
+usable. Technical completion also does not mean every extraction is
 editorially correct; that judgment happens during review.
+
+When an S3 or multi-file JSON run cannot prepare its item list — for example
+because cloud storage credentials are wrong or a bucket is unreachable — the run
+is marked **failed** and shows the preparation error instead of staying
+**running** indefinitely.
 
 ![Run summary showing item counts, estimated AI usage cost, and processed item status](images/runsum.png)
 

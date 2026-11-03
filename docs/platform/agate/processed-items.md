@@ -76,11 +76,19 @@ Save your changes on each tab before leaving. Unsaved edits trigger a warning if
 
 While a **rerun** is in progress, review editing is **paused** until processing finishes — the item is being regenerated from the flow.
 
+When a [Processing Guard](nodes/flow-control.md#processing-guard) holds a
+story, the item shows **Needs attention** on the **Info** tab along with which
+limit triggered the hold. Later steps did not run. Select **Process anyway** to
+continue that one attempt through the rest of the flow, or adjust the story or
+flow limits before you rerun.
+
 Rerunning an item uses the flow settings stored with its original run by
 default and clears the run-local review overlay for the regenerated result.
-When the saved flow has changed since that run, Agate can instead reprocess
-through the currently saved flow. Start a new run when you need fresh inputs.
-Make sure intentional corrections have been accounted for before rerunning.
+Processing Guard limits still apply on rerun unless you choose **Process
+anyway** again. When the saved flow has changed since that run, Agate can
+instead reprocess through the currently saved flow. Start a new run when you
+need fresh inputs. Make sure intentional corrections have been accounted for
+before rerunning.
 
 ## Stylebook and canonical records
 
