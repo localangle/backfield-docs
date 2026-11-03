@@ -31,8 +31,9 @@ Open **Tutorial Stylebook → Locations → Candidates**.
 ![Harborview in the location review queue](../../images/tutorials/stylebook-candidates/review-queue.png)
 
 The queue initially covers all accessible projects that use this Stylebook.
-Choose **Tutorial Project** from the project filter before reviewing. This
-narrows the queue and enables project-specific AI review.
+Choose **Tutorial Project** from the project filter to narrow the list. When
+only one project has open candidates, **Review with AI** is already scoped to
+that project; choose a project explicitly when several projects contribute.
 
 The Harborview row shows:
 

@@ -13,7 +13,9 @@ models.
 
 Organization administrators can add presets or define custom model
 configurations. Presets are generated from the LiteLLM model catalog so current
-flagship provider models appear without waiting for a product release. A catalog
+flagship provider models appear without waiting for a product release. Preset
+lists emphasize recent generative models (for example GPT-5 and newer OpenAI
+offerings) and omit retired catalog entries such as GPT-4 presets. A catalog
 entry records:
 
 - a readable name shown to flow builders;

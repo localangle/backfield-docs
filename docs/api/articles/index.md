@@ -11,7 +11,7 @@ Each article has a detail endpoint, search endpoints, and separate detail endpoi
 
 | Endpoint type         | Use when                                                                                                          |
 | --------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| **Detail**            | Show one article's summary data, inline images (up to 10), optional counts, optional full body via `include=text` |
+| **Detail**            | Show one article's summary data, inline images (up to 10), optional counts, optional full body via `include=text`, optional stored embedding via `include=embedding` |
 | **List and search**   | Find articles by exact terms, metadata, or date; optional `include=counts` or `include=images` on each result |
 | **Article facets**    | Convenience wrapper to populate article search filter controls in one call — see [Metadata](../taxonomy/index.md) |
 | **Semantic search**   | Find conceptually related articles with natural language; optional `include=counts` or `include=images` on each result |
@@ -65,6 +65,7 @@ Optional embeds on [Get article](get-article.md):
 
 - `include=counts` — populates `counts` (mention and entity totals, image count, custom record counts) and `embedded`; both are otherwise `null`
 - `include=text` — adds `text` (full article body; `preview` is always included)
+- `include=embedding` — adds `embedding` (`model`, `dimensions`, `vector`) when the article was embedded; otherwise `embedding` is `null`; omitted when not requested
 
 Optional embeds on list/search routes ([List and search](search.md), [Semantic search](semantic-search.md), [Geographic search](geo-search.md), and entity article lists):
 
@@ -76,6 +77,7 @@ Topic categories appear in `metadata[]` with `meta_type=topic`. Filter with `met
 ## What article responses do not include
 
 - Full article body on list/search routes (use [Get article](get-article.md) with `include=text`)
+- Stored embedding vectors on list/search routes (use [Get article](get-article.md) with `include=embedding`)
 - Full mention or location lists (use the [detail endpoints](hub/index.md))
 - Full image lists beyond 10 rows (use [List images](hub/images.md); list/search routes return up to 10 inline images with `include=images`)
 
