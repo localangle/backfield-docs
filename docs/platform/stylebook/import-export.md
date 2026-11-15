@@ -48,7 +48,9 @@ It is not a complete backup or clone. The current workflow does **not** include:
 - semantic embeddings, geocoding caches, or activity history.
 
 The package **does** include canonical people, organizations, and locations with
-their aliases, typed attributes, and connections. Imported records receive new
+their aliases, typed attributes, and connections. Connection quotes and reasons
+copy with those records, but links that pointed at source articles or processed
+items in the original project are not carried over. Imported records receive new
 internal identifiers in the new Stylebook.
 
 ## Before importing

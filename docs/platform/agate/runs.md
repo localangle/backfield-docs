@@ -31,8 +31,11 @@ This is often helpful for testing a flow.
 file, up to 20 files per run.
 
 **S3 Input** processes a batch of article files and is more often used for
-regular production runs. Agate prepares the item list, then workers process
-items concurrently according to the deployment's capacity.
+regular production runs. For large prefixes, Agate loads files in chunks: the
+run's item list grows and processing can start while later objects are still
+being read. Workers process items concurrently according to the deployment's
+capacity, and dispatch order mixes shorter and longer articles so heavy
+geocoding and extraction steps do not all queue at once.
 
 **Note:** The act of moving articles into S3 for processing happens outside of the Backfield ecosystem. It might involve writing web scrapers, CMS integrations, processing RSS feeds or other tasks that turn your articles into [properly formatted JSON objects](nodes/inputs.md) in a S3 bucket that Backfield can reach.
 
